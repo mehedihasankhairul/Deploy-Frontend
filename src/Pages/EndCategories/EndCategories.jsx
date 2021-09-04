@@ -5,21 +5,21 @@ import CategoryItem from '../../Components/Home/CategoryItem'
 import Navigator from '../../Components/Shared/Navigator/Navigator'
 import Error from '../Error/Error'
 
-export default function EndCategories() {
-    const {midCategory, endCategory} = useSelector(state => state.category)
+export default function EndCategories () {
+  const { midCategory, endCategory } = useSelector(state => state.category)
 
-    const {mid_category} = useParams()
-    const catName = mid_category.replaceAll('-', ' ')
-    const selectedCat = midCategory.find(cat => cat.name.toLowerCase() == catName)
-    console.log(selectedCat)
-    const filteredCategories = endCategory.filter(endCat => endCat.mcatId === selectedCat.id)
-    console.log(filteredCategories)
-    return (
+  const { mid_category } = useParams()
+  const catName = mid_category.replaceAll('-', ' ')
+  const selectedCat = midCategory.find(cat => cat.name.toLowerCase() === catName)
+  console.log(selectedCat)
+  const filteredCategories = endCategory.filter(endCat => endCat.mcatId === selectedCat.id)
+  console.log(filteredCategories)
+  return (
         <main>
             <Navigator />
             {
-                selectedCat ?
-            <>
+                selectedCat
+                  ? <>
             <h2>All Sub Categories</h2>
             <div className='container'>
             {
@@ -27,7 +27,7 @@ export default function EndCategories() {
             }
             </div>
             </>
-            : <Error /> }
+                  : <Error /> }
         </main>
-    )
+  )
 }

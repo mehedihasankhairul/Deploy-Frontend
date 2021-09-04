@@ -5,25 +5,25 @@ import CategoryItem from '../../Components/Home/CategoryItem'
 import Navigator from '../../Components/Shared/Navigator/Navigator'
 import Error from '../Error/Error'
 
-export default function Category() {
-    const {topCategory, midCategory} = useSelector(state => state.category)
+export default function Category () {
+  const { topCategory, midCategory } = useSelector(state => state.category)
 
-    const {category} = useParams()
-    const selectedCat = topCategory.find(cat => cat.slug === category)
-    const subCategories = midCategory.filter(sCat => sCat.tCatId === selectedCat.tCatId)
-    return (
+  const { category } = useParams()
+  const selectedCat = topCategory.find(cat => cat.slug === category)
+  const subCategories = midCategory.filter(sCat => sCat.tCatId === selectedCat.tCatId)
+  return (
         <main>
             <Navigator />
             {
-                selectedCat ?
-            <>
+                selectedCat
+                  ? <>
             <h2>All Sub Categories</h2>
             <div className='container'>
             {
                 subCategories.map(item => <CategoryItem key={item.id} item={item} />)
             }</div>
             </>
-            : <Error /> }
+                  : <Error /> }
         </main>
-    )
+  )
 }

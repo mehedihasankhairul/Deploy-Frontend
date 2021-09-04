@@ -1,113 +1,102 @@
-import React from 'react';
-
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
-    return (
-        <div>
-<footer class="text-center text-lg-start bg-light text-muted">
-  <section>
-    <div class="col-lg-6">
-                    <form action="" method="post"> 
-                    <input type="email" name="email" />
-                    <input type="submit" value="Subscribe" /> 
-                    </form>
-                </div>
-  </section>
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      {/* <!-- Grid row --> */}
-      <div class="row mt-3">
-        {/* <!-- Grid column --> */}
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          {/* <!-- Content --> */}
-          <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3"></i>Deploy.Com
-          </h6>
-          <p>
-            Our Corporate Office Address
-          </p>
-          <p>
-            House: 40, Samaj Kalyan Road,
-            West Senpara Parbota, Mirpur-10,
-            Dhaka-1216, Bangladesh.
+  return (
+    <div>
+      <footer className="text-center text-lg-start  text-white footer-bg">
 
-           </p>
-        </div>
-        {/* <!-- Grid column --> */}
+        <section>
+          <h4 className="d-flex justify-content-center pt-5">SUBSCRIBE TO OUR NEWSLETTER</h4>
 
-        {/* <!-- Grid column --> */}
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          {/* <!-- Links --> */}
-          <h6 class="text-uppercase fw-bold mb-4">
-            Products
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Angular</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">React</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Vue</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Laravel</a>
-          </p>
-        </div>
-        {/* <!-- Grid column --> */}
+          <div className="d-flex justify-content-center footer-newsletter">
+            <div className="col-md-6">
+              <form action="" method="post">
+                <input type="email" name="email" />
+                <input type="submit" value="Subscribe" />
+              </form>
+            </div>
+          </div>
+        </section>
+        <section className="">
+          <div className="container-fluid text-center text-md-start mt-5">
+            {/* <!-- Grid row --> */}
+            <div className="row mt-3">
+              {/* <!-- Grid column --> */}
+              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                {/* <!-- Content --> */}
+                <p>
+                  Our Corporate Office Address
+                </p>
+                <p>
+                  House: 40, Samaj Kalyan Road,
+                  West Senpara Parbota, Mirpur-10,
+                  Dhaka-1216, Bangladesh.
 
-        {/* <!-- Grid column --> */}
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          {/* <!-- Links --> */}
-          <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Pricing</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Settings</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Orders</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Help</a>
-          </p>
-        </div>
-        {/* <!-- Grid column --> */}
+                </p>
+              </div>
+              {/* <!-- Grid column --> */}
 
-        {/* <!-- Grid column --> */}
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          {/* <!-- Links --> */}
-          <h6 class="text-uppercase fw-bold mb-4">
-            Contact
-          </h6>
-          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-          <p>
-            <i class="fas fa-envelope me-3"></i>
-            info@example.com
-          </p>
-          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+              {/* <!-- Grid column --> */}
+              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                {/* <!-- Links --> */}
+                <p>
+                  <Link to="/" className="text-reset">About us</Link>
+                </p>
+                <p>
+                  <Link to="/" className="text-reset">Terms & Conditions</Link>
+                </p>
+                <p>
+                  <Link to="/" className="text-reset">Privacy Policy</Link>
+                </p>
+              </div>
+              {/* <!-- Grid column --> */}
+
+              {/* <!-- Grid column --> */}
+              <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                {/* <!-- Links --> */}
+                <p>
+                  <Link to="/" className="text-reset">Refund Policy</Link>
+                </p>
+                <p>
+                  <Link to="/" className="text-reset">FAQ</Link>
+                </p>
+                <p>
+                  <Link to="/" className="text-reset">Blog</Link>
+                </p>
+              </div>
+              {/* <!-- Grid column --> */}
+
+              {/* <!-- Grid column --> */}
+              <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                {/* <!-- Links --> */}
+                <p>Contact Information</p>
+                <p>Technical & Merchant Support:
+                  support@deploy.com.bd
+
+                </p>
+                <p>Customer Support:
+                  info@deploy.com.bd
+                </p>
+                <p>Helpline: 01707 372 093 </p>
+              </div>
+              {/* <!-- Grid column --> */}
+            </div>
+            {/* <!-- Grid row --> */}
+          </div>
+        </section>
+        {/* <!-- Section: Links  --> */}
+
+        {/* <!-- Copyright --> */}
+        <div className="text-center p-4">
+          © 2021 Copyright:
+          <Link to="/" className="text-reset fw-bold">Team Phoenix</Link>
         </div>
-        {/* <!-- Grid column --> */}
-      </div>
-      {/* <!-- Grid row --> */}
+        {/* <!-- Copyright --> */}
+      </footer>
+      {/* <!-- Footer --> */}
     </div>
-  </section>
-  {/* <!-- Section: Links  --> */}
+  )
+}
 
-  {/* <!-- Copyright --> */}
-  <div class="text-center p-4">
-    © 2021 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  {/* <!-- Copyright --> */}
-</footer>
-{/* <!-- Footer --> */}
-        </div>
-    );
-};
-
-export default Footer;
+export default Footer

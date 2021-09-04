@@ -1,7 +1,43 @@
-form {
+.footer-bg {
+    background: black;
+}
+
+
+
+.footer-newsletter form {
     margin-top: 30px;
     background: #fff;
     padding: 6px 10px;
     position: relative;
     border-radius: 50px
+}
+
+.footer-newsletter form input:focus {
+    outline: none;
+}
+
+.footer-newsletter form input[type="email"] {
+    border: 0;
+    padding: 8px;
+    width: calc(100% - 140px)
+}
+
+.footer-newsletter form input[type="submit"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border: 0;
+    background: none;
+    font-size: 16px;
+    padding: 0 30px;
+    margin: 3px;
+    background: #495057;
+    color: #fff;
+    transition: 0.3s;
+    border-radius: 50px
+}
+
+.footer-newsletter form input[type="submit"]:hover {
+    background: #e6573f
 }
