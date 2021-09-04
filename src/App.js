@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import './Styles/app.scss';
-import MainRouter from './Routes/MainRouter';
-import { setCategory } from './Store/Category/category.action';
-import { end_category, mid_category, products, top_category } from './Store/dummy.data';
-import { loadProducts } from './Store/Product/product.action';
+import { useDispatch, useSelector } from 'react-redux'
+import './Styles/app.scss'
+import MainRouter from './Routes/MainRouter'
+import { setCategory } from './Store/Category/category.action'
+import { end_category, mid_category, products, top_category } from './Store/dummy.data'
+import { loadProducts } from './Store/Product/product.action'
 
 // const dummy = [
 //   {tCatId: 6, tCatName: "Grocery and Food", image: 'demo.png'},
