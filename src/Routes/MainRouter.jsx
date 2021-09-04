@@ -10,6 +10,7 @@ import EndCategories from '../Pages/EndCategories/EndCategories';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home';
 import Product from '../Pages/Product/Product';
+import Footer from '../Components/Shared/Footer/Footer';
 import { PrivateRoute } from './PrivateRoute';
 
 export default function MainRouter() {
@@ -26,6 +27,7 @@ export default function MainRouter() {
           <Route path='/:category/:mid_category' component={EndCategories} />
           <Route exact path='/:category' component={Category} />
         </Switch>
+          <Footer />
         </Router>
     )
 }

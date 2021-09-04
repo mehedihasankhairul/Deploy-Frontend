@@ -13,7 +13,7 @@ export default function Product() {
                 <a href={`/${category}`}>{category}</a> {`>`}
                 <a href="/">{subCategory}</a>
                 </h3> */}
-            <h2>Product information of Product - {productid}</h2>
+            <h2>Product information of Product ok - {productid}</h2>
         </main>
     )
 }
