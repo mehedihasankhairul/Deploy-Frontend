@@ -1,23 +1,27 @@
-import { useSelector } from "react-redux";
-import { Redirect, Route } from "react-router";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
+import { useSelector } from 'react-redux'
+import { Redirect, Route } from 'react-router'
 
 export const PrivateRoute = ({ children, ...rest }) => {
-    const user = useSelector(state => state.user)
-    return (
+  const user = useSelector(state => state.user)
+  return (
       <Route
         {...rest}
         render={({ location }) =>
-          user.email ? (
-            children
-          ) : (
+          user.email
+            ? (
+                children
+              )
+            : (
             <Redirect
               to={{
-                pathname: "/login",
+                pathname: '/login',
                 state: { from: location }
               }}
             />
-          )
+              )
         }
       />
-    );
-  }
+  )
+}
