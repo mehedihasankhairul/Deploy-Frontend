@@ -4,7 +4,7 @@ import {
     Switch,
     Route,
   } from "react-router-dom";
-import ProductByCat from '../Components/ProductByCat';
+import ProductByCat from '../Pages/ProductByCat/ProductByCat';
 import Category from '../Pages/Category/Category';
 import EndCategories from '../Pages/EndCategories/EndCategories';
 import Error from '../Pages/Error/Error';

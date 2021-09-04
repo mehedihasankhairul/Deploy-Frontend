@@ -10,7 +10,6 @@ export default function EndCategories() {
 
     const {mid_category} = useParams()
     const catName = mid_category.replaceAll('-', ' ')
-    console.log(catName)
     const selectedCat = midCategory.find(cat => cat.name.toLowerCase() == catName)
     console.log(selectedCat)
     const filteredCategories = endCategory.filter(endCat => endCat.mcatId === selectedCat.id)

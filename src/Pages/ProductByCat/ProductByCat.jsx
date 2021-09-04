@@ -5,7 +5,8 @@ import { useParams } from 'react-router'
 export default function ProductByCat() {
     const {end_category} = useParams();
     const {endCategory} = useSelector(state => state.category)
-    const selectedCategory = endCategory.find(cat => cat.slug.includes(end_category))
+    const catName = end_category.replaceAll('-', ' ')
+    const selectedCategory = endCategory.find(cat => cat.name.toLowerCase() == catName)
     const allProducts = useSelector(state => state.products)
     console.log(allProducts, end_category)
     const filterProducts = allProducts.filter(product => product.ecatId === selectedCategory.id)
