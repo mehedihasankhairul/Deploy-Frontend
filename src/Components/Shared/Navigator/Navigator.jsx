@@ -2,11 +2,11 @@ import React from 'react'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 
-export default function Navigator() {
-    const params = useParams()
-    console.log(params.category)
-    Object.keys(params).forEach(item => console.log(params[item]))
-    return (
+export default function Navigator () {
+  const params = useParams()
+  console.log(params.category)
+  Object.keys(params).forEach(item => console.log(params[item]))
+  return (
         <div className='navigator'>
             <h3>
                 <Link to='/'>Home</Link>
@@ -19,9 +19,9 @@ export default function Navigator() {
                 {
                     params.productid && <span>{'>'}{params.productid}</span>
                 }
-                
+
             </h3>
-            
+
         </div>
-    )
+  )
 }

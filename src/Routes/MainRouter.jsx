@@ -7,7 +7,6 @@ import {
 import ProductByCat from '../Pages/ProductByCat/ProductByCat'
 import Category from '../Pages/Category/Category'
 import EndCategories from '../Pages/EndCategories/EndCategories'
-import Error from '../Pages/Error/Error'
 import Home from '../Pages/Home/Home'
 import Product from '../Pages/Product/Product'
 import Footer from '../Components/Shared/Footer/Footer'
