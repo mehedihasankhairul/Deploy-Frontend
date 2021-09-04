@@ -8,6 +8,7 @@ export default function CategoryItem({item}) {
     const slug = item.name ? item.name.replaceAll(' ', '-').toLowerCase() : item.subCat.replaceAll(' ', '-').toLowerCase();
     console.log(slug)
     const location = useLocation()
+    console.log(location.pathname)
     return (
         
         <Link to={`${location.pathname}/${slug}`}>
