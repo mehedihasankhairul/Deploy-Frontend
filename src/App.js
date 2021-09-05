@@ -6,6 +6,7 @@ import MainRouter from './Routes/MainRouter'
 import { setCategory } from './Store/Category/category.action'
 import { end_category, mid_category, products, top_category } from './Store/dummy.data'
 import { loadProducts } from './Store/Product/product.action'
+import Navbar from './Components/Shared/Navbar/Navbar'
 
 // const dummy = [
 //   {tCatId: 6, tCatName: "Grocery and Food", image: 'demo.png'},
@@ -25,7 +26,15 @@ function App () {
   //   console.log(sub)
   // })
   return (
-    <MainRouter />
+    <div className='main-area'>
+      <Navbar />
+      <main className='main'>
+        <aside className='sidebar'>side category</aside>
+        <div className="main-container">
+        <MainRouter />
+        </div>
+      </main>
+    </div>
   )
 }
 

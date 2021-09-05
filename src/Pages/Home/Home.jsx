@@ -7,10 +7,10 @@ export default function Home () {
   console.log(topCategory)
 
   return (
-        <div>
-            <h3>Navbar</h3>
+        <section className='content'>
             <h3>Slider</h3>
             <h3>Banner</h3>
+            <h3>Top End Categories Slider</h3>
             <h3>Mid Categories Slider</h3>
             <div className='container'>
             {
@@ -26,7 +26,6 @@ export default function Home () {
             <h3>Banner</h3>
             <h3>Product of Top Categories</h3>
             <h3>Partner</h3>
-            <h3>Footer</h3>
-        </div>
+        </section>
   )
 }

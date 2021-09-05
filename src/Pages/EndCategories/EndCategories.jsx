@@ -11,8 +11,7 @@ export default function EndCategories () {
   const { mid_category } = useParams()
   const catName = mid_category.replaceAll('-', ' ')
   const selectedCat = midCategory.find(cat => cat.name.toLowerCase() === catName)
-  console.log(selectedCat)
-  const filteredCategories = endCategory.filter(endCat => endCat.mcatId === selectedCat.id)
+  const filteredCategories = selectedCat ? endCategory.filter(endCat => endCat.mcatId === selectedCat.id) : null
   console.log(filteredCategories)
   return (
         <main>
@@ -20,7 +19,7 @@ export default function EndCategories () {
             {
                 selectedCat
                   ? <>
-            <h2>All Sub Categories</h2>
+            <h2>All End Categories</h2>
             <div className='container'>
             {
                 filteredCategories.map(item => <CategoryItem key={item.id} item={item} />)

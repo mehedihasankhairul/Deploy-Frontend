@@ -9,10 +9,10 @@ export default function CategoryItem ({ item }) {
   const slug = item.name ? item.name.replaceAll(' ', '-').toLowerCase() : item.subCat.replaceAll(' ', '-').toLowerCase()
   console.log(slug)
   const location = useLocation()
-  console.log(location.pathname)
+  const url = item.slug || location.pathname + '/' + slug
   return (
 
-        <Link to={`${location.pathname}/${slug}`}>
+        <Link to={url}>
         <div className="item">
             <img src={imageUrl} alt="" />
             <h4>{item.name || item.subCat} </h4>

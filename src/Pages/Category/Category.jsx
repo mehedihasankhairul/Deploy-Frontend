@@ -10,7 +10,7 @@ export default function Category () {
 
   const { category } = useParams()
   const selectedCat = topCategory.find(cat => cat.slug === category)
-  const subCategories = midCategory.filter(sCat => sCat.tCatId === selectedCat.tCatId)
+  const subCategories = selectedCat ? midCategory.filter(sCat => sCat.tCatId === selectedCat.tCatId) : null
   return (
         <main>
             <Navigator />
