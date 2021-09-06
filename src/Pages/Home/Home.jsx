@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import CategoryItem from '../../Components/Home/CategoryItem'
+import Partner from '../../Components/Partner/Partner'
 
 export default function Home () {
   const { midCategory, topCategory } = useSelector(state => state.category)
@@ -26,6 +27,7 @@ export default function Home () {
             <h3>Banner</h3>
             <h3>Product of Top Categories</h3>
             <h3>Partner</h3>
+            <Partner />
         </section>
   )
 }
