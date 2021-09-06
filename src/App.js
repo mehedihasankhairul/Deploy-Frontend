@@ -1,9 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
-import './Styles/app.scss';
-import MainRouter from './Routes/MainRouter';
-import { setCategory } from './Store/Category/category.action';
-import { end_category, mid_category, products, top_category } from './Store/dummy.data';
-import { loadProducts } from './Store/Product/product.action';
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable camelcase */
+import { useDispatch } from 'react-redux'
+import './Styles/app.scss'
+import MainRouter from './Routes/MainRouter'
+import { setCategory } from './Store/Category/category.action'
+import { end_category, mid_category, products, top_category } from './Store/dummy.data'
+import { loadProducts } from './Store/Product/product.action'
+import Navbar from './Components/Shared/Navbar/Navbar'
 
 // const dummy = [
 //   {tCatId: 6, tCatName: "Grocery and Food", image: 'demo.png'},
@@ -13,9 +16,9 @@ import { loadProducts } from './Store/Product/product.action';
 //   {tCatId: 10, tCatName: "Baby Care", image: 'demo.png'},
 //   {tCatId: 11, tCatName: "Beauty & Health", image: 'demo.png'},
 // ]
-function App() {
+function App () {
   const dispatch = useDispatch()
-  dispatch(setCategory({topCategory: top_category, midCategory: mid_category, endCategory: end_category}))
+  dispatch(setCategory({ topCategory: top_category, midCategory: mid_category, endCategory: end_category }))
   dispatch(loadProducts(products))
   // const cat = useSelector(state => state.category)
   // console.log(cat[0].tSubCat)
@@ -23,8 +26,16 @@ function App() {
   //   console.log(sub)
   // })
   return (
-    <MainRouter />
-  );
+    <div className='main-area'>
+      <Navbar />
+      <main className='main'>
+        <aside className='sidebar'>side category</aside>
+        <div className="main-container">
+        <MainRouter />
+        </div>
+      </main>
+    </div>
+  )
 }
 
-export default App;
+export default App
