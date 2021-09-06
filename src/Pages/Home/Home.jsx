@@ -17,7 +17,6 @@ export default function Home() {
           <CategoryItem key={item.id} item={item} />
         ))}
       </div>
-      <h2>Top Categories</h2>
       <div className="container">
         {topCategory.slice(0, 6).map((item) => (
           <CategoryItem key={item.id} item={item} />

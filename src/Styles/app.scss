@@ -6,6 +6,9 @@
 
 a {
   text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 body {
@@ -56,9 +59,9 @@ header {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-.content {
-  padding: 1.5em;
-}
+// .content {
+//   padding: 1.5em;
+// }
 
 h3 {
   text-align: center;
@@ -66,6 +69,7 @@ h3 {
 
 .navigator {
   text-transform: uppercase;
+  padding-left: 1.5em;
   h3 {
     font-size: 16px;
   }
@@ -79,8 +83,23 @@ h3 {
 }
 .product_item {
   border: 1px solid lightgray;
+  display: grid;
+  grid-template-rows: 140px 60px 20px 30px;
   padding: 0.5em;
+  grid-gap: 0.5em;
+  text-align: center;
+  img {
+    max-height: 100%;
+    margin: 0 auto;
+  }
+  p {
+    margin: 0;
+    line-height: 18px;
+  }
 }
+// section {
+//   padding: 1.5em;
+// }
 // import styles components
 @import './CategoryItem.module.scss';
 @import '../Components/Shared/Footer/footer.scss';

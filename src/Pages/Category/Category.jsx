@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import CategoryItem from '../../Components/Home/CategoryItem';
-import Navigator from '../../Components/Shared/Navigator/Navigator';
 import Error from '../Error/Error';
 
 export default function Category() {
@@ -15,16 +15,17 @@ export default function Category() {
     : null;
   return (
     <main>
-      <Navigator />
+      {/* <Navigator /> */}
+      <span className="navigator">
+        <Link to='/'>Home</Link>
+        {'> '} <span>{selectedCat.name}</span>
+      </span>
       {selectedCat ? (
-        <>
-          <h2>All Sub Categories</h2>
           <div className="container">
             {subCategories.map((item) => (
               <CategoryItem key={item.id} item={item} />
             ))}
           </div>
-        </>
       ) : (
         <Error />
       )}
