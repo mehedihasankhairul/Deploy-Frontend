@@ -1,5 +1,5 @@
-import { end_category, mid_category, top_category } from '../dummy.data'
-import { categoryAction } from './category.actionTypes'
+import { end_category, mid_category, top_category } from '../dummy.data';
+import { categoryAction } from './category.actionTypes';
 
 // const initialState = [
 //     {tCatId: 6, tCatName: "Grocery and Food", tSubCat: ['Cooking', 'Baking Needs', 'Breakfast']},
@@ -12,14 +12,14 @@ import { categoryAction } from './category.actionTypes'
 const initialState = {
   topCategory: top_category,
   midCategory: mid_category,
-  endCategory: end_category
-}
+  endCategory: end_category,
+};
 
 export const catReducer = (state = initialState, action) => {
   switch (action.type) {
     case categoryAction.SET_CATEGORY:
-      return { ...state, ...action.payload }
+      return { ...state, ...action.payload };
     default:
-      return state
+      return state;
   }
-}
+};
