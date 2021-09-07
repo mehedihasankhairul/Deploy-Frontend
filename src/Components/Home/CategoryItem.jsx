@@ -9,7 +9,7 @@ export default function CategoryItem({ item }) {
   const slug = item.name
     ? item.name.replaceAll(' ', '-').toLowerCase()
     : item.subCat.replaceAll(' ', '-').toLowerCase();
-  console.log(slug);
+  // console.log(slug);
   const location = useLocation();
   const url = item.slug || location.pathname + '/' + slug;
   return (

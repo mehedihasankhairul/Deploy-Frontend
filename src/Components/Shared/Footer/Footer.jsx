@@ -94,7 +94,7 @@ const Footer = () => {
         {/* <!-- Copyright --> */}
         <div className="text-center p-4">
           © 2021 Copyright:
-          <Link to="/" className="text-reset fw-bold">
+          <Link to="/" className="text-reset fw-bold"> {' '}
             Team Phoenix
           </Link>
         </div>

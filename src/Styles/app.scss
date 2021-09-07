@@ -36,16 +36,21 @@ header {
   background-color: #fff;
 }
 .main {
-  max-width: 1250px;
   margin: 0 auto;
   display: grid;
   height: 85vh;
   overflow: hidden;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 280px 1fr;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .sidebar {
   background-color: lightgray;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 .main-container {
   max-height: 100%;
@@ -105,5 +110,5 @@ h3 {
 @import '../Components/Shared/Footer/footer.scss';
 @import '../Components/Partner/partner.scss';
 @import '../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss';
-@import "slick-carousel/slick/slick.scss";
-@import "slick-carousel/slick/slick-theme.scss"
+@import 'slick-carousel/slick/slick.scss';
+@import 'slick-carousel/slick/slick-theme.scss';
