@@ -103,4 +103,7 @@ h3 {
 // import styles components
 @import './CategoryItem.module.scss';
 @import '../Components/Shared/Footer/footer.scss';
-@import '../Components/Partner/partner.scss'
+@import '../Components/Partner/partner.scss';
+@import '../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss';
+@import "slick-carousel/slick/slick.scss";
+@import "slick-carousel/slick/slick-theme.scss"

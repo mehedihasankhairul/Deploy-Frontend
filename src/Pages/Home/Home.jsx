@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import EndCategoriesSlider from '../../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider';
 import CategoryItem from '../../Components/Home/CategoryItem'
 import Partner from '../../Components/Partner/Partner'
 
@@ -11,7 +12,7 @@ export default function Home() {
         <section className='content'>
             <h3>Slider</h3>
             <h3>Banner</h3>
-            <h3>Top End Categories Slider</h3>
+            <EndCategoriesSlider />
             <h3>Mid Categories Slider</h3>
             <div className='container'>
             {
