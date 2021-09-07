@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.scss';
-import navLogo from '../../../Assets/Images/deoloy-logo.jpeg';
+import navLogo from '../../../assets/Images/deoloy-logo.jpeg';
 
 const Navbar = () => {
   return (
@@ -45,12 +45,12 @@ const Navbar = () => {
                 </div>
               </form>
             </ul>
-            <div className="userSection justify-between-content p-2">
-              <i className="fa fa-sign-out" aria-hidden="true"></i>
+            <div className="userSection justify-between-content p-2 px-2">
+              <i className="fa fa-sign-out px-1" aria-hidden="true"></i>
               <button>Login</button>
             </div>
             <div className="userSection justify-between-content p-2">
-              <i className="fa fa-user-plus" aria-hidden="true"></i>
+              <i className="fa fa-user-plus px-1" aria-hidden="true"></i>
               <button>Register</button>
             </div>
             <div className="myCart p-2">

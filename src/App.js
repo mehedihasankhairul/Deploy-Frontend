@@ -12,6 +12,7 @@ import {
 } from './Store/dummy.data';
 import { loadProducts } from './Store/Product/product.action';
 import Navbar from './Components/Shared/Navbar/Navbar';
+import Sidebar from './Components/Sidebar/Sidebar';
 
 // const dummy = [
 //   {tCatId: 6, tCatName: "Grocery and Food", image: 'demo.png'},
@@ -40,7 +41,9 @@ function App() {
     <div className="main-area">
       <Navbar />
       <main className="main">
-        <aside className="sidebar">side category</aside>
+        <main className="sidebar">
+          <Sidebar />
+        </main>
         <div className="main-container">
           <MainRouter />
         </div>

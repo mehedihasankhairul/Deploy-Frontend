@@ -1,0 +1,118 @@
+<NavItem eventKey="offer">
+                        <NavIcon>
+                            {/* <i className="fa fa-tire-rugged" style={{ fontSize: '1.75em' }} /> */}
+                            <i className="fa fa-handshake-o" style={{ fontSize: '1.75em' }}></i>
+                        </NavIcon>
+                        <NavText>
+                            Offer
+                        </NavText>
+                    </NavItem>
+                    {/* {
+            topCategory.slice(0, 6).map(item => <CategoryItem key={item.id} item={item} />)
+          } */}
+                    <NavItem className="rounded-pill" eventKey="charts">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            {topCategory[0].name}
+                        </NavText>
+                        {/* <NavItem eventKey="charts/linechart">
+              <NavText>
+                Line Chart
+              </NavText>
+            </NavItem> */}
+                        {/* <div className="side-category-bg rounded-3">
+                            <div className="p-3">
+                                <h5 className="text-dark" >  Category</h5>
+                                <ul className="list-unstyled category-list rounded-3 p-1">
+                                    <li><i className="fas fa-angle-right text-success mr-0 ml-auto"></i> {topCategory[1].name} </li>
+                                    <li><i className="fas fa-angle-right text-success"></i> {topCategory[2].name}</li>
+                                    <li><i className="fas fa-angle-right text-success"></i> {topCategory[3].name}</li>
+                                    <li><i className="fas fa-angle-right text-success"></i> {topCategory[4].name}</li>
+                                    <li><i className="fas fa-angle-right text-success"></i> {topCategory[5].name}</li>
+                                    <li><i className="fas fa-angle-right text-success"></i> {topCategory[6].name}</li>
+                                    <li><i className="fas fa-angle-right text-success"></i> {topCategory[7].name}</li>
+                                </ul>
+                            </div>
+                        </div> */}
+                    </NavItem>
+
+                    <NavItem className="rounded-pill" eventKey="charts">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-area-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            {topCategory[1].name}
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="charts">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-area-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            {topCategory[2].name}
+                        </NavText>
+                        <NavItem eventKey="charts/linechart">
+                            <NavText>
+                                {midCategory[0].name}
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="charts/barchart">
+                            <NavText>
+                                {midCategory[1].name}
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="charts/barchart">
+                            <NavText>
+                                {midCategory[2].name}
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="charts/barchart">
+                            <NavText>
+                                {midCategory[3].name}
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="charts/barchart">
+                            <NavText>
+                                {midCategory[4].name}
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="charts/barchart">
+                            <NavText>
+                                {midCategory[5].name}
+                            </NavText>
+                        </NavItem>
+                    </NavItem>
+                    <NavItem eventKey="charts">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-area-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            {topCategory[3].name}
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="charts">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-area-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            {topCategory[4].name}
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="charts">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-area-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            {topCategory[5].name}
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="charts">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-area-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            {topCategory[6].name}
+                        </NavText>
+                    </NavItem>
