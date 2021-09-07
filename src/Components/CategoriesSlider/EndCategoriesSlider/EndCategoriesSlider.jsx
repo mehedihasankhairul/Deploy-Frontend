@@ -57,7 +57,7 @@ const EndCategoriesSlider = () => {
             <div className="tb-style"></div>
             <Slider {...settings} className="endcg-slider">
             {
-                endCategory.map(item => <CategoryItem key={item.id} item={item} />)
+                endCategory.map(item => <CategoryItem key={item.id} item={item} className="endctg-pd" />)
             }
         </Slider>
         </div>
