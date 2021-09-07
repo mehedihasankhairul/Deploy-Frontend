@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import Navigator from '../../Components/Shared/Navigator/Navigator';
 
 const baseUrl = 'https://deploy.com.bd/assets/uploads/' 
 
