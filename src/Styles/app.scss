@@ -54,7 +54,9 @@ header {
   overflow: hidden;
 
   ::-webkit-scrollbar {
-    display: none;
+    display   : none;
+    overflow-x: hidden;
+    width     : 100vw;
   }
 
   grid-template-columns: 280px 1fr;
