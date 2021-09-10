@@ -12,6 +12,8 @@ import {
 } from './Store/dummy.data';
 import { loadProducts } from './Store/Product/product.action';
 import Navbar from './Components/Shared/Navbar/Navbar';
+import NewSidebar from './Components/Sidebar/NewSidebar';
+import { useState } from 'react';
 
 // const dummy = [
 //   {tCatId: 6, tCatName: "Grocery and Food", image: 'demo.png'},
@@ -36,11 +38,14 @@ function App() {
   // cat[0].tSubCat.map(sub => {
   //   console.log(sub)
   // })
+  const [open, setOpen] = useState(false);
   return (
     <div className="main-area">
       <Navbar />
       <main className="main">
-        <aside className="sidebar">side category</aside>
+        <aside className="sidebar" onMouseLeave={() => setOpen(false)}>
+          <NewSidebar open={open} setOpen={setOpen} />
+        </aside>
         <div className="main-container">
           <MainRouter />
         </div>

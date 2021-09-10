@@ -12,7 +12,8 @@ export default function Home() {
       <EndCategoriesSlider />
       <MidCategoriesSlider />
       <TopCategoriesSlider />
-      <h3>Banner</h3>
+      {/* <h3>Banner</h3> */}
+      <HeroSlider />
       <h3>Product of Top Categories</h3>
       <br />
       <br />

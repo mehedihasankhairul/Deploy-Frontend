@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import CategoryItem from '../../Components/Home/CategoryItem';
+import EndItem from '../../Components/CategoriesSlider/EndCategoriesSlider/EndItem';
 import Error from '../Error/Error';
 
 export default function EndCategories() {
@@ -16,10 +16,9 @@ export default function EndCategories() {
   const filteredCategories = selectedCat
     ? endCategory.filter((endCat) => endCat.mcatId === selectedCat.id)
     : null;
-  console.log(filteredCategories);
+  // console.log(filteredCategories);
   return (
     <section>
-      {/* <Navigator /> */}
       <span className="navigator">
         <Link to="/">Home</Link>
         {'> '} <Link to={'/' + category}>{category.replaceAll('-', ' ')}</Link>
@@ -28,7 +27,7 @@ export default function EndCategories() {
       {selectedCat ? (
         <div className="container">
           {filteredCategories.map((item) => (
-            <CategoryItem key={item.id} item={item} />
+            <EndItem key={item.id} item={item} />
           ))}
         </div>
       ) : (

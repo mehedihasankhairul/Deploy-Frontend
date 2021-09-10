@@ -1,6 +1,7 @@
 .item {
   padding: 0.5em;
   border: 1px solid lightgray;
+  background-color: #fff;
   height: 210px;
   max-width: 200px;
   display: flex;
@@ -8,7 +9,10 @@
   flex-direction: column;
   justify-content: space-between;
   img {
-    height: 150px;
+    max-height: 150px;
+    @media (max-width: 768px) {
+      height: 150px;
+    }
   }
   h4 {
     font-size: 16px;
@@ -17,5 +21,8 @@
   }
   &:hover {
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  @media (max-width: 768px) {
+    height: 200px;
   }
 }
