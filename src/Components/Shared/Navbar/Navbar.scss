@@ -2,28 +2,37 @@
   z-index: 1111;
 }
 
-.navLogo img {
-  width: 100%;
-  position: relative;
-  left: 0;
+.container-fluid {
+  width       : 100%;
+  padding     : 0;
+  margin-right: auto;
+  margin-left : auto;
 }
 
-.SearchBar input {
-  padding: 10px;
-  border: 1px solid rgb(205, 228, 255);
+.navbar img {
+  width   : 10%;
+  position: relative;
+  left    : 0;
 }
+
+.form-inline input {
+  width : 400px !important;
+  height: 35px !important;
+}
+
 
 .myCart i {
   font-size: 16px;
-  color: #000000;
+  color    : #ffffff;
 }
 
+
 .badge {
-  padding-left: 9px;
-  padding-right: 9px;
+  padding-left         : 9px;
+  padding-right        : 9px;
   -webkit-border-radius: 9px;
-  -moz-border-radius: 9px;
-  border-radius: 9px;
+  -moz-border-radius   : 9px;
+  border-radius        : 9px;
 }
 
 .label-warning[href],
@@ -32,38 +41,80 @@
 }
 
 #lblCartCount {
-  position: absolute;
-  font-size: 13px;
-  background: #000000;
-  color: #fff;
-  padding: 0 3px;
+  position      : absolute;
+  font-size     : 13px;
+  background    : #000000;
+  color         : #fff;
+  padding       : 0 3px;
   vertical-align: top;
-  margin-left: 5px;
+  margin-left   : 5px;
 }
 
 .myCart button {
-  background: rgb(247, 247, 247);
-  border: 1px solid rgb(205, 228, 255);
+  background : rgb(247, 247, 247);
+  border     : 1px solid rgb(205, 228, 255);
   margin-left: 16px;
 }
 
-.userSection button {
-  background: #ffffff;
-  border: none;
+.myCart :hover {
+  cursor: pointer;
 }
 
-.userSection button:hover {
-  color: #11a0db;
+.userSection {
+  background   : #353535;
+  border       : 1px solid #f0f0f0;
+  padding      : 5px;
+  border-radius: 15px;
+  margin       : 0px 5px;
+
 }
 
-@media only screen and (max-width: 600px) {
-  .navLogo {
-    width: 50%;
+.userSection:hover {
+  color           : #11a0db;
+  background-color: #ecfff0;
+  cursor          : pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar img {
+    width: 40%;
+  }
+
+  .form-inline input {
+    width : 250px !important;
+    margin: 10px 10px;
+
   }
 
   .userSection,
   .myCart {
-    align-items: center;
+    align-items    : center;
     justify-content: center;
+    width          : 130px !important;
+    margin         : 5px 0px;
+
   }
+}
+
+
+@media screen and (max-width: 923px) {
+  .navbar img {
+    width: 20%;
+  }
+
+  .form-inline input {
+    width : 210px !important;
+    margin: 10px 10px;
+
+  }
+
+  .userSection,
+  .myCart {
+    align-items    : center;
+    justify-content: center;
+    width          : 110px !important;
+    margin         : 5px 5px;
+
+  }
+
 }

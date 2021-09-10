@@ -1,12 +1,13 @@
 import React from 'react';
+import './HeroSlider.scss'
 import { Carousel } from 'react-bootstrap';
 import banner1 from '../../Assets/Images/slider-8.jpg';
 import banner2 from '../../Assets/Images/slider-9.jpg';
 import banner3 from '../../Assets/Images/slider-10.jpg';
 const Banner = () => {
   return (
-    <div>
-      <Carousel>
+    <div className="bannerSlider">
+      <Carousel className="slider">
         <Carousel.Item>
           <img className="d-block w-100" src={banner1} alt="First slide" />
         </Carousel.Item>
