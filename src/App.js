@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="main-area">
       <Navbar />
-      <main className="main">
+      <main className="main row">
         <main className="sidebar">
           <Sidebar />
         </main>
