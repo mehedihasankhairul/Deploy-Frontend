@@ -1,13 +1,13 @@
 import React from 'react';
 import './Navbar.scss';
-import navLogo from '../../../Assets/Images/deoloy-logo.jpeg';
+// import navLogo from '../../../Assets/Images/deoloy-logo.jpeg';
 
 const Navbar = () => {
   return (
     <header>
       <div className="container-fluid">
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-          <img src={navLogo} alt="" />
+          <img src="https://deploy.com.bd/assets/uploads/logo.jpeg" alt="" />
           <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span className="navbar-toggler-icon" />
           </button>
