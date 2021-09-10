@@ -14,13 +14,13 @@ export default function Home() {
       <EndCategoriesSlider />
       <h3>Popular Categories</h3>
       <div className="container">
-        {midCategory.slice(0, 5).map((item) => (
+        {midCategory.slice(0, 6).map((item) => (
           <CategoryItem key={item.id} item={item} />
         ))}
       </div>
       <h3>Main Categories</h3>
       <div className="container">
-        {topCategory.slice(0, 5).map((item) => (
+        {topCategory.slice(0, 6).map((item) => (
           <CategoryItem key={item.id} item={item} />
         ))}
       </div>
