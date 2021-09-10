@@ -1,21 +1,20 @@
 import React from "react";
 import { useSelector } from 'react-redux';
 // import { Link } from 'react-router-dom';
-// import CategoryItem from '../../../Components/Home/CategoryItem'
+import CategoryItem from '../../../Components/Home/CategoryItem'
 // import Error from '../../../Pages/Error/Error';
 
 import Slider from "react-slick";
-import EndItem from "./EndItem";
 
 
 
 
 
-const EndCategoriesSlider = () => {
+const TopCategoriesSlider = () => {
 
     
     
-    const { endCategory } = useSelector((state) => state.category);
+    const { topCategory } = useSelector((state) => state.category);
 
   const settings = {
       dots: false,
@@ -53,14 +52,14 @@ const EndCategoriesSlider = () => {
 
     return (
         <div className="endCategoriesSlider">
-            <h3 className='heading'>Trending Categories</h3>
+            <h3 className='heading'>Top Categories</h3>
             <Slider {...settings} className="endcg-slider">
-            {
-                endCategory.map(item => <EndItem key={item.id} item={item} className="endctg-pd" />)
-            }
+            {topCategory.slice(0, 5).map((item) => (
+          <CategoryItem key={item.id} item={item} />
+        ))}
         </Slider>
         </div>
     );
 };
 
-export default EndCategoriesSlider;
+export default TopCategoriesSlider;
