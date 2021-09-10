@@ -6,14 +6,14 @@ import MidCategoriesSlider from '../../Components/CategoriesSlider/MidCategories
 import TopCategoriesSlider from '../../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider';
 
 export default function Home() {
-
   return (
     <section className="content">
       <HeroSlider />
       <EndCategoriesSlider />
       <MidCategoriesSlider />
       <TopCategoriesSlider />
-      <h3>Banner</h3>
+      {/* <h3>Banner</h3> */}
+      <HeroSlider />
       <h3>Product of Top Categories</h3>
       <br />
       <br />

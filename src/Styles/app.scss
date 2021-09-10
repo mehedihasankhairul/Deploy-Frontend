@@ -1,3 +1,5 @@
+@import './colors';
+
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +8,11 @@
 
 a {
   text-decoration: none;
+  color: $mediumGray;
+  font-weight: 400;
   &:hover {
     text-decoration: none;
+    color: $darkGray;
   }
 }
 
@@ -28,7 +33,7 @@ img {
   margin: 0 auto;
   display: grid;
   grid-gap: 1em;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   padding: 1.5em;
 }
 header {
@@ -47,7 +52,9 @@ header {
 }
 
 .sidebar {
-  background-color: lightgray;
+  background-color: $lightGray;
+  padding: 2em;
+  position: relative;
   @media (max-width: 768px) {
     display: none;
   }
@@ -64,9 +71,6 @@ header {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-// .content {
-//   padding: 1.5em;
-// }
 
 h3 {
   text-align: center;
@@ -89,7 +93,7 @@ h3 {
 .product_item {
   border: 1px solid lightgray;
   display: grid;
-  grid-template-rows: 140px 60px 20px 30px;
+  grid-template-rows: 120px 50px 25px 30px;
   padding: 0.5em;
   grid-gap: 0.5em;
   text-align: center;
@@ -112,3 +116,5 @@ h3 {
 @import '../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss';
 @import 'slick-carousel/slick/slick.scss';
 @import 'slick-carousel/slick/slick-theme.scss';
+
+@import './Sidebar.scss';
