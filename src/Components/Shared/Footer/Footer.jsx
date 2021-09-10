@@ -9,7 +9,6 @@ const Footer = () => {
           <h4 className="d-flex justify-content-center pt-5">
             SUBSCRIBE TO OUR NEWSLETTER
           </h4>
-
           <div className="d-flex justify-content-center footer-newsletter">
             <div className="col-md-6">
               <form action="" method="post">
@@ -24,7 +23,7 @@ const Footer = () => {
             {/* <!-- Grid row --> */}
             <div className="row mt-3">
               {/* <!-- Grid column --> */}
-              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto">
                 {/* <!-- Content --> */}
                 <p>Our Corporate Office Address</p>
                 <p>
@@ -35,7 +34,7 @@ const Footer = () => {
               {/* <!-- Grid column --> */}
 
               {/* <!-- Grid column --> */}
-              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto ">
                 {/* <!-- Links --> */}
                 <p>
                   <Link to="/" className="text-reset">
