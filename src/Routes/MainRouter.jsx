@@ -7,6 +7,8 @@ import Home from '../Pages/Home/Home';
 import Product from '../Pages/Product/Product';
 import Footer from '../Components/Shared/Footer/Footer';
 import { PrivateRoute } from './PrivateRoute';
+import Login from '../Pages/Login';
+import Registration from '../Pages/Registration';
 
 export default function MainRouter() {
   return (
@@ -15,7 +17,8 @@ export default function MainRouter() {
         <PrivateRoute exact path="/checkout">
           <h2>secured route</h2>
         </PrivateRoute>
-        <Route path="/login" component={Home} />
+        <Route path="/login" component={Login} />
+        <Route path="/registration" component={Registration} />
         <Route exact path="/" component={Home} />
         <Route
           path="/:category/:mid_category/:end_category/:productid"
@@ -27,6 +30,8 @@ export default function MainRouter() {
         />
         <Route path="/:category/:mid_category" component={EndCategories} />
         <Route exact path="/:category" component={Category} />
+        
+        
       </Switch>
       <Footer />
     </Router>
