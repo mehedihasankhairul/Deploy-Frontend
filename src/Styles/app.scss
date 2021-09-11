@@ -141,7 +141,9 @@ h3 {
 @import '../Components/Shared/Footer/footer.scss';
 @import '../Components/Partner/partner.scss';
 @import '../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss';
-@import 'slick-carousel/slick/slick.scss';
-@import 'slick-carousel/slick/slick-theme.scss';
+@import '../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider.scss';
+@import '../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider.scss';
+
+
 
 @import './Sidebar.scss';

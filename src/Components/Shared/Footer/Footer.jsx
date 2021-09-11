@@ -6,7 +6,7 @@ const Footer = () => {
     <div>
       <footer className="text-center text-lg-start  text-white footer-bg">
         <section>
-          <h4 className="d-flex justify-content-center pt-5">
+          <h4 className="d-flex justify-content-center pt-5 px-5">
             SUBSCRIBE TO OUR NEWSLETTER
           </h4>
           <div className="d-flex justify-content-center footer-newsletter">
@@ -27,8 +27,7 @@ const Footer = () => {
                 {/* <!-- Content --> */}
                 <p>Our Corporate Office Address</p>
                 <p>
-                  House: 40, Samaj Kalyan Road, West Senpara Parbota, Mirpur-10,
-                  Dhaka-1216, Bangladesh.
+                  N.I.C Residence Plot no.19 Block A, Behind hotel shams plaza, Shugondha, Coxbazar
                 </p>
               </div>
               {/* <!-- Grid column --> */}
