@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import EndCategoriesSlider from '../../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider';
 import PartnerSlider from '../../Components/Partner/PartnerSlider';
 import HeroSlider from '../../Components/HeroSlider/HeroSlider.js';
 import MidCategoriesSlider from '../../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider';
 import TopCategoriesSlider from '../../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider';
-import Navbar from '../../Components/Shared/Navbar/Navbar';
-import NewSidebar from '../../Components/Sidebar/NewSidebar';
 import MainLayout from '../../Components/Layout/MainLayout';
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   return (
     // <div className="main-area">
     //   <Navbar />

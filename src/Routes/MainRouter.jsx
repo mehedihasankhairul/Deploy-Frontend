@@ -31,8 +31,7 @@ export default function MainRouter() {
           component={ProductByCat}
         />
         <Route path="/:category/:mid_category" component={EndCategories} />
-        <Route exact path="/:category" component={Category} />        
-        
+        <Route exact path="/:category" component={Category} />
       </Switch>
       <Footer />
     </Router>
