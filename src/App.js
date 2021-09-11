@@ -40,17 +40,14 @@ function App() {
   // })
   const [open, setOpen] = useState(false);
   return (
-    <div className="main-area">
-      <Navbar />
-      <main className="main">
-        <aside className="sidebar" onMouseLeave={() => setOpen(false)}>
-          <NewSidebar open={open} setOpen={setOpen} />
-        </aside>
-        <div className="main-container">
-          <MainRouter />
-        </div>
-      </main>
-    </div>
+    // <div className="main-area">
+    //   <Navbar />
+    //   <main className="main">
+    //     <aside className="sidebar" onMouseLeave={() => setOpen(false)}>
+    //       <NewSidebar open={open} setOpen={setOpen} />
+    //     </aside>
+    //     <div className="main-container">
+    <MainRouter />
   );
 }
 
