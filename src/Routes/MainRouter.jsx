@@ -9,6 +9,7 @@ import Footer from '../Components/Shared/Footer/Footer';
 import { PrivateRoute } from './PrivateRoute';
 import Login from '../Pages/Login';
 import Registration from '../Pages/Registration';
+import Cart from '../Components/Cart/Cart';
 
 export default function MainRouter() {
   return (
@@ -19,6 +20,7 @@ export default function MainRouter() {
         </PrivateRoute>
         <Route path="/login" component={Login} />
         <Route path="/registration" component={Registration} />
+        <Route path="/cart" component={Cart} />
         <Route exact path="/" component={Home} />
         <Route
           path="/:category/:mid_category/:end_category/:productid"
@@ -29,8 +31,7 @@ export default function MainRouter() {
           component={ProductByCat}
         />
         <Route path="/:category/:mid_category" component={EndCategories} />
-        <Route exact path="/:category" component={Category} />
-        
+        <Route exact path="/:category" component={Category} />        
         
       </Switch>
       <Footer />
