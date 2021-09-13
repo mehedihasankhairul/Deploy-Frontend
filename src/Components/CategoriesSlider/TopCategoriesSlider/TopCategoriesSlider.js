@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import CategoryItem from '../../../Components/Home/CategoryItem'
 // import Error from '../../../Pages/Error/Error';
 
