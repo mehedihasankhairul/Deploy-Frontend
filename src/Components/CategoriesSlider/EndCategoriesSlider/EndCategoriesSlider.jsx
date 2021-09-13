@@ -5,6 +5,9 @@ import EndItem from './EndItem';
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+// import { Link } from 'react-router-dom';
+// import CategoryItem from '../../../Components/Home/CategoryItem'
+// import Error from '../../../Pages/Error/Error';
 
 const EndCategoriesSlider = () => {
   const { endCategory } = useSelector((state) => state.category);
