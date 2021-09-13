@@ -28,3 +28,10 @@
   width           : auto;
 }
 
+.react-multiple-carousel__arrow, .react-multiple-carousel__arrow:active {
+  background:rgba(0, 0, 0, 0.144) !important;
+}
+
+.react-multiple-carousel__arrow:hover, .react-multiple-carousel__arrow:active {
+  background:rgba(0, 0, 0, 0.596) !important;
+}
