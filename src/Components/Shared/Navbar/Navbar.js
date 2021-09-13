@@ -8,13 +8,24 @@ const Navbar = () => {
       <div className="container-fluid">
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
           <img src="https://deploy.com.bd/assets/uploads/logo.jpeg" alt="" />
-          <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <button
+            type="button"
+            className="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+          >
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <form className="form-inline ml-sm-auto">
-              <input type="text" className="form-control mr-sm-2 " placeholder="Search Products..." />
-              <button type="submit" className="btn btn-outline-light">Search</button>
+              <input
+                type="text"
+                className="form-control mr-sm-2 "
+                placeholder="Search Products..."
+              />
+              <button type="submit" className="btn btn-outline-light">
+                Search
+              </button>
             </form>
             <div className="navbar-nav text-white mr-0 ml-auto">
               <div className="userSection justify-between-content p-2">
