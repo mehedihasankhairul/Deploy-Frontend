@@ -5,19 +5,24 @@
   justify-content: space-between;
   align-items: center;
   color: #fff;
+  // padding-top: 3em;
   // position: relative;
+  .logo {
+    height: 3em;
+  }
   svg {
     color: #fff;
   }
   nav {
-    // position: fixed;
-    // width: 100%;
-    // z-index: 111;
-    padding: 1em 1.5em;
+    position: fixed;
+    width: 100%;
+    z-index: 111;
+    background-color: $mediumGray;
+    padding: 0.5em 1.5em;
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    grid-gap: 1em;
+    grid-gap: 5%;
     @media (max-width: 767px) {
       grid-template-columns: auto 1fr;
     }
@@ -25,11 +30,13 @@
       display: grid;
       grid-template-columns: auto 1fr auto;
       grid-gap: 2em;
+      align-items: center;
     }
   }
   .tab {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-top: 5em;
     font-weight: 500;
     font-size: 1.1em;
     span {
@@ -37,7 +44,7 @@
       color: #fff;
     }
     .active {
-      background-color: dodgerblue;
+      background-color: $green;
     }
   }
   .account_menu {

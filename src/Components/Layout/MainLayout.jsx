@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import Navbar from '../../Components/Shared/Navbar/Navbar';
+// import Navbar from '../../Components/Shared/Navbar/Navbar';
 import NewSidebar from '../../Components/Sidebar/NewSidebar';
 import NewNav from '../Shared/Navbar/NewNav';
 

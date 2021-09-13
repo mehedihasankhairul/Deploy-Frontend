@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { RiBarChartHorizontalFill, RiCloseLine } from 'react-icons/ri';
-import { GrClose } from 'react-icons/gr';
+// import { GrClose } from 'react-icons/gr';
 import { useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
+import { Link } from 'react-router-dom';
 import DropDownItem from '../../DropDownItem';
 
 export default function NewNav() {
@@ -24,11 +25,13 @@ export default function NewNav() {
           </span>
         </MediaQuery>
         <div className="main_menu">
-          <img
-            src="https://deploy.com.bd/assets/uploads/logo.jpeg"
-            alt="Deploy Logo"
-          />
-          {/* <span>Logo</span> */}
+          <Link to="/">
+            <img
+              className="logo"
+              src="https://deploy.com.bd/assets/uploads/logo.jpeg"
+              alt="Deploy Logo"
+            />
+          </Link>
           <span>search</span>
           <span>cart</span>
         </div>

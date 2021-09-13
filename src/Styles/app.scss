@@ -49,6 +49,8 @@ header {
 }
 
 .main {
+  scroll-margin-top: 3em;
+  padding-top: 5em;
   margin: 0 auto;
   display: grid;
   height: 100vh;
@@ -108,7 +110,7 @@ h3 {
 }
 
 .product_list {
-  background-color: #F6F9FC;
+  background-color: #f6f9fc;
   padding: 1.5em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -118,7 +120,7 @@ h3 {
 .product_item {
   background-color: white;
   border: none;
-  border-radius: .9rem;
+  border-radius: 0.9rem;
   box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px;
   display: grid;
   grid-template-rows: 120px 50px 25px 30px;
@@ -137,25 +139,24 @@ h3 {
   }
 }
 
-
 .addToCart {
   display: flex;
-    width: unset;
-    justify-content: center;
-    align-items: center;
-    outline: none;
-    cursor: pointer;
-    padding: 11px 1.5rem;
-    font-weight: 600;
-    background: #4ab648e7;
-    transition: all 150ms ease-in-out 0s;
-    line-height: 1;
-    border: none;
-    color: rgb(255, 255, 255);
-    height: 40px;
-    font-size: 14px;
-    margin-bottom: 36px;
-    border-radius: 5px;
+  width: unset;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  padding: 11px 1.5rem;
+  font-weight: 600;
+  background: #4ab648e7;
+  transition: all 150ms ease-in-out 0s;
+  line-height: 1;
+  border: none;
+  color: rgb(255, 255, 255);
+  height: 40px;
+  font-size: 14px;
+  margin-bottom: 36px;
+  border-radius: 5px;
 }
 
 // section {
