@@ -1,0 +1,61 @@
+// New Navbar style
+
+.header {
+  background-color: $mediumGray;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  // position: relative;
+  svg {
+    color: #fff;
+  }
+  nav {
+    // position: fixed;
+    // width: 100%;
+    // z-index: 111;
+    padding: 1em 1.5em;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    grid-gap: 1em;
+    @media (max-width: 767px) {
+      grid-template-columns: auto 1fr;
+    }
+    .main_menu {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      grid-gap: 2em;
+    }
+  }
+  .tab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-weight: 500;
+    font-size: 1.1em;
+    span {
+      padding: 1em;
+      color: #fff;
+    }
+    .active {
+      background-color: dodgerblue;
+    }
+  }
+  .account_menu {
+    justify-content: space-between;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+  }
+  .mobile_category {
+    color: #fff;
+    padding: 1.5em;
+    li {
+      list-style: none;
+      padding: 0.5em 2.5em;
+    }
+  }
+}
