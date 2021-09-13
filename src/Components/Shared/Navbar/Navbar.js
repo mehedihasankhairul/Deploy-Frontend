@@ -20,7 +20,7 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon" />
           </button>
-          <img src="https://deploy.com.bd/assets/uploads/logo.jpeg" alt="" />
+          <img className="nav-logo" src="https://deploy.com.bd/assets/uploads/logo.jpeg" alt="logo" />
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <form className="form-inline ml-sm-auto">
               <input
