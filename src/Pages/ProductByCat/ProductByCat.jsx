@@ -39,7 +39,7 @@ export default function ProductByCat() {
                   <img src={baseUrl + prod.image} alt="" />
                   <p>{prod.productName}</p>
                   <p>BDT {prod.currentPrice}</p>
-                  <button>Add To Cart</button>
+                  <button className="addToCart">Add To Cart</button>
                 </div>
               ))
             : allProducts.map((prod) => (
@@ -47,7 +47,7 @@ export default function ProductByCat() {
                   <img src={baseUrl + prod.image} alt="" />
                   <p>{prod.productName}</p>
                   <p>BDT {prod.currentPrice}</p>
-                  <button>Add To Cart</button>
+                  <button className="addToCart">Add To Cart</button>
                 </div>
               ))}
         </div>

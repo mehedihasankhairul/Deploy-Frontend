@@ -108,17 +108,21 @@ h3 {
 }
 
 .product_list {
+  background-color: #F6F9FC;
   padding: 1.5em;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1em;
 }
 
 .product_item {
-  border: 1px solid lightgray;
+  background-color: white;
+  border: none;
+  border-radius: .9rem;
+  box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px;
   display: grid;
   grid-template-rows: 120px 50px 25px 30px;
-  padding: 0.5em;
+  padding: 1.5rem;
   grid-gap: 0.5em;
   text-align: center;
 
@@ -133,6 +137,27 @@ h3 {
   }
 }
 
+
+.addToCart {
+  display: flex;
+    width: unset;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    padding: 11px 1.5rem;
+    font-weight: 600;
+    background: #4ab648e7;
+    transition: all 150ms ease-in-out 0s;
+    line-height: 1;
+    border: none;
+    color: rgb(255, 255, 255);
+    height: 40px;
+    font-size: 14px;
+    margin-bottom: 36px;
+    border-radius: 5px;
+}
+
 // section {
 //   padding: 1.5em;
 // }
@@ -143,6 +168,7 @@ h3 {
 @import '../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss';
 @import '../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider.scss';
 @import '../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider.scss';
+@import '../Pages/Product/Product.scss';
 
 @import './Sidebar.scss';
 @import './dropdown.module.scss';
