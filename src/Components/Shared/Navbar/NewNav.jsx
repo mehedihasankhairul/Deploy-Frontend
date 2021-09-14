@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { RiBarChartHorizontalFill, RiCloseLine } from 'react-icons/ri';
-// import { GrClose } from 'react-icons/gr';
+import { BsSearch } from 'react-icons/bs';
+import { GiShoppingCart } from 'react-icons/gi';
+import { FiLogIn } from 'react-icons/fi';
+import { AiOutlineUserAdd } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import { Link } from 'react-router-dom';
@@ -11,6 +14,7 @@ export default function NewNav() {
   const topCats = useSelector((state) => state.category.topCategory);
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeTab, setActiveTab] = useState('categories');
+  const [searchMenu, setSearchMenu] = useState(false);
 
   return (
     <header className="header">
@@ -32,18 +36,53 @@ export default function NewNav() {
               alt="Deploy Logo"
             />
           </Link>
-          <span>search</span>
-          <span>cart</span>
+          <MediaQuery minWidth="768px">
+            <span className="search_field">
+              <input type="text" placeholder="search product" />
+              <BsSearch />
+            </span>
+          </MediaQuery>
+          <MediaQuery maxWidth="767px">
+            <span
+              onClick={() => setSearchMenu(!searchMenu)}
+              className="search_icon"
+            >
+              <BsSearch />
+            </span>
+          </MediaQuery>
+
+          <span className="cart_menu">
+            <GiShoppingCart size={25} />
+            <span>5</span>
+          </span>
         </div>
         <MediaQuery minWidth="768px">
           <div className="account_menu">
-            <span>login</span>
-            <span>register</span>
+            <Link to="/login">
+              <span>
+                <FiLogIn />
+                Login
+              </span>
+            </Link>
+            <Link to="/registration">
+              <span>
+                <AiOutlineUserAdd />
+                Register
+              </span>
+            </Link>
           </div>
         </MediaQuery>
       </nav>
+      {searchMenu && (
+        <MediaQuery maxWidth="767px">
+          <span className="search_field_mobile">
+            <input type="text" placeholder="search product" />
+            <button>Search</button>
+          </span>
+        </MediaQuery>
+      )}
       {isOpen && (
-        <>
+        <div className="collapse_menu">
           <MediaQuery maxWidth="767px">
             <div className="tab">
               <span
@@ -76,14 +115,29 @@ export default function NewNav() {
             </MediaQuery>
           ) : (
             <MediaQuery maxWidth="767px">
-              <div className="account_menu">
-                <span>login</span>
-                <span>register</span>
-                <span>Cart</span>
+              <div className="account_menu_dropdown">
+                <Link to="/login">
+                  <span>
+                    <FiLogIn />
+                    Login
+                  </span>
+                </Link>
+                <Link to="/registration">
+                  <span>
+                    <AiOutlineUserAdd />
+                    Register
+                  </span>
+                </Link>
+                {/* <Link to="/cart">
+                  <span className="cart_menu">
+                    <GiShoppingCart size={25} />
+                    <span>5</span>
+                  </span>
+                </Link> */}
               </div>
             </MediaQuery>
           )}
-        </>
+        </div>
       )}
     </header>
   );

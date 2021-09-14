@@ -50,7 +50,7 @@ header {
 
 .main {
   scroll-margin-top: 3em;
-  padding-top: 5em;
+  // padding-top: 4em;
   margin: 0 auto;
   display: grid;
   height: 100vh;
@@ -72,6 +72,7 @@ header {
 .sidebar {
   background-color: $lightGray;
   padding: 2em;
+  padding-top: 6em;
   position: relative;
   height: 100vh;
 
@@ -81,6 +82,7 @@ header {
 }
 
 .main-container {
+  padding-top: 5em;
   max-height: 100%;
   overflow-y: scroll;
 
