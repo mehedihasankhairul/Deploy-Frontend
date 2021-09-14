@@ -25,7 +25,7 @@ const SideAddToCart = () => {
                             <div className="total-items">
                                 <span>Total items : 3</span>
                             </div>
-                            <div className="d-flex">
+                            <div className="d-flex sideCloseBtn">
                                 <i className="fa fa-times" aria-hidden="true" onClick={() => setShowCart(false)}></i>
                             </div>
 

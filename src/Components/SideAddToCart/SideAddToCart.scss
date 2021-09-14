@@ -41,9 +41,13 @@
 }
 
 .topBar {
-    .total-items i {
-        font-size: 1.2rem;
-        background-color: brown !important;
-        color: white;
+    .sideCloseBtn {
+        background-color: brown;
+        color: #ffffff;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px 8px;
+        border-radius: 50%;
     }
 }
