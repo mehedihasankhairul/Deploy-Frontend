@@ -1,9 +1,9 @@
 import React from 'react';
-import './HeroSlider.scss'
+import './HeroSlider.scss';
 import { Carousel } from 'react-bootstrap';
-import banner1 from '../../Assets/Images/slider-8.jpg';
-import banner2 from '../../Assets/Images/slider-9.jpg';
-import banner3 from '../../Assets/Images/slider-10.jpg';
+import banner1 from '../../assets/Images/slider-8.jpg';
+import banner2 from '../../assets/Images/slider-9.jpg';
+import banner3 from '../../assets/Images/slider-10.jpg';
 const Banner = () => {
   return (
     <div className="bannerSlider">

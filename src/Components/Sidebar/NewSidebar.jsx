@@ -56,11 +56,11 @@ export default function NewSidebar(props) {
     const url = await getEndSlug(item);
     console.log(url);
     // history.push(url);
-    window.history.go('http://localhost:3000/' + url);
+    // window.history.go('http://localhost:3000/' + url);
   };
 
   return (
-    <Router>
+    <>
       <div className="main_cat">
         {topCategory.map((tcat, index) => (
           <li
@@ -101,6 +101,6 @@ export default function NewSidebar(props) {
           </div>
         </div>
       )}
-    </Router>
+    </>
   );
 }
