@@ -78,7 +78,7 @@ export default function NewSidebar(props) {
       {open && (
         <div
           className="sidemenu"
-          //  onClick={() => setOpen(false)}
+        //  onClick={() => setOpen(false)}
         >
           <div>
             {selectedCats.midCategories.map((midItem) => (

@@ -10,10 +10,12 @@ import { PrivateRoute } from './PrivateRoute';
 import Login from '../Pages/Login';
 import Registration from '../Pages/Registration';
 import Cart from '../Components/Cart/Cart';
+import SideAddToCart from '../Components/SideAddToCart/SideAddToCart';
 
 export default function MainRouter() {
   return (
     <Router>
+      <SideAddToCart />
       <Switch>
         <PrivateRoute exact path="/checkout">
           <h2>secured route</h2>

@@ -19,7 +19,6 @@ const Cart = () => {
       <div className="bg-secondary text-light d-flex aligin-items-center justify-content-center py-5">
         <h3 className="py-5">Cart</h3>
       </div>
-
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-10">
