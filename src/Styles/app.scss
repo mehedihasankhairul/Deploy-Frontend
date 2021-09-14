@@ -165,6 +165,18 @@ h3 {
 //   padding: 1.5em;
 // }
 // import styles components
+@import "./CategoryItem.module.scss";
+@import "../Components/Shared/Footer/footer.scss";
+@import "../Components/Partner/partner.scss";
+@import "../Components/HomeDiscount/HomeDiscount.scss";
+@import "../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss";
+@import "../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider.scss";
+@import "../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider.scss";
+@import "../Pages/Product/Product.scss";
+
+@import "./Sidebar.scss";
+@import "./dropdown.module.scss";
+@import "./cart.button.scss";
 @import './CategoryItem.module.scss';
 @import '../Components/Shared/Footer/footer.scss';
 @import '../Components/Partner/partner.scss';
