@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './SideAddToCart.scss'
+import './SideAddToCart.scss';
+import { GiShoppingCart } from 'react-icons/gi';
 
 const SideAddToCart = () => {
     const [showCart, setShowCart] = useState(false);
@@ -9,10 +10,10 @@ const SideAddToCart = () => {
     }
     return (
         <>
-            <div onClick={addToCart} className="midAddToCart">
-                <button className="btn btn-success">
-                    <i className="fa fa-shopping-cart px-2" aria-hidden="true">{' 3'}</i> <br />
-                    <span className="badge badge-light">$10</span>
+            <div onClick={addToCart} className="midAddToCart align-items-center">
+                <button className="btn btn-success pt-4">
+                    <span className="cart_menu"><GiShoppingCart size={25} />  <span>5</span></span>
+                    <p>$10</p>
                 </button>
             </div>
 
