@@ -2,7 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import Navbar from '../../Components/Shared/Navbar/Navbar';
+import Footer from '../../Components/Shared/Footer/Footer';
+import NewNav from '../../Components/Shared/Navbar/NewNav';
 
 const baseUrl = 'https://deploy.com.bd/assets/uploads/';
 
@@ -19,8 +20,8 @@ export default function ProductByCat() {
   );
   return (
     <>
-      <Navbar />
-      <div>
+      <NewNav />
+      <div style={{ paddingTop: '6em' }}>
         {/* <Navigator /> */}
         <span className="navigator">
           <Link to="/">Home</Link>
@@ -52,6 +53,7 @@ export default function ProductByCat() {
               ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

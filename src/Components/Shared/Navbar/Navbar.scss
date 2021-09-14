@@ -91,6 +91,12 @@
   }
 }
 
+.mid_menu {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
 @media screen and (max-width: 923px) {
   .navbar img {
     width: 20%;
