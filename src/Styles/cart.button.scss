@@ -1,0 +1,11 @@
+.cart_button {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 1.2em;
+  justify-content: center;
+  svg {
+    cursor: pointer;
+    font-size: 1.3em;
+  }
+}

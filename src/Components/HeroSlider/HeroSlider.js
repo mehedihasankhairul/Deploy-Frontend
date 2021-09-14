@@ -1,5 +1,5 @@
 import React from 'react';
-import './HeroSlider.scss'
+import './HeroSlider.scss';
 import { Carousel } from 'react-bootstrap';
 import banner1 from '../../assets/Images/slider-8.jpg';
 import banner2 from '../../assets/Images/slider-9.jpg';
