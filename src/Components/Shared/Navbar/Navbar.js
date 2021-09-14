@@ -22,26 +22,18 @@ const Navbar = () => {
           </button>
           <img className="nav-logo" src="https://deploy.com.bd/assets/uploads/logo.jpeg" alt="logo" />
           <div className="collapse navbar-collapse" id="navbarCollapse">
-            <form className="form-inline ml-sm-auto">
-              <input
-                type="text"
-                className="form-control mr-sm-2 "
-                placeholder="Search Products..."
-              />
-              <button type="submit" className="btn btn-outline-light">
-                Search
-              </button>
-            </form>
             <div className="navbar-nav text-white mr-0 ml-auto">
               <div className="userSection justify-between-content p-2">
                 <i className="fa fa-sign-out px-2" aria-hidden="true"></i>
                 <span>Login</span>
               </div>
-              <div className="myCart p-2">
-                <i className="fa fa-shopping-cart px-2" aria-hidden="true"></i>
-                <small className="fw-bold">(BDT 0.00)</small>
+              <div className="userSection justify-between-content p-2">
+                <i className="fa fa-user-plus px-2" aria-hidden="true"></i>
+                <span>Register</span>
               </div>
+
               <MediaQuery maxWidth="767px">
+                {/* <p>Category items {activeMenu}</p> */}
                 <div className="mobile_category">
                   {topCats.map((item, index) => (
                     <DropDownItem

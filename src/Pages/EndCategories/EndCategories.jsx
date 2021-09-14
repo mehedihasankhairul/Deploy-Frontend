@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import EndItem from '../../Components/CategoriesSlider/EndCategoriesSlider/EndItem';
-import Navbar from '../../Components/Shared/Navbar/Navbar';
+// import Navbar from '../../Components/Shared/Navbar/Navbar';
+import NewNav from '../../Components/Shared/Navbar/NewNav';
+import Footer from '../../Components/Shared/Footer/Footer';
 import Error from '../Error/Error';
 
 export default function EndCategories() {
@@ -20,8 +22,9 @@ export default function EndCategories() {
   // console.log(filteredCategories);
   return (
     <>
-      <Navbar />
-      <section>
+      {/* <Navbar /> */}
+      <NewNav />
+      <section style={{ paddingTop: '6em' }}>
         <span className="navigator">
           <Link to="/">Home</Link>
           {'> '}{' '}
@@ -38,6 +41,7 @@ export default function EndCategories() {
           <Error />
         )}
       </section>
+      <Footer />
     </>
   );
 }
