@@ -9,7 +9,10 @@ const CustomerRegistration = () => {
         <h1 className="py-5">Customer Registration</h1>
       </div>
 
-      <div className="row d-flex justify-content-center">
+      <div
+        className="row d-flex justify-content-center"
+        style={{ padding: '1.5em' }}
+      >
         <div className="col-md-4 my-5">
           <div className="logo d-flex justify-content-center">
             <img className="w-50" src={logo} alt="logo" />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getEndSlug } from '../../Utils/getSlug';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   GiFruitBowl,
   GiFruitTree,
@@ -78,7 +78,7 @@ export default function NewSidebar(props) {
       {open && (
         <div
           className="sidemenu"
-          //  onClick={() => setOpen(false)}
+        //  onClick={() => setOpen(false)}
         >
           <div>
             {selectedCats.midCategories.map((midItem) => (
