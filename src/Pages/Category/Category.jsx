@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import CategoryItem from '../../Components/Home/CategoryItem';
-import Navbar from '../../Components/Shared/Navbar/Navbar';
+import NewNav from '../../Components/Shared/Navbar/NewNav';
+import Footer from '../../Components/Shared/Footer/Footer';
 import Error from '../Error/Error';
 
 export default function Category() {
@@ -16,8 +17,9 @@ export default function Category() {
     : null;
   return (
     <>
-      <Navbar />
-      <main>
+      {/* <Navbar /> */}
+      <NewNav />
+      <main style={{ paddingTop: '6em' }}>
         <span className="navigator">
           <Link to="/">Home</Link>
           {'> '} <span>{selectedCat.name}</span>
@@ -32,6 +34,7 @@ export default function Category() {
           <Error />
         )}
       </main>
+      <Footer />
     </>
   );
 }

@@ -1,4 +1,4 @@
-@import "./colors";
+@import './colors';
 
 * {
   margin: 0;
@@ -49,6 +49,8 @@ header {
 }
 
 .main {
+  scroll-margin-top: 3em;
+  // padding-top: 4em;
   margin: 0 auto;
   display: grid;
   height: 100vh;
@@ -70,6 +72,7 @@ header {
 .sidebar {
   background-color: $lightGray;
   padding: 2em;
+  padding-top: 6em;
   position: relative;
   height: 100vh;
 
@@ -79,6 +82,7 @@ header {
 }
 
 .main-container {
+  padding-top: 5em;
   max-height: 100%;
   overflow-y: scroll;
 
@@ -173,3 +177,26 @@ h3 {
 @import "./Sidebar.scss";
 @import "./dropdown.module.scss";
 @import "./cart.button.scss";
+@import './CategoryItem.module.scss';
+@import '../Components/Shared/Footer/footer.scss';
+@import '../Components/Partner/partner.scss';
+@import '../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss';
+@import '../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider.scss';
+@import '../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider.scss';
+@import '../Pages/Product/Product.scss';
+
+@import './Sidebar.scss';
+@import './dropdown.module.scss';
+@import './cart.button.scss';
+@import './NewNav.module.scss';
+@import './CategoryItem.module.scss';
+@import '../Components/Shared/Footer/footer.scss';
+@import '../Components/Partner/partner.scss';
+@import '../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss';
+@import '../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider.scss';
+@import '../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider.scss';
+@import '../Pages/Product/Product.scss';
+
+@import './Sidebar.scss';
+@import './dropdown.module.scss';
+@import './cart.button.scss';

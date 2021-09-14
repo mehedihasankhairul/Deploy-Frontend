@@ -5,7 +5,6 @@ import Category from '../Pages/Category/Category';
 import EndCategories from '../Pages/EndCategories/EndCategories';
 import Home from '../Pages/Home/Home';
 import Product from '../Pages/Product/Product';
-import Footer from '../Components/Shared/Footer/Footer';
 import { PrivateRoute } from './PrivateRoute';
 import Login from '../Pages/Login';
 import Registration from '../Pages/Registration';
@@ -33,7 +32,6 @@ export default function MainRouter() {
         <Route path="/:category/:mid_category" component={EndCategories} />
         <Route exact path="/:category" component={Category} />
       </Switch>
-      <Footer />
     </Router>
   );
 }

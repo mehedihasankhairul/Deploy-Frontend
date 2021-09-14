@@ -6,6 +6,7 @@ import MidCategoriesSlider from '../../Components/CategoriesSlider/MidCategories
 import TopCategoriesSlider from '../../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider';
 import MainLayout from '../../Components/Layout/MainLayout';
 import HomeDiscount from '../../Components/HomeDiscount/HomeDiscount';
+import Footer from '../../Components/Shared/Footer/Footer';
 
 export default function Home() {
   // const [open, setOpen] = useState(false);
@@ -32,6 +33,7 @@ export default function Home() {
         <br />
         <PartnerSlider />
         {/* <Partner /> */}
+        <Footer />
       </section>
     </MainLayout>
     //     </div>
