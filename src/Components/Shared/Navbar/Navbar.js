@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.scss';
-import navLogo from '../../../Assets/Images/deoloy-logo.jpeg';
+import navLogo from '../../../assets/Images/deoloy-logo.jpeg';
 
 const Navbar = () => {
   return (
