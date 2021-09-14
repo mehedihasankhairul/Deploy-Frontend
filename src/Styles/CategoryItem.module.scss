@@ -8,20 +8,25 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+
   img {
     max-height: 150px;
+
     @media (max-width: 768px) {
       height: 150px;
     }
   }
+
   h4 {
     font-size: 16px;
     padding: 5px 0;
     text-align: center;
   }
+
   &:hover {
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
   }
+
   @media (max-width: 768px) {
     height: 200px;
   }

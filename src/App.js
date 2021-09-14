@@ -11,18 +11,7 @@ import {
   top_category,
 } from './Store/dummy.data';
 import { loadProducts } from './Store/Product/product.action';
-import Navbar from './Components/Shared/Navbar/Navbar';
-import NewSidebar from './Components/Sidebar/NewSidebar';
-import { useState } from 'react';
 
-// const dummy = [
-//   {tCatId: 6, tCatName: "Grocery and Food", image: 'demo.png'},
-//   {tCatId: 7, tCatName: "D Food", image: 'demo.png'},
-//   {tCatId: 8, tCatName: "D Pharmacy", image: 'demo.png'},
-//   {tCatId: 9, tCatName: "Office Products", image: 'demo.png'},
-//   {tCatId: 10, tCatName: "Baby Care", image: 'demo.png'},
-//   {tCatId: 11, tCatName: "Beauty & Health", image: 'demo.png'},
-// ]
 function App() {
   const dispatch = useDispatch();
   dispatch(
@@ -33,25 +22,8 @@ function App() {
     })
   );
   dispatch(loadProducts(products));
-  // const cat = useSelector(state => state.category)
-  // console.log(cat[0].tSubCat)
-  // cat[0].tSubCat.map(sub => {
-  //   console.log(sub)
-  // })
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="main-area">
-      <Navbar />
-      <main className="main">
-        <aside className="sidebar" onMouseLeave={() => setOpen(false)}>
-          <NewSidebar open={open} setOpen={setOpen} />
-        </aside>
-        <div className="main-container">
-          <MainRouter />
-        </div>
-      </main>
-    </div>
-  );
+
+  return <MainRouter />;
 }
 
 export default App;
