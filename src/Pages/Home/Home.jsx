@@ -5,6 +5,7 @@ import HeroSlider from '../../Components/HeroSlider/HeroSlider.js';
 import MidCategoriesSlider from '../../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider';
 import TopCategoriesSlider from '../../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider';
 import MainLayout from '../../Components/Layout/MainLayout';
+import HomeDiscount from '../../Components/HomeDiscount/HomeDiscount';
 
 export default function Home() {
   // const [open, setOpen] = useState(false);
@@ -19,6 +20,7 @@ export default function Home() {
     <MainLayout>
       <section className="content">
         <HeroSlider />
+        <HomeDiscount />
         <EndCategoriesSlider />
         <MidCategoriesSlider />
         <TopCategoriesSlider />
