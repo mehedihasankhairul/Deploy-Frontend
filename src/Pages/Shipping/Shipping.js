@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import NewNav from '../../Components/Shared/Navbar/NewNav';
 import Footer from '../../Components/Shared/Footer/Footer';
 import axios from 'axios';
 import SecondaryLayout from '../../Components/Layout/SecondaryLayout';

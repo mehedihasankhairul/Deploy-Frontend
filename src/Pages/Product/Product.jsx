@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import ReactImageZoom from 'react-image-zoom'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useParams } from 'react-router';
 import Navigator from '../../Components/Shared/Navigator/Navigator';
-import Navbar from '../../Components/Shared/Navbar/Navbar';
 import CartButton from '../../Components/CartButton';
-import NewNav from '../../Components/Shared/Navbar/NewNav';
 import Footer from '../../Components/Shared/Footer/Footer';
-import MainLayout from '../../Components/Layout/MainLayout';
 import SecondaryLayout from '../../Components/Layout/SecondaryLayout';
 
 export default function Product() {
@@ -27,7 +23,6 @@ export default function Product() {
     }
   };
   const imageUrl = 'https://deploy.com.bd/assets/uploads/' + item.image;
-  // const zoomProps = { width: 400, height: 250, zoomWidth: 500, img: { imageUrl } }
 
   console.log(category, subCategory);
   console.log(allProducts);
@@ -41,7 +36,6 @@ export default function Product() {
         <div className="container">
           <div className="row mt-3">
             <div className="col-md-6 pd-img">
-              {/* <ReactImageZoom {...zoomProps} /> */}
               <img src={imageUrl} alt="imagefgsva" />
             </div>
             <div className="col-md-6 pd-content">

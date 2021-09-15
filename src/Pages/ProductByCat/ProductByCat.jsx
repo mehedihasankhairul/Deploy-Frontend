@@ -4,7 +4,6 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import MainLayout from '../../Components/Layout/MainLayout';
 import Footer from '../../Components/Shared/Footer/Footer';
-import NewNav from '../../Components/Shared/Navbar/NewNav';
 
 const baseUrl = 'https://deploy.com.bd/assets/uploads/';
 
