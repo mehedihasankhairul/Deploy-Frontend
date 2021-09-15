@@ -1,10 +1,10 @@
-@import './colors';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "./colors";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', serif;
+  font-family: "Poppins", serif;
 }
 
 a {
@@ -167,39 +167,39 @@ h3 {
 //   padding: 1.5em;
 // }
 // import styles components
-@import './CategoryItem.module.scss';
-@import '../Components/Shared/Footer/footer.scss';
-@import '../Components/Partner/partner.scss';
-@import '../Components/HomeDiscount/HomeDiscount.scss';
-@import '../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss';
-@import '../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider.scss';
-@import '../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider.scss';
-@import '../Pages/Product/Product.scss';
+@import "./CategoryItem.module.scss";
+@import "../Components/Shared/Footer/footer.scss";
+@import "../Components/Partner/partner.scss";
+@import "../Components/HomeDiscount/HomeDiscount.scss";
+@import "../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss";
+@import "../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider.scss";
+@import "../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider.scss";
+@import "../Pages/Product/Product.scss";
 
-@import './Sidebar.scss';
-@import './dropdown.module.scss';
-@import './cart.button.scss';
-@import './CategoryItem.module.scss';
-@import '../Components/Shared/Footer/footer.scss';
-@import '../Components/Partner/partner.scss';
-@import '../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss';
-@import '../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider.scss';
-@import '../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider.scss';
-@import '../Pages/Product/Product.scss';
+@import "./Sidebar.scss";
+@import "./dropdown.module.scss";
+@import "./cart.button.scss";
+@import "./CategoryItem.module.scss";
+@import "../Components/Shared/Footer/footer.scss";
+@import "../Components/Partner/partner.scss";
+@import "../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss";
+@import "../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider.scss";
+@import "../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider.scss";
+@import "../Pages/Product/Product.scss";
 
-@import './Sidebar.scss';
-@import './dropdown.module.scss';
-@import './cart.button.scss';
-@import './NewNav.module.scss';
-@import './CategoryItem.module.scss';
-@import '../Components/Shared/Footer/footer.scss';
-@import '../Components/Partner/partner.scss';
-@import '../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss';
-@import '../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider.scss';
-@import '../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider.scss';
-@import '../Pages/Product/Product.scss';
-@import '../Pages/Shipping/shipping.scss';
+@import "./Sidebar.scss";
+@import "./dropdown.module.scss";
+@import "./cart.button.scss";
+@import "./NewNav.module.scss";
+@import "./CategoryItem.module.scss";
+@import "../Components/Shared/Footer/footer.scss";
+@import "../Components/Partner/partner.scss";
+@import "../Components/CategoriesSlider/EndCategoriesSlider/EndCategoriesSlider.scss";
+@import "../Components/CategoriesSlider/TopCategoriesSlider/TopCategoriesSlider.scss";
+@import "../Components/CategoriesSlider/MidCategoriesSlider/MidCategoriesSlider.scss";
+@import "../Pages/Product/Product.scss";
+@import "../Pages/Shipping/Shipping.scss";
 
-@import './Sidebar.scss';
-@import './dropdown.module.scss';
-@import './cart.button.scss';
+@import "./Sidebar.scss";
+@import "./dropdown.module.scss";
+@import "./cart.button.scss";
