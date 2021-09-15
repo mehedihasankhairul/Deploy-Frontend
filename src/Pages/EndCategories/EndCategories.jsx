@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import EndItem from '../../Components/CategoriesSlider/EndCategoriesSlider/EndItem';
-// import Navbar from '../../Components/Shared/Navbar/Navbar';
-import NewNav from '../../Components/Shared/Navbar/NewNav';
+import MediaQuery from 'react-responsive';
 import Footer from '../../Components/Shared/Footer/Footer';
 import Error from '../Error/Error';
+import MainLayout from '../../Components/Layout/MainLayout';
+import SideAddToCart from '../../Components/SideAddToCart/SideAddToCart';
 
 export default function EndCategories() {
   const { midCategory, endCategory } = useSelector((state) => state.category);
@@ -21,10 +22,11 @@ export default function EndCategories() {
     : null;
   // console.log(filteredCategories);
   return (
-    <>
-      {/* <Navbar /> */}
-      <NewNav />
-      <section style={{ paddingTop: '6em' }}>
+    <MainLayout>
+      <section style={{ paddingTop: '1.5em' }}>
+        <MediaQuery minWidth="768px">
+          <SideAddToCart />
+        </MediaQuery>
         <span className="navigator">
           <Link to="/">Home</Link>
           {'> '}{' '}
@@ -40,8 +42,8 @@ export default function EndCategories() {
         ) : (
           <Error />
         )}
+        <Footer />
       </section>
-      <Footer />
-    </>
+    </MainLayout>
   );
 }

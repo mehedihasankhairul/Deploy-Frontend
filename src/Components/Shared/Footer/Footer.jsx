@@ -27,7 +27,8 @@ const Footer = () => {
                 {/* <!-- Content --> */}
                 <p>Our Corporate Office Address</p>
                 <p>
-                  N.I.C Residence Plot no.19 Block A, Behind hotel shams plaza, Shugondha, Coxbazar
+                  N.I.C Residence Plot no.19 Block A, Behind hotel shams plaza,
+                  Shugondha, Coxbazar
                 </p>
               </div>
               {/* <!-- Grid column --> */}
@@ -92,7 +93,8 @@ const Footer = () => {
         {/* <!-- Copyright --> */}
         <div className="text-center p-4">
           © 2021 Copyright:
-          <Link to="/" className="text-reset fw-bold"> {' '}
+          <Link to="/" className="text-reset fw-bold">
+            {' '}
             Team Phoenix
           </Link>
         </div>

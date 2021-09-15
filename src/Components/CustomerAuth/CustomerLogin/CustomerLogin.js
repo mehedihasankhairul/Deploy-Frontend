@@ -6,7 +6,7 @@ const CustomerLogin = () => {
   return (
     <div>
       <div className="bg-secondary text-light d-flex aligin-items-center justify-content-center py-5">
-        <h3 className="py-5">Customer Login</h3>
+        <h3 className="py-2">Customer Login</h3>
       </div>
 
       <div

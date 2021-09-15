@@ -43,10 +43,11 @@
 .main_cat {
   li {
     list-style: none;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     gap: 1em;
     align-items: center;
-    font-size: 1.2em;
+    font-size: 1.1em;
     padding: 0.5em;
     cursor: pointer;
 

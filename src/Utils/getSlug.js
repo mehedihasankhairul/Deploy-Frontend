@@ -22,3 +22,7 @@ export const getMidSlug = (item) => {
   const slug = `/${topSlug}/${midSlug}`;
   return slug;
 };
+
+export const nameToSlug = (str) => {
+  return str.replaceAll(' ', '-').toLowerCase();
+};

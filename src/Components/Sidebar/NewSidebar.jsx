@@ -11,6 +11,8 @@ import {
 import { FaBaby } from 'react-icons/fa';
 import { BiFace } from 'react-icons/bi';
 import { RiMentalHealthFill } from 'react-icons/ri';
+import { GoPlus } from 'react-icons/go';
+import { HiMinus } from 'react-icons/hi';
 
 export default function NewSidebar(props) {
   const icons = [
@@ -72,13 +74,18 @@ export default function NewSidebar(props) {
           >
             {icons[index]}
             {tcat.name}
+            {selectedCats.topCat?.name === tcat.name ? (
+              <HiMinus />
+            ) : (
+              <GoPlus size={16} />
+            )}
           </li>
         ))}
       </div>
       {open && (
         <div
           className="sidemenu"
-        //  onClick={() => setOpen(false)}
+          //  onClick={() => setOpen(false)}
         >
           <div>
             {selectedCats.midCategories.map((midItem) => (
