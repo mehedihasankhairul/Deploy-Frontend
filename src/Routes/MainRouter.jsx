@@ -7,6 +7,7 @@ import Home from '../Pages/Home/Home';
 import Product from '../Pages/Product/Product';
 import { PrivateRoute } from './PrivateRoute';
 import Login from '../Pages/Login';
+import Shipping from '../Pages/Shipping/Shipping';
 import Registration from '../Pages/Registration';
 import Cart from '../Components/Cart/Cart';
 import SideAddToCart from '../Components/SideAddToCart/SideAddToCart';
@@ -22,6 +23,7 @@ export default function MainRouter() {
         <Route path="/login" component={Login} />
         <Route path="/registration" component={Registration} />
         <Route path="/cart" component={Cart} />
+        <Route path="/shipping" component={Shipping} />
         <Route exact path="/" component={Home} />
         <Route
           path="/:category/:mid_category/:end_category/:productid"
