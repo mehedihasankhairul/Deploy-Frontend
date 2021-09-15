@@ -2,10 +2,6 @@ import React, { useRef } from 'react';
 import Carousel from 'react-elastic-carousel';
 import MediaQuery from 'react-responsive';
 
-// import ShopItem from './ShopItem';
-
-// import styles from './Slider.module.scss';
-
 const slides = [
   '1.webp',
   '10.webp',
@@ -104,7 +100,7 @@ const PartnerSlider = () => {
   const baseUrl = 'https://deploy.com.bd/assets/breandLogo/';
 
   return (
-    <div>
+    <div className="pt-5">
       <h3>Our Official Partner</h3>
 
       <MediaQuery minWidth="1020px">

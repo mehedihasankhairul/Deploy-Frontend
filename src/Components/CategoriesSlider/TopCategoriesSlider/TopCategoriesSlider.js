@@ -30,7 +30,7 @@ const TopCategoriesSlider = () => {
   };
 
   return (
-    <div className="topCategoriesSlider py-4">
+    <div className="topCategoriesSlider">
       <h3 className="heading pb-4">Top Categories</h3>
       <Carousel responsive={responsive}>
         {topCategory.map((item) => (
