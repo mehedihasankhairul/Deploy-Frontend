@@ -1,0 +1,25 @@
+.drop_menu_item {
+  //   padding: 0 1.5em;
+  p {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    width: 90%;
+    margin-left: 5%;
+    justify-content: space-between;
+
+    // border: 1px solid lightgray;
+    // padding: 0.5em;
+    span {
+      //   border: 1px solid lightgray;
+      height: 100%;
+      padding: 6px;
+    }
+  }
+  li {
+    padding-left: 0.5em 2em;
+  }
+  a {
+    color: #fff;
+  }
+}

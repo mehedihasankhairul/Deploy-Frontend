@@ -1,0 +1,36 @@
+.endCategoriesSlider {
+  margin: 0 0  0.7rem;
+  background: #e7f5ff;
+  padding: 0 1.5rem;
+
+  @media screen and (max-width: 600px) {
+      padding: 0 0.5rem;
+    }
+}
+
+.item {
+  margin-right: 0.7rem;
+  @media screen and (max-width: 600px) {
+      margin-right: 0.4rem;
+    }
+}
+
+.heading {
+  color           : black;
+  // font-weight: 600;
+  // font-size: 1.5em;
+  text-align      : center;
+  // display: inline-block;
+  margin          : 0 auto;
+  padding-bottom  : 0.5em;
+  // border-bottom: 1px solid #5cbd5a;
+  width           : auto;
+}
+
+.react-multiple-carousel__arrow, .react-multiple-carousel__arrow:active {
+  background:rgba(0, 0, 0, 0.144) !important;
+}
+
+.react-multiple-carousel__arrow:hover, .react-multiple-carousel__arrow:active {
+  background:rgba(0, 0, 0, 0.596) !important;
+}

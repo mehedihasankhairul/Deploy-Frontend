@@ -1,0 +1,62 @@
+.sidemenu {
+  position: absolute;
+  left: 290px;
+  top: 6em;
+  bottom: 10px;
+  background-color: #eceff1;
+  border-radius: 1em;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2222;
+  display: grid;
+  padding: 2em;
+  width: 700px;
+
+  .cat_title {
+    font-weight: '600';
+  }
+
+  overflow-y: scroll;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+
+  .midcats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    // grid-gap: 0.5em;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+.main_cat {
+  li {
+    list-style: none;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1em;
+    align-items: center;
+    font-size: 1.1em;
+    padding: 0.5em;
+    cursor: pointer;
+
+    &:hover {
+      color: $mediumGray;
+    }
+
+    &.active {
+      color: $mediumGray;
+    }
+  }
+}

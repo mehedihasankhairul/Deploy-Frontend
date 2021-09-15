@@ -1,0 +1,25 @@
+.topCategoriesSlider {
+    margin: 1rem 0 0 0;
+    background: #e7f5ff;
+    padding: 0 1.5rem;
+
+    @media screen and (max-width: 600px) {
+        margin: 1rem 0 0 0;
+        padding: 0 0.5rem;
+      }
+}
+
+.item {
+    margin-right: 0.7rem;
+    @media screen and (max-width: 600px) {
+        margin-right: 0.4rem;
+      }
+}
+
+.heading {
+    color: black;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 0.5em;
+    width: auto;
+  }

@@ -1,41 +1,41 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable camelcase */
-import { useDispatch } from 'react-redux'
-import './Styles/app.scss'
-import MainRouter from './Routes/MainRouter'
-import { setCategory } from './Store/Category/category.action'
-import { end_category, mid_category, products, top_category } from './Store/dummy.data'
-import { loadProducts } from './Store/Product/product.action'
-import Navbar from './Components/Shared/Navbar/Navbar'
+import { useDispatch } from 'react-redux';
+import './Styles/app.scss';
+import MainRouter from './Routes/MainRouter';
+import { setCategory } from './Store/Category/category.action';
+import {
+  end_category,
+  mid_category,
+  products,
+  top_category,
+} from './Store/dummy.data';
+import { loadProducts } from './Store/Product/product.action';
+import axios from 'axios';
 
-// const dummy = [
-//   {tCatId: 6, tCatName: "Grocery and Food", image: 'demo.png'},
-//   {tCatId: 7, tCatName: "D Food", image: 'demo.png'},
-//   {tCatId: 8, tCatName: "D Pharmacy", image: 'demo.png'},
-//   {tCatId: 9, tCatName: "Office Products", image: 'demo.png'},
-//   {tCatId: 10, tCatName: "Baby Care", image: 'demo.png'},
-//   {tCatId: 11, tCatName: "Beauty & Health", image: 'demo.png'},
-// ]
-function App () {
-  const dispatch = useDispatch()
-  dispatch(setCategory({ topCategory: top_category, midCategory: mid_category, endCategory: end_category }))
-  dispatch(loadProducts(products))
-  // const cat = useSelector(state => state.category)
-  // console.log(cat[0].tSubCat)
-  // cat[0].tSubCat.map(sub => {
-  //   console.log(sub)
-  // })
-  return (
-    <div className='main-area'>
-      <Navbar />
-      <main className='main'>
-        <aside className='sidebar'>side category</aside>
-        <div className="main-container">
-        <MainRouter />
-        </div>
-      </main>
-    </div>
-  )
+function App() {
+  const endCategories = axios
+    .get('https://frozen-caverns-97537.herokuapp.com/api/topcategroy')
+    // .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      return data.data.results;
+    });
+  // console.log(endCategories, 'end cat');
+  // fetch('https://frozen-caverns-97537.herokuapp.com/api/topcategroy/')
+  //   .then((res) => res.json())
+  //   .then((res) => console.log(res));
+  const dispatch = useDispatch();
+  dispatch(
+    setCategory({
+      topCategory: top_category,
+      midCategory: mid_category,
+      endCategory: end_category,
+    })
+  );
+  dispatch(loadProducts(products));
+
+  return <MainRouter />;
 }
 
-export default App
+export default App;

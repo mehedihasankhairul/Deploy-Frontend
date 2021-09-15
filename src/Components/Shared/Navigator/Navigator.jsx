@@ -1,27 +1,35 @@
-import React from 'react'
-import { useParams } from 'react-router'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
-export default function Navigator () {
-  const params = useParams()
-  console.log(params.category)
-  Object.keys(params).forEach(item => console.log(params[item]))
+export default function Navigator() {
+  const params = useParams();
+  console.log(params.category);
+  const slugs = Object.keys(params).map((item) => params[item]);
+  console.log(slugs);
+  // const history = useHistory()
+  // const pushHistory = h => {
+  //     history.push('/' + h)
+  // }
   return (
-        <div className='navigator'>
-            <h3>
-                <Link to='/'>Home</Link>
-                {
-                    params.category && <> {'>'} <Link to={`/${params.category}`}>{params.category.replaceAll('-', ' ')}</Link> </>
-                }
-                {
-                    params.mid_category && <> {'>'} <Link to={`/${params.category}/${params.mid_category}`}>{params.mid_category.replaceAll('-', ' ')}</Link> </>
-                }
-                {
-                    params.productid && <span>{'>'}{params.productid}</span>
-                }
-
-            </h3>
-
-        </div>
-  )
+    <div className="navigator">
+      <span className="navigator">
+        <Link to="/">Home</Link>
+        {slugs.slice(0, slugs.length - 1).map((item) => (
+          <>
+            {' '}
+            {'>'}{' '}
+            <Link key={item} to={'/' + item}>
+              {item}
+            </Link>{' '}
+          </>
+        ))}
+        <>
+          {' '}
+          {'>'} <span>{slugs[slugs.length - 1]}</span>{' '}
+        </>
+      </span>
+      {/* <span onClick={() => pushHistory(slugs[0])}>{slugs[0]}</span> */}
+    </div>
+  );
 }

@@ -1,10 +1,10 @@
-import { productActionType } from './product.actionType'
+import { productActionType } from './product.actionType';
 
 export const productReducer = (state = [], action) => {
   switch (action.type) {
     case productActionType.LOAD_PRODUCT:
-      return action.payload
+      return action.payload;
     default:
-      return state
+      return state;
   }
-}
+};
