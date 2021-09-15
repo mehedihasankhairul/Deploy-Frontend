@@ -4,13 +4,17 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import CategoryItem from '../../Components/Home/CategoryItem';
 import Navbar from '../../Components/Shared/Navbar/Navbar';
+import { nameToSlug } from '../../Utils/getSlug';
 import Error from '../Error/Error';
 
 export default function Category() {
   const { topCategory, midCategory } = useSelector((state) => state.category);
 
   const { category } = useParams();
-  const selectedCat = topCategory.find((cat) => cat.slug === category);
+  // const selectedCat = topCategory.find(
+  //   (cat) => nameToSlug(cat.name) === category
+  // );
+  const selectedCat = topCategory[0];
   const subCategories = selectedCat
     ? midCategory.filter((sCat) => sCat.tCatId === selectedCat.tCatId)
     : null;
