@@ -6,10 +6,13 @@ const CustomerLogin = () => {
   return (
     <div>
       <div className="bg-secondary text-light d-flex aligin-items-center justify-content-center py-5">
-        <h3 className="py-5">Customer Login</h3>
+        <h3 className="py-2">Customer Login</h3>
       </div>
 
-      <div className="row d-flex justify-content-center">
+      <div
+        className="row d-flex justify-content-center"
+        style={{ padding: '1.5em' }}
+      >
         <div className="col-md-4 my-5">
           <div className="logo d-flex justify-content-center">
             <img className="w-50" src={logo} alt="logo" />

@@ -2,7 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import Navbar from '../../Components/Shared/Navbar/Navbar';
+import MainLayout from '../../Components/Layout/MainLayout';
+import Footer from '../../Components/Shared/Footer/Footer';
+import NewNav from '../../Components/Shared/Navbar/NewNav';
 
 const baseUrl = 'https://deploy.com.bd/assets/uploads/';
 
@@ -18,9 +20,8 @@ export default function ProductByCat() {
     (product) => product.ecatId === selectedCategory.id
   );
   return (
-    <>
-      <Navbar />
-      <div>
+    <MainLayout>
+      <div style={{ paddingTop: '1.5em' }}>
         {/* <Navigator /> */}
         <span className="navigator">
           <Link to="/">Home</Link>
@@ -39,7 +40,7 @@ export default function ProductByCat() {
                   <img src={baseUrl + prod.image} alt="" />
                   <p>{prod.productName}</p>
                   <p>BDT {prod.currentPrice}</p>
-                  <button>Add To Cart</button>
+                  <button className="addToCart">Add To Cart</button>
                 </div>
               ))
             : allProducts.map((prod) => (
@@ -47,11 +48,12 @@ export default function ProductByCat() {
                   <img src={baseUrl + prod.image} alt="" />
                   <p>{prod.productName}</p>
                   <p>BDT {prod.currentPrice}</p>
-                  <button>Add To Cart</button>
+                  <button className="addToCart">Add To Cart</button>
                 </div>
               ))}
         </div>
+        <Footer />
       </div>
-    </>
+    </MainLayout>
   );
 }

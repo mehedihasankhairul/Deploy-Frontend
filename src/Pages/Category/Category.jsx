@@ -3,9 +3,13 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import CategoryItem from '../../Components/Home/CategoryItem';
-import Navbar from '../../Components/Shared/Navbar/Navbar';
 import { nameToSlug } from '../../Utils/getSlug';
+import NewNav from '../../Components/Shared/Navbar/NewNav';
+import Footer from '../../Components/Shared/Footer/Footer';
 import Error from '../Error/Error';
+import MainLayout from '../../Components/Layout/MainLayout';
+import SideAddToCart from '../../Components/SideAddToCart/SideAddToCart';
+import MediaQuery from 'react-responsive';
 
 export default function Category() {
   const { topCategory, midCategory } = useSelector((state) => state.category);
@@ -19,9 +23,11 @@ export default function Category() {
     ? midCategory.filter((sCat) => sCat.tCatId === selectedCat.tCatId)
     : null;
   return (
-    <>
-      <Navbar />
-      <main>
+    <MainLayout>
+      <main style={{ paddingTop: '1.5em' }}>
+        <MediaQuery minWidth="768px">
+          <SideAddToCart />
+        </MediaQuery>
         <span className="navigator">
           <Link to="/">Home</Link>
           {'> '} <span>{selectedCat.name}</span>
@@ -35,7 +41,8 @@ export default function Category() {
         ) : (
           <Error />
         )}
+        <Footer />
       </main>
-    </>
+    </MainLayout>
   );
 }

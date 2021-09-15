@@ -1,5 +1,8 @@
 .footer-bg {
-  background: black;
+  background: $mediumGray;
+  a {
+    color: #fff;
+  }
 }
 
 .footer-newsletter form {
@@ -30,12 +33,12 @@
   font-size: 16px;
   padding: 0 30px;
   margin: 3px;
-  background: #495057;
+  background: $mediumGray;
   color: #fff;
   transition: 0.3s;
   border-radius: 50px;
 }
 
 .footer-newsletter form input[type='submit']:hover {
-  background: #e6573f;
+  background: #20830cd7;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getEndSlug } from '../../Utils/getSlug';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   GiFruitBowl,
   GiFruitTree,
@@ -11,6 +11,8 @@ import {
 import { FaBaby } from 'react-icons/fa';
 import { BiFace } from 'react-icons/bi';
 import { RiMentalHealthFill } from 'react-icons/ri';
+import { GoPlus } from 'react-icons/go';
+import { HiMinus } from 'react-icons/hi';
 
 export default function NewSidebar(props) {
   const icons = [
@@ -72,6 +74,11 @@ export default function NewSidebar(props) {
           >
             {icons[index]}
             {tcat.name}
+            {selectedCats.topCat?.name === tcat.name ? (
+              <HiMinus />
+            ) : (
+              <GoPlus size={16} />
+            )}
           </li>
         ))}
       </div>

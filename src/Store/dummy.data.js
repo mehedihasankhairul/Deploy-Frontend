@@ -389,7 +389,7 @@ export const products = [
     id: 3,
     productName: 'Nazirshail Rice Premium 5 kg',
     mcatId: 23,
-    oldPrice: '',
+    oldPrice: '573',
     currentPrice: '348',
     qty: 485,
     image: 'product-featured-3.webp',
@@ -400,7 +400,7 @@ export const products = [
   {
     id: 4,
     productName: 'Chinigura Rice 1 kg',
-    oldPrice: '',
+    oldPrice: '573',
     mcatId: 24,
     currentPrice: '98',
     qty: 499,
@@ -412,7 +412,7 @@ export const products = [
   {
     id: 7,
     productName: 'Cumin Seed {Jira} 100 gm',
-    oldPrice: '',
+    oldPrice: '573',
     mcatId: 23,
     currentPrice: '39',
     qty: 49999,
@@ -424,7 +424,7 @@ export const products = [
   {
     id: 8,
     productName: 'Cinnamon {Daruchini} 100 gm',
-    oldPrice: '',
+    oldPrice: '573',
     mcatId: 24,
     currentPrice: '49',
     qty: 49999,
@@ -436,7 +436,7 @@ export const products = [
   {
     id: 9,
     productName: 'Cardamom {Elachi} 50 gm',
-    oldPrice: '',
+    oldPrice: '573',
     mcatId: 25,
     currentPrice: '149',
     qty: 50000,
@@ -448,7 +448,7 @@ export const products = [
   {
     id: 10,
     productName: 'Rupchanda Soyabean Oil 5 ltr',
-    oldPrice: '',
+    oldPrice: '573',
     mcatId: 26,
     currentPrice: '685',
     qty: 50000,
@@ -460,7 +460,7 @@ export const products = [
   {
     id: 11,
     productName: 'Dried Chilies {Shukna Morich} 100 gm',
-    oldPrice: '',
+    oldPrice: '573',
     mcatId: 26,
     currentPrice: '39',
     qty: 50000,
@@ -472,7 +472,7 @@ export const products = [
   {
     id: 12,
     productName: 'Rupchanda Soyabean Oil 2 ltr',
-    oldPrice: '',
+    oldPrice: '573',
     mcatId: 27,
     currentPrice: '276',
     qty: 50000,
@@ -484,7 +484,7 @@ export const products = [
   {
     id: 13,
     productName: 'Cloves {Lobongo} 50 gm',
-    oldPrice: '',
+    oldPrice: '573',
     mcatId: 28,
     currentPrice: '59',
     qty: 50000,
@@ -496,7 +496,7 @@ export const products = [
   {
     id: 14,
     productName: 'Bay Leaves {Tejpata} 100 gm',
-    oldPrice: '',
+    oldPrice: '573',
     mcatId: 29,
     currentPrice: '19',
     qty: 50000,
