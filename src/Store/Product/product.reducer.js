@@ -1,9 +1,13 @@
 import { productActionType } from './product.actionType';
 
-export const productReducer = (state = [], action) => {
+const initialState = {
+  all: [],
+};
+
+export const productReducer = (state = initialState, action) => {
   switch (action.type) {
-    case productActionType.LOAD_PRODUCT:
-      return action.payload;
+    case productActionType.LOAD_All_PRODUCT:
+      return { ...state, all: action.payload };
     default:
       return state;
   }

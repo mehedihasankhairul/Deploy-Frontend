@@ -16,12 +16,11 @@ export default function ProductByCat() {
   );
   const allProducts = useSelector((state) => state.products);
   const filterProducts = allProducts.filter(
-    (product) => product.ecatId === selectedCategory.id
+    (product) => product.product_endcategory_id === selectedCategory.id
   );
   return (
     <MainLayout>
       <div style={{ paddingTop: '1.5em' }}>
-        {/* <Navigator /> */}
         <span className="navigator">
           <Link to="/">Home</Link>
           {'> '}{' '}

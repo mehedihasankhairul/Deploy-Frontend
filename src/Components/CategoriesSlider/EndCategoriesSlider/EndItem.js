@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { getEndSlug } from '../../../Utils/getSlug';
 
 export default function EndItem({ item }) {
-  const imageUrl = 'https://deploy.com.bd/assets/uploads/' + item.image;
+  const imageUrl = item.image;
   const slug = getEndSlug(item);
+  console.log(slug);
   return (
     <Link to={slug}>
       <div className="item">

@@ -17,7 +17,6 @@ import { HiMinus } from 'react-icons/hi';
 export default function NewSidebar(props) {
   const icons = [
     <GiFruitBowl key="0" />,
-    <GiFruitBowl key="1" />,
     <GiFruitTree key="2" />,
     <GiOfficeChair key="3" />,
     <FaBaby key="4" />,
@@ -32,14 +31,14 @@ export default function NewSidebar(props) {
   const [selectedCats, setSelectedCats] = useState({});
   const [open, setOpen] = useState(false);
   const handleSelection = (id) => {
-    if (open && selectedCats.topCat.tCatId === id) {
+    if (open && selectedCats?.topCat?.id === id) {
       setSelectedCats({});
       setOpen(!open);
     } else {
-      const topCat = topCategory.find((item) => item.tCatId === id);
+      const topCat = topCategory.find((item) => item.id === id);
       console.log(topCat);
       const midCategories = midCategory.filter(
-        (item) => item.tCatId === topCat.tCatId
+        (item) => item.tcatid === topCat.id
       );
       setSelectedCats({ topCat, midCategories });
       setOpen(true);
@@ -47,18 +46,12 @@ export default function NewSidebar(props) {
   };
 
   const getEndCats = (mid) => {
-    return endCategory.filter((item) => item.mcatId === mid);
+    return endCategory.filter((item) => item.mcatid === mid);
   };
 
-  // const getSlug = getEndSlug({ name: 'Hello', id: 5 });
-  // console.log(getSlug);
-
-  // const history = useHistory();
   const handleLink = async (item) => {
     const url = await getEndSlug(item);
     console.log(url);
-    // history.push(url);
-    // window.history.go('http://localhost:3000/' + url);
   };
 
   return (
@@ -69,8 +62,8 @@ export default function NewSidebar(props) {
             className={
               selectedCats.topCat?.name === tcat.name ? 'active' : null
             }
-            key={tcat.tCatId}
-            onClick={() => handleSelection(tcat.tCatId)}
+            key={tcat.id}
+            onClick={() => handleSelection(tcat.id)}
           >
             {icons[index]}
             {tcat.name}
