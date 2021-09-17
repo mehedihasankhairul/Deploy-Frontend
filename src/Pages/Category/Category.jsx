@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router';
+// import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import CategoryItem from '../../Components/Home/CategoryItem';
-import { nameToSlug } from '../../Utils/getSlug';
-import NewNav from '../../Components/Shared/Navbar/NewNav';
+// import { nameToSlug } from '../../Utils/getSlug';
+// import NewNav from '../../Components/Shared/Navbar/NewNav';
 import Footer from '../../Components/Shared/Footer/Footer';
 import Error from '../Error/Error';
 import MainLayout from '../../Components/Layout/MainLayout';
@@ -14,7 +14,7 @@ import MediaQuery from 'react-responsive';
 export default function Category() {
   const { topCategory, midCategory } = useSelector((state) => state.category);
 
-  const { category } = useParams();
+  // const { category } = useParams();
   // const selectedCat = topCategory.find(
   //   (cat) => nameToSlug(cat.name) === category
   // );

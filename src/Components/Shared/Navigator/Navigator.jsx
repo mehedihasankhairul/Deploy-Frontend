@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Navigator() {
   const params = useParams();
-  console.log(params.category);
   const slugs = Object.keys(params).map((item) => params[item]);
-  console.log(slugs);
   // const history = useHistory()
   // const pushHistory = h => {
   //     history.push('/' + h)
