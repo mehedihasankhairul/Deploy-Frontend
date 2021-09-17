@@ -11,14 +11,14 @@ const Footer = () => {
           </h4>
           <div className="d-flex justify-content-center footer-newsletter">
             <div className="col-md-6">
-              <form action="" method="post">
+              <form>
                 <input type="email" name="email" />
                 <input type="submit" value="Subscribe" />
               </form>
             </div>
           </div>
         </section>
-        <section className="">
+        <section>
           <div className="container-fluid text-center text-md-start mt-5">
             {/* <!-- Grid row --> */}
             <div className="row mt-3">

@@ -1,11 +1,14 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { getPercentage } from '../../Utils/calculation';
 import { getProductSlug } from '../../Utils/getSlug';
+import { setCartState } from '../../Store/Cart/cart.action';
 import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
+import { handleAddToCart } from '../../Utils/functions';
+
+import { MdAddShoppingCart } from "react-icons/md";
 
 const HomeDiscount = () => {
   const allProducts = useSelector((state) => state.products);
@@ -37,6 +40,14 @@ const HomeDiscount = () => {
     history.push('/' + slug);
   };
 
+  const dispatch = useDispatch();
+
+  const handleAdd = (item) => {
+    const res = handleAddToCart(item);
+    console.log(res);
+    dispatch(setCartState(res));
+  };
+
   return (
     <div className="homeDisSlider">
       <h1 className="heading">Supper Offer</h1>
@@ -60,9 +71,13 @@ const HomeDiscount = () => {
                 %
               </span>
             </div>
+            <button className="addCart addHover" onClick={() => handleAdd(prod)}>
+              <MdAddShoppingCart size={100} color="green"  />
+            </button>
           </div>
         ))}
       </Carousel>
+      
     </div>
   );
 };
