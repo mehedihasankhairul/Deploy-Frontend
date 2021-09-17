@@ -1,9 +1,13 @@
-const intialState = [];
+const intialState = {
+  query: '',
+  results: [],
+};
 
 export const searchReducer = (state = intialState, action) => {
   switch (action.type) {
     case 'SET_SEARCH_RESULT':
-      return [...action.payload];
+      console.log(action.payload);
+      return { ...action.payload };
     default:
       return state;
   }

@@ -23,11 +23,10 @@ export default function NewNav() {
   const dispatch = useDispatch();
 
   const handleSearch = async (query) => {
-    const results = await searchProduct(query);
-    dispatch(setSearchResult(results.data.results));
-    if (results) {
-      history.push(`/search?query=${query}`);
-    }
+    // const results = await searchProduct(query);
+    // dispatch(setSearchResult({ query, results: results.data.results }));
+    // if (results) {
+    history.push(`/search/${query}`);
   };
 
   const handleQuery = (e) => {

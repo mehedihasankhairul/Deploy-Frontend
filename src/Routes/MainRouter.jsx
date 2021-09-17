@@ -22,7 +22,7 @@ export default function MainRouter() {
         <Route path="/login" component={Login} />
         <Route path="/registration" component={Registration} />
         <Route path="/cart" component={Cart} />
-        <Route path="/search" component={Search} />
+        <Route path="/search/:searchquery" component={Search} />
         <Route path="/shipping" component={Shipping} />
         <Route exact path="/" component={Home} />
         <Route
