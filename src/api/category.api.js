@@ -11,6 +11,7 @@ export const getTopCategories = async () => {
     return 'something went wrong..';
   }
 };
+
 export const getMidCategories = async () => {
   try {
     const MidCat = await axios.get(base + `midcategory/`);
@@ -20,6 +21,7 @@ export const getMidCategories = async () => {
     return 'something went wrong..';
   }
 };
+
 export const getEndCategories = async () => {
   try {
     const endCat = await axios.get(base + `endcategory/`);
