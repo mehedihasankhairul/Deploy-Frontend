@@ -12,22 +12,22 @@
     cursor: pointer;
     background-color: white;
     border: none;
+    display: grid;
+    grid-template-rows: 120px 60px 25px 30px;
     border-radius: 0.9rem;
     box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px;
-    display: flex;
-    flex-direction: column;
     height: 16.5rem;
     width: 12rem;
-    padding: 1.5rem;
+    padding: 0.9rem;
     text-align: center;
     position: relative;
 
     @media screen and (max-width: 600px) {
-        height: 14.5rem;
+        height: 15.5rem;
         width: 10rem;
 
         img {
-            max-height: 50%;
+            // max-height: 50%;
             margin: 0 auto;
           }
 
@@ -39,7 +39,7 @@
       }
   
     img {
-      max-height: 60%;
+      max-height: 100%;
       margin: 0 auto;
     }
   

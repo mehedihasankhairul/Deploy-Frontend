@@ -92,11 +92,11 @@ const Footer = () => {
 
         {/* <!-- Copyright --> */}
         <div className="text-center p-4">
-          © 2021 Copyright:
-          <Link to="/" className="text-reset fw-bold">
+          Developed by
+          <a target="_blank" rel="noreferrer"  href="https://github.com/Blessed-Programmers" className="text-reset fw-bold">
             {' '}
-            Team Phoenix
-          </Link>
+            Blessed Programmers
+          </a>
         </div>
         {/* <!-- Copyright --> */}
       </footer>

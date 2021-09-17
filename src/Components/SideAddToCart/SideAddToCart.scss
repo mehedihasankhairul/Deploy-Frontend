@@ -6,6 +6,11 @@
     right: 0;
     left: auto;
     transform: translateY(-50%);
+    opacity: .7;
+
+    &:hover {
+        opacity: 1;
+    }
 }
 
 .sideAddToCart {
