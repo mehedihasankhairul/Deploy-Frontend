@@ -19,22 +19,28 @@ export default function NewNav() {
   const [activeTab, setActiveTab] = useState('categories');
   const [searchMenu, setSearchMenu] = useState(false);
 
+  const [q, setQ] = useState('');
+
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const handleSearch = async (query) => {
+  const handleSearch = () => {
     // const results = await searchProduct(query);
     // dispatch(setSearchResult({ query, results: results.data.results }));
     // if (results) {
-    history.push(`/search/${query}`);
+    setTimeout(() => {
+      history.push(`/search/${q}`);
+    }, 1000);
   };
 
   const handleQuery = (e) => {
+    setQ(e.target.value);
     if (e.keyCode === 13) {
       console.log('enter pressed');
-      handleSearch(e.target.value);
+      handleSearch();
     }
   };
+
   return (
     <header className="header">
       <nav>
@@ -62,7 +68,7 @@ export default function NewNav() {
                 type="text"
                 placeholder="search product"
               />
-              <BsSearch />
+              <BsSearch onClick={handleSearch} />
             </span>
           </MediaQuery>
           <MediaQuery maxWidth="767px">
