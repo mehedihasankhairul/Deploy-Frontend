@@ -17,8 +17,8 @@ export const getMidSlug = (item) => {
   const state = store.getState();
   const { topCategory } = state.category;
   const topCat = topCategory.find((cat) => cat.id === item.tcatid);
-  const topSlug = textToSlug(topCat.name);
-  const midSlug = textToSlug(item.name);
+  const topSlug = textToSlug(topCat?.name);
+  const midSlug = textToSlug(item?.name);
   const slug = `/${topSlug}/${midSlug}`;
   return slug;
 };

@@ -18,8 +18,8 @@ function App() {
     dispatch(setTopCategory());
     dispatch(setMidCategory());
     dispatch(setEndCategory());
-    dispatch(loadAllProducts());
   }, []);
+  dispatch(loadAllProducts());
 
   return <MainRouter />;
 }

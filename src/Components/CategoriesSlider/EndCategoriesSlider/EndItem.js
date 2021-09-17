@@ -6,7 +6,6 @@ import { getEndSlug } from '../../../Utils/getSlug';
 export default function EndItem({ item }) {
   const imageUrl = item.image;
   const slug = getEndSlug(item);
-  console.log(slug);
   return (
     <Link to={slug}>
       <div className="item">

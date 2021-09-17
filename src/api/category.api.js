@@ -33,10 +33,16 @@ export const getEndCategories = async () => {
 export const getAllProducts = async () => {
   try {
     const res = await axios.get(base + 'product');
-    console.log(res.data.results);
     return res.data.results;
   } catch (e) {
     console.log(e);
     return 'something went wrong..';
   }
+};
+
+export const searchProduct = async (query) => {
+  console.log('searching product with ', query);
+  const res = await axios.get(`${base}search/?search=${query}`);
+  console.log(res);
+  return res;
 };

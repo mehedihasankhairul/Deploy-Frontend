@@ -36,7 +36,6 @@ export default function NewSidebar(props) {
       setOpen(!open);
     } else {
       const topCat = topCategory.find((item) => item.id === id);
-      console.log(topCat);
       const midCategories = midCategory.filter(
         (item) => item.tcatid === topCat.id
       );
@@ -46,7 +45,7 @@ export default function NewSidebar(props) {
   };
 
   const getEndCats = (mid) => {
-    return endCategory.filter((item) => item.mcatid === mid);
+    return endCategory.filter((item) => item.midcatid === mid);
   };
 
   const handleLink = async (item) => {

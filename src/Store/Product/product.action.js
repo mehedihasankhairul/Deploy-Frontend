@@ -2,12 +2,12 @@ import { getAllProducts } from '../../api/category.api';
 import { productActionType } from './product.actionType';
 
 export const loadAllProducts = () => async (dispatch) => {
-  console.log('loading product data');
   try {
     const res = await getAllProducts();
+    // console.log('test', res);
     if (res) {
       dispatch({
-        type: productActionType.LOAD_ALL_PRODUCT,
+        type: productActionType.LOAD_All_PRODUCT,
         payload: res,
       });
     }
