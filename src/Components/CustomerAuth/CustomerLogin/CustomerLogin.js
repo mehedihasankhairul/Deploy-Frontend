@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable no-undef */
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import logo from '../../../assets/Images/deoloy-logo.jpeg';
 
@@ -7,38 +9,38 @@ const CustomerLogin = () => {
   const [password, setPassword] = useState('');
   const history = useHistory();
 
+  // Login with Axios post method
+  const login = async (e) => {
+    const formData = new FormData();
+    formData.append('username', userName);
+    formData.append('password', password);
 
-  useEffect(() => {
-    if (localStorage.getItem('user-info')) {
-      history.push("/cart")
-    }
-  }, [])
-
-  const login = (e) => {
-    fetch(`https://frozen-caverns-97537.herokuapp.com/api/token`, {
+    await axios({
       method: 'POST',
+      url: 'https://frozen-caverns-97537.herokuapp.com/api/token/',
+      data: formData,
       headers: {
-        'Content-Type': 'application/json',
+        'Content-type': 'application/json',
       },
-      body: JSON.stringify({
-        username: userName,
-        password: password,
-      }),
     })
-      .then(res => res.json())
-      .then(data => {
-        sessionStorage.setItem("JwtToken", data.jwt);
-      })
-      // .then(() => {
-      //     window.location.reload();
-      // })
-      .then(() => {
-        // history.replace(from);
-        // window.location.reload();
-      })
-      .catch(error => console.log('error', error));
-    e.preventDefault()
+      .then(response => {
+
+        if (response.data.status === 200) {
+          localStorage.setItem('token', response.data.token);
+        }
+        history.push('/cart');
+        console.log(response, response.data, response.status, response.headers);
+      }).catch(error => {
+        if (error.response.status === 401 || error.response.status === 400) {
+          console.log('Error: ', error.response.data);
+          alert('Invalid username or password');
+        } else {
+          alert('Something Went Wrong');
+        }
+        console.log(error);
+      });
   }
+
 
   return (
     <div>
@@ -54,12 +56,14 @@ const CustomerLogin = () => {
           <div className="logo d-flex justify-content-center">
             <img className="w-50" src={logo} alt="logo" />
           </div>
+
           <div className="mb-3">
             <label className="form-label">User Name</label>
             <input
               type="text"
+              value={userName}
               className="form-control"
-              id="exampleInputEmail1"
+              name="userName"
               aria-describedby="emailHelp"
               onChange={(e) => setUserName(e.target.value)}
             />
@@ -68,18 +72,19 @@ const CustomerLogin = () => {
             <label className="form-label">Password</label>
             <input
               type="password"
+              value={password}
               className="form-control"
-              id="exampleInputPassword1"
+              name="password"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <p className="mt-4">
-            New to Deploy? <Link to="/registration">Sign up Now</Link>
-          </p>
           <button onClick={login}
             className="btn w-100 btn-success">
             Submit
           </button>
+          <p className="mt-4">
+            New to Deploy? <Link to="/registration">Sign up Now</Link>
+          </p>
 
         </div>
       </div>
