@@ -10,6 +10,7 @@ import Login from '../Pages/Login';
 import Shipping from '../Pages/Shipping/Shipping';
 import Registration from '../Pages/Registration';
 import Cart from '../Components/Cart/Cart';
+import Search from '../Pages/Search/Search';
 
 export default function MainRouter() {
   return (
@@ -21,6 +22,7 @@ export default function MainRouter() {
         <Route path="/login" component={Login} />
         <Route path="/registration" component={Registration} />
         <Route path="/cart" component={Cart} />
+        <Route path="/search/:searchquery" component={Search} />
         <Route path="/shipping" component={Shipping} />
         <Route exact path="/" component={Home} />
         <Route

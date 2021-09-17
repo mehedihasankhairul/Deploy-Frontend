@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import { RiBarChartHorizontalFill, RiCloseLine } from 'react-icons/ri';
 import { BsSearch } from 'react-icons/bs';
 import { GiShoppingCart } from 'react-icons/gi';
@@ -15,6 +16,24 @@ export default function NewNav() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeTab, setActiveTab] = useState('categories');
   const [searchMenu, setSearchMenu] = useState(false);
+
+  const [q, setQ] = useState('');
+
+  const history = useHistory();
+
+  const handleSearch = () => {
+    setTimeout(() => {
+      history.push(`/search/${q}`);
+    }, 1000);
+  };
+
+  const handleQuery = (e) => {
+    setQ(e.target.value);
+    if (e.keyCode === 13) {
+      console.log('enter pressed');
+      handleSearch();
+    }
+  };
 
   return (
     <header className="header">
@@ -38,8 +57,12 @@ export default function NewNav() {
           </Link>
           <MediaQuery minWidth="768px">
             <span className="search_field">
-              <input type="text" placeholder="search product" />
-              <BsSearch />
+              <input
+                onKeyDown={handleQuery}
+                type="text"
+                placeholder="search product"
+              />
+              <BsSearch onClick={handleSearch} />
             </span>
           </MediaQuery>
           <MediaQuery maxWidth="767px">
@@ -51,10 +74,13 @@ export default function NewNav() {
             </span>
           </MediaQuery>
 
-          <Link to="/cart"> <span className="cart_menu">
-            <GiShoppingCart size={25} />
-            <span>5</span>
-          </span>  </Link>
+          <Link to="/cart">
+            {' '}
+            <span className="cart_menu">
+              <GiShoppingCart size={25} />
+              <span>5</span>
+            </span>{' '}
+          </Link>
         </div>
         <MediaQuery minWidth="768px">
           <div className="account_menu">
@@ -73,76 +99,72 @@ export default function NewNav() {
           </div>
         </MediaQuery>
       </nav>
-      {
-        searchMenu && (
+      {searchMenu && (
+        <MediaQuery maxWidth="767px">
+          <span className="search_field_mobile">
+            <input type="text" placeholder="search product" />
+            <button>Search</button>
+          </span>
+        </MediaQuery>
+      )}
+      {isOpen && (
+        <div className="collapse_menu">
           <MediaQuery maxWidth="767px">
-            <span className="search_field_mobile">
-              <input type="text" placeholder="search product" />
-              <button>Search</button>
-            </span>
+            <div className="tab">
+              <span
+                className={activeTab === 'categories' ? 'active' : null}
+                onClick={() => setActiveTab('categories')}
+              >
+                Categories
+              </span>
+              <span
+                className={activeTab !== 'categories' ? 'active' : null}
+                onClick={() => setActiveTab('account')}
+              >
+                Account
+              </span>
+            </div>
           </MediaQuery>
-        )
-      }
-      {
-        isOpen && (
-          <div className="collapse_menu">
+          {activeTab === 'categories' ? (
             <MediaQuery maxWidth="767px">
-              <div className="tab">
-                <span
-                  className={activeTab === 'categories' ? 'active' : null}
-                  onClick={() => setActiveTab('categories')}
-                >
-                  Categories
-                </span>
-                <span
-                  className={activeTab !== 'categories' ? 'active' : null}
-                  onClick={() => setActiveTab('account')}
-                >
-                  Account
-                </span>
+              {/* <p>Category items {activeMenu}</p> */}
+              <div className="mobile_category">
+                {topCats.map((item, index) => (
+                  <DropDownItem
+                    active={activeMenu === index}
+                    setActiveMenu={setActiveMenu}
+                    key={item.tCatId}
+                    item={{ ...item, index }}
+                  />
+                ))}
               </div>
             </MediaQuery>
-            {activeTab === 'categories' ? (
-              <MediaQuery maxWidth="767px">
-                {/* <p>Category items {activeMenu}</p> */}
-                <div className="mobile_category">
-                  {topCats.map((item, index) => (
-                    <DropDownItem
-                      active={activeMenu === index}
-                      setActiveMenu={setActiveMenu}
-                      key={item.tCatId}
-                      item={{ ...item, index }}
-                    />
-                  ))}
-                </div>
-              </MediaQuery>
-            ) : (
-              <MediaQuery maxWidth="767px">
-                <div className="account_menu_dropdown">
-                  <Link to="/login">
-                    <span>
-                      <FiLogIn />
-                      Login
-                    </span>
-                  </Link>
-                  <Link to="/registration">
-                    <span>
-                      <AiOutlineUserAdd />
-                      Register
-                    </span>
-                  </Link>
-                  {/* <Link to="/cart">
+          ) : (
+            <MediaQuery maxWidth="767px">
+              <div className="account_menu_dropdown">
+                <Link to="/login">
+                  <span>
+                    <FiLogIn />
+                    Login
+                  </span>
+                </Link>
+                <Link to="/registration">
+                  <span>
+                    <AiOutlineUserAdd />
+                    Register
+                  </span>
+                </Link>
+                {/* <Link to="/cart">
                   <span className="cart_menu">
                     <GiShoppingCart size={25} />
                     <span>5</span>
                   </span>
                 </Link> */}
-                </div>
-              </MediaQuery>
-            )}
-          </div>
-        )
-      }
-    </header >
+              </div>
+            </MediaQuery>
+          )}
+        </div>
+      )}
+    </header>
   );
 }

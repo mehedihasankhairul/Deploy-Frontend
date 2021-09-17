@@ -17,13 +17,13 @@ export default function EndCategories() {
   const selectedCat = midCategory.find(
     (cat) => cat.name.toLowerCase() === catName
   );
-  const filteredCategories = selectedCat
-    ? endCategory.filter((endCat) => endCat.mcatId === selectedCat.id)
-    : null;
-    
+  // const filteredCategories = selectedCat
+  //   ? endCategory.filter((endCat) => endCat.mcatId === selectedCat.id)
+  //   : null;
+  // console.log(filteredCategories);
   return (
     <MainLayout>
-      <section style={{ paddingTop: '1.5em' }}>
+      <main style={{ paddingTop: '1.5em' }}>
         <MediaQuery minWidth="768px">
           <SideAddToCart />
         </MediaQuery>
@@ -33,17 +33,21 @@ export default function EndCategories() {
           <Link to={'/' + category}>{category.replaceAll('-', ' ')}</Link>
           {'> '} <span>{mid_category}</span>
         </span>
+
         {selectedCat ? (
           <div className="container">
-            {filteredCategories.map((item) => (
+            {endCategory.map((item) => (
               <EndItem key={item.id} item={item} />
             ))}
           </div>
         ) : (
           <Error />
         )}
+        {/* {
+          endCategory.map(item) => <EndItem key={item.id} item={item} />)
+        } */}
         <Footer />
-      </section>
+      </main>
     </MainLayout>
   );
 }
