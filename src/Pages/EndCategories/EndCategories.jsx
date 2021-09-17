@@ -23,7 +23,7 @@ export default function EndCategories() {
   // console.log(filteredCategories);
   return (
     <MainLayout>
-      <section style={{ paddingTop: '1.5em' }}>
+      <main style={{ paddingTop: '1.5em' }}>
         <MediaQuery minWidth="768px">
           <SideAddToCart />
         </MediaQuery>
@@ -47,7 +47,7 @@ export default function EndCategories() {
           endCategory.map(item) => <EndItem key={item.id} item={item} />)
         } */}
         <Footer />
-      </section>
+      </main>
     </MainLayout>
   );
 }
