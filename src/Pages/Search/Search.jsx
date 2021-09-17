@@ -19,8 +19,9 @@ export default function Search() {
   return (
     <MainLayout>
       <div className="">
-        <h2 style={{ padding: '1.5em' }}>
-          {results.length} Results found with {query}{' '}
+        <h2 style={{ padding: '1.5em', color: '#1c7ed6', textAlign: 'center' }}>
+          {results.length} Results found with{' '}
+          <span className="text-success">{query}</span>{' '}
         </h2>
         <div className="product_list">
           {results.map((results) => (
