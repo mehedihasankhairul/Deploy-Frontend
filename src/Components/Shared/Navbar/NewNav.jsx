@@ -5,12 +5,10 @@ import { BsSearch } from 'react-icons/bs';
 import { GiShoppingCart } from 'react-icons/gi';
 import { FiLogIn } from 'react-icons/fi';
 import { AiOutlineUserAdd } from 'react-icons/ai';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import { Link } from 'react-router-dom';
 import DropDownItem from '../../DropDownItem';
-import { searchProduct } from '../../../api/category.api';
-import { setSearchResult } from '../../../Store/Search/search.action';
 
 export default function NewNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,12 +20,8 @@ export default function NewNav() {
   const [q, setQ] = useState('');
 
   const history = useHistory();
-  const dispatch = useDispatch();
 
   const handleSearch = () => {
-    // const results = await searchProduct(query);
-    // dispatch(setSearchResult({ query, results: results.data.results }));
-    // if (results) {
     setTimeout(() => {
       history.push(`/search/${q}`);
     }, 1000);
