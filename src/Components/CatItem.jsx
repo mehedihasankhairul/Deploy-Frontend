@@ -9,7 +9,6 @@ export default function CatItem({ item }) {
   const slug = item.name
     ? item.name.replaceAll(' ', '-').toLowerCase()
     : item.subCat.replaceAll(' ', '-').toLowerCase();
-  console.log(slug);
   // const location = useLocation();
   const url = slug;
   return (

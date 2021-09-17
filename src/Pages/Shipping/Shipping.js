@@ -22,14 +22,12 @@ const Shipping = () => {
     );
   }, [divisions]);
 
-  //   console.log(divisions, 'test');
 
   const handleDivision = async (e) => {
     const division = e.target.value.toLowerCase();
     const districts = await axios(
       `https://bdapis.herokuapp.com/api/v1.1/division/${division}`
     ).then((data) => setDistrict(data.data.data));
-    console.log(districts, 'districts');
     setAddress({ division });
   };
 

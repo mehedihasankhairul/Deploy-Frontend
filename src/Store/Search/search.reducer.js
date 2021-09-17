@@ -1,4 +1,4 @@
-const intialState = [{ name: 'demo result' }, { name: 'demo result' }];
+const intialState = [];
 
 export const searchReducer = (state = intialState, action) => {
   switch (action.type) {

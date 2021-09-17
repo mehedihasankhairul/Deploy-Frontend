@@ -7,9 +7,7 @@ export default function ProductByCat() {
   const { endCategory } = useSelector(state => state.category)
   const selectedCategory = endCategory.find(cat => cat.slug.includes(end_category))
   const allProducts = useSelector(state => state.products)
-  console.log(allProducts, end_category)
   const filterProducts = allProducts.filter(product => product.ecatId === selectedCategory.id)
-  console.log('filterProducts', filterProducts)
   return (
     <div>
       <h2>Products with category {selectedCategory.subCat} - {filterProducts.length}</h2>
