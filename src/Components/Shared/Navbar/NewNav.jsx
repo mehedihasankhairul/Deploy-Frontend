@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import { RiBarChartHorizontalFill, RiCloseLine } from 'react-icons/ri';
 import { BsSearch } from 'react-icons/bs';
 import { GiShoppingCart } from 'react-icons/gi';
 import { FiLogIn } from 'react-icons/fi';
 import { AiOutlineUserAdd } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import { Link } from 'react-router-dom';
 import DropDownItem from '../../DropDownItem';
+import { searchProduct } from '../../../api/category.api';
+import { setSearchResult } from '../../../Store/Search/search.action';
 
 export default function NewNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +19,23 @@ export default function NewNav() {
   const [activeTab, setActiveTab] = useState('categories');
   const [searchMenu, setSearchMenu] = useState(false);
 
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const handleSearch = async (query) => {
+    const results = await searchProduct(query);
+    dispatch(setSearchResult(results.data.results));
+    if (results) {
+      history.push(`/search?query=${query}`);
+    }
+  };
+
+  const handleQuery = (e) => {
+    if (e.keyCode === 13) {
+      console.log('enter pressed');
+      handleSearch(e.target.value);
+    }
+  };
   return (
     <header className="header">
       <nav>
@@ -38,7 +58,11 @@ export default function NewNav() {
           </Link>
           <MediaQuery minWidth="768px">
             <span className="search_field">
-              <input type="text" placeholder="search product" />
+              <input
+                onKeyDown={handleQuery}
+                type="text"
+                placeholder="search product"
+              />
               <BsSearch />
             </span>
           </MediaQuery>
@@ -51,10 +75,13 @@ export default function NewNav() {
             </span>
           </MediaQuery>
 
-          <Link to="/cart"> <span className="cart_menu">
-            <GiShoppingCart size={25} />
-            <span>5</span>
-          </span>  </Link>
+          <Link to="/cart">
+            {' '}
+            <span className="cart_menu">
+              <GiShoppingCart size={25} />
+              <span>5</span>
+            </span>{' '}
+          </Link>
         </div>
         <MediaQuery minWidth="768px">
           <div className="account_menu">
@@ -73,76 +100,72 @@ export default function NewNav() {
           </div>
         </MediaQuery>
       </nav>
-      {
-        searchMenu && (
+      {searchMenu && (
+        <MediaQuery maxWidth="767px">
+          <span className="search_field_mobile">
+            <input type="text" placeholder="search product" />
+            <button>Search</button>
+          </span>
+        </MediaQuery>
+      )}
+      {isOpen && (
+        <div className="collapse_menu">
           <MediaQuery maxWidth="767px">
-            <span className="search_field_mobile">
-              <input type="text" placeholder="search product" />
-              <button>Search</button>
-            </span>
+            <div className="tab">
+              <span
+                className={activeTab === 'categories' ? 'active' : null}
+                onClick={() => setActiveTab('categories')}
+              >
+                Categories
+              </span>
+              <span
+                className={activeTab !== 'categories' ? 'active' : null}
+                onClick={() => setActiveTab('account')}
+              >
+                Account
+              </span>
+            </div>
           </MediaQuery>
-        )
-      }
-      {
-        isOpen && (
-          <div className="collapse_menu">
+          {activeTab === 'categories' ? (
             <MediaQuery maxWidth="767px">
-              <div className="tab">
-                <span
-                  className={activeTab === 'categories' ? 'active' : null}
-                  onClick={() => setActiveTab('categories')}
-                >
-                  Categories
-                </span>
-                <span
-                  className={activeTab !== 'categories' ? 'active' : null}
-                  onClick={() => setActiveTab('account')}
-                >
-                  Account
-                </span>
+              {/* <p>Category items {activeMenu}</p> */}
+              <div className="mobile_category">
+                {topCats.map((item, index) => (
+                  <DropDownItem
+                    active={activeMenu === index}
+                    setActiveMenu={setActiveMenu}
+                    key={item.tCatId}
+                    item={{ ...item, index }}
+                  />
+                ))}
               </div>
             </MediaQuery>
-            {activeTab === 'categories' ? (
-              <MediaQuery maxWidth="767px">
-                {/* <p>Category items {activeMenu}</p> */}
-                <div className="mobile_category">
-                  {topCats.map((item, index) => (
-                    <DropDownItem
-                      active={activeMenu === index}
-                      setActiveMenu={setActiveMenu}
-                      key={item.tCatId}
-                      item={{ ...item, index }}
-                    />
-                  ))}
-                </div>
-              </MediaQuery>
-            ) : (
-              <MediaQuery maxWidth="767px">
-                <div className="account_menu_dropdown">
-                  <Link to="/login">
-                    <span>
-                      <FiLogIn />
-                      Login
-                    </span>
-                  </Link>
-                  <Link to="/registration">
-                    <span>
-                      <AiOutlineUserAdd />
-                      Register
-                    </span>
-                  </Link>
-                  {/* <Link to="/cart">
+          ) : (
+            <MediaQuery maxWidth="767px">
+              <div className="account_menu_dropdown">
+                <Link to="/login">
+                  <span>
+                    <FiLogIn />
+                    Login
+                  </span>
+                </Link>
+                <Link to="/registration">
+                  <span>
+                    <AiOutlineUserAdd />
+                    Register
+                  </span>
+                </Link>
+                {/* <Link to="/cart">
                   <span className="cart_menu">
                     <GiShoppingCart size={25} />
                     <span>5</span>
                   </span>
                 </Link> */}
-                </div>
-              </MediaQuery>
-            )}
-          </div>
-        )
-      }
-    </header >
+              </div>
+            </MediaQuery>
+          )}
+        </div>
+      )}
+    </header>
   );
 }
