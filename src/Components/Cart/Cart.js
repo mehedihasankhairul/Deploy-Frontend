@@ -9,18 +9,29 @@ import {
 import ProductRow from './ProductRow';
 import SecondaryLayout from '../Layout/SecondaryLayout';
 import Footer from '../Shared/Footer/Footer';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCartTotal } from '../../Utils/functions';
+import { setCartState } from '../../Store/Cart/cart.action';
 
+// const cartProducts = [
+//   { name: 'Nimbus 2000', price: 20, quantity: 2, id: 5 },
+//   { name: 'Bolt 2000', price: 50, quantity: 5, id: 6 },
+// ];
 const Cart = () => {
-  const cartProducts = [
-    { name: 'Nimbus 2000', price: 20, quantity: 2, id: 5 },
-    { name: 'Bolt 2000', price: 50, quantity: 5, id: 6 },
-  ];
-
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  console.log(cart);
+  const handleClearCart = () => {
+    const confirm = window.confirm('Confirm to clear cart..');
+    if (confirm) {
+      dispatch(setCartState([]));
+    }
+  };
   return (
     <SecondaryLayout>
       <div>
         <div className="bg-secondary text-light d-flex aligin-items-center justify-content-center py-5">
-          <h3 className="py-2">Cart</h3>
+          <h3 className="py-2">Cart {cart.length} </h3>
         </div>
         <div className="container">
           <div className="row justify-content-center">
@@ -43,18 +54,18 @@ const Cart = () => {
                       <th>Quantity</th>
                       <th>Total Price</th>
                       <th>
-                        <a
-                          href="action.php?clear=all"
-                          className="badge-danger badge py-2 px-3"
+                        <span
+                          onClick={handleClearCart}
+                          style={{ cursor: 'pointer', color: 'orangered' }}
                         >
                           <FontAwesomeIcon icon={faTrash} />
                           &nbsp;&nbsp;Clear Cart
-                        </a>
+                        </span>
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    {cartProducts.map((product) => (
+                    {cart.map((product) => (
                       <ProductRow product={product} key={product.id} />
                     ))}
                     <tr>
@@ -69,7 +80,8 @@ const Cart = () => {
                       </td>
                       <td>
                         <b>
-                          <i className="fas fa-rupee-sign"></i>&nbsp;&nbsp;$233
+                          <i className="fas fa-rupee-sign"></i>&nbsp;&nbsp;$
+                          {getCartTotal()}
                         </b>
                       </td>
                       <td>

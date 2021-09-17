@@ -16,7 +16,7 @@ export default function NewNav() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeTab, setActiveTab] = useState('categories');
   const [searchMenu, setSearchMenu] = useState(false);
-
+  const cart = useSelector((state) => state.cart);
   const [q, setQ] = useState('');
 
   const history = useHistory();
@@ -79,7 +79,7 @@ export default function NewNav() {
             {' '}
             <span className="cart_menu">
               <GiShoppingCart size={25} />
-              <span>5</span>
+              <span>{cart.length}</span>
             </span>{' '}
           </Link>
         </div>
