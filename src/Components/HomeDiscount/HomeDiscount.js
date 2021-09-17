@@ -72,7 +72,7 @@ const HomeDiscount = () => {
               </span>
             </div>
             <button className="addCart addHover" onClick={() => handleAdd(prod)}>
-              <MdAddShoppingCart size={100} color="green"  />
+              <MdAddShoppingCart size={75} color="green"  />
             </button>
           </div>
         ))}
