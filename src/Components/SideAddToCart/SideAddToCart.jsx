@@ -24,7 +24,7 @@ const SideAddToCart = () => {
           <span className="cart_menu">
             <GiShoppingCart size={25} /> <span>{cart.length}</span>
           </span>
-          <p>${getCartTotal()}</p>
+          <p>৳{getCartTotal()}</p>
         </button>
       </div>
 
