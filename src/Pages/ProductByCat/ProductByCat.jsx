@@ -16,12 +16,11 @@ export default function ProductByCat() {
   );
   const allProducts = useSelector((state) => state.products);
   const filterProducts = allProducts.filter(
-    (product) => product.ecatId === selectedCategory.id
+    (product) => product.product_endcategory_id === selectedCategory.id
   );
   return (
     <MainLayout>
       <div style={{ paddingTop: '1.5em' }}>
-        {/* <Navigator /> */}
         <span className="navigator">
           <Link to="/">Home</Link>
           {'> '}{' '}
@@ -36,9 +35,9 @@ export default function ProductByCat() {
           {filterProducts.length
             ? filterProducts.map((prod) => (
                 <div key={prod.id} className="product_item">
-                  <img src={baseUrl + prod.image} alt="" />
-                  <p>{prod.productName}</p>
-                  <p>BDT {prod.currentPrice}</p>
+                  <img src={prod.product_featured_photo} alt="" />
+                  <p>{prod.product_Name}</p>
+                  <p>BDT {prod.product_current_price}</p>
                   <button className="addToCart">Add To Cart</button>
                 </div>
               ))
