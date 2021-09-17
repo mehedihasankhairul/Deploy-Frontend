@@ -26,7 +26,7 @@ export default function NewNav() {
     const results = await searchProduct(query);
     dispatch(setSearchResult(results.data.results));
     if (results) {
-      history.push('/search');
+      history.push(`/search?query=${query}`);
     }
   };
 
