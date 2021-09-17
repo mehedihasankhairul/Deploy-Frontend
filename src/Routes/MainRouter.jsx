@@ -21,9 +21,9 @@ export default function MainRouter() {
         </PrivateRoute>
         <Route path="/login" component={Login} />
         <Route path="/registration" component={Registration} />
-        <Route path="/cart" component={Cart} />
+        <PrivateRoute path="/cart" component={Cart} />
+        <PrivateRoute path="/shipping" component={Shipping} />
         <Route path="/search/:searchquery" component={Search} />
-        <Route path="/shipping" component={Shipping} />
         <Route exact path="/" component={Home} />
         <Route
           path="/:category/:mid_category/:end_category/:productid"
