@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import logo from '../../../assets/Images/deoloy-logo.jpeg';
@@ -7,38 +8,47 @@ const CustomerLogin = () => {
   const [password, setPassword] = useState('');
   const history = useHistory();
 
+  // Login with Axios post method
 
-  useEffect(() => {
-    if (localStorage.getItem('user-info')) {
-      history.push("/cart")
-    }
-  }, [])
 
-  const login = (e) => {
-    fetch(`https://frozen-caverns-97537.herokuapp.com/api/token`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: userName,
-        password: password,
-      }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        sessionStorage.setItem("JwtToken", data.jwt);
-      })
-      // .then(() => {
-      //     window.location.reload();
-      // })
-      .then(() => {
-        // history.replace(from);
-        // window.location.reload();
-      })
-      .catch(error => console.log('error', error));
-    e.preventDefault()
-  }
+
+
+
+
+
+
+  // useEffect(() => {
+  //   // eslint-disable-next-line no-undef
+  //   if (localStorage.getItem('user-info')) {
+  //     history.push("/cart")
+  //   }
+  // }, [])
+
+  // const login = (e) => {
+  //   fetch(`https://frozen-caverns-97537.herokuapp.com/api/token`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       username: userName,
+  //       password: password,
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       sessionStorage.setItem("JwtToken", data.jwt);
+  //     })
+  //     // .then(() => {
+  //     //     window.location.reload();
+  //     // })
+  //     .then(() => {
+  //       // history.replace(from);
+  //       // window.location.reload();
+  //     })
+  //     .catch(error => console.log('error', error));
+  //   e.preventDefault()
+  // }
 
   return (
     <div>
@@ -73,13 +83,13 @@ const CustomerLogin = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <p className="mt-4">
-            New to Deploy? <Link to="/registration">Sign up Now</Link>
-          </p>
           <button onClick={login}
             className="btn w-100 btn-success">
             Submit
           </button>
+          <p className="mt-4">
+            New to Deploy? <Link to="/registration">Sign up Now</Link>
+          </p>
 
         </div>
       </div>
