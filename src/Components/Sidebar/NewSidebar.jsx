@@ -37,7 +37,6 @@ export default function NewSidebar(props) {
       setOpen(!open);
     } else {
       const topCat = topCategory.find((item) => item.tCatId === id);
-      console.log(topCat);
       const midCategories = midCategory.filter(
         (item) => item.tCatId === topCat.tCatId
       );
@@ -51,12 +50,10 @@ export default function NewSidebar(props) {
   };
 
   // const getSlug = getEndSlug({ name: 'Hello', id: 5 });
-  // console.log(getSlug);
 
   // const history = useHistory();
   const handleLink = async (item) => {
     const url = await getEndSlug(item);
-    console.log(url);
     // history.push(url);
     // window.history.go('http://localhost:3000/' + url);
   };

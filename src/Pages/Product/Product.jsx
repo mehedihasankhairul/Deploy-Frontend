@@ -11,7 +11,7 @@ import SecondaryLayout from '../../Components/Layout/SecondaryLayout';
 
 export default function Product() {
   const allProducts = useSelector((state) => state.products);
-  const { category, subCategory, productid } = useParams();
+  const { productid } = useParams();
   // const item = allProducts.find(pd => pd.id === productid)
   const item = allProducts[0];
   const [quantity, setQuantity] = useState(1);
@@ -24,9 +24,6 @@ export default function Product() {
   };
   const imageUrl = 'https://deploy.com.bd/assets/uploads/' + item.image;
 
-  console.log(category, subCategory);
-  console.log(allProducts);
-  console.log(`This is item ${item} and ${allProducts}`);
   return (
     <SecondaryLayout>
       <section>

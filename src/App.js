@@ -18,13 +18,10 @@ function App() {
     .get('https://frozen-caverns-97537.herokuapp.com/api/topcategroy')
     // .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       return data.data.results;
     });
-  // console.log(endCategories, 'end cat');
   // fetch('https://frozen-caverns-97537.herokuapp.com/api/topcategroy/')
   //   .then((res) => res.json())
-  //   .then((res) => console.log(res));
   const dispatch = useDispatch();
   dispatch(
     setCategory({
