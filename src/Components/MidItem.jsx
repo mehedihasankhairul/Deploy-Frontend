@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { getMidSlug } from '../Utils/getSlug';
 
 export default function MidItem({ item }) {
-  const imageUrl = 'https://deploy.com.bd/assets/uploads/' + item.image;
+  const imageUrl = item.image;
 
   const url = getMidSlug(item);
   return (

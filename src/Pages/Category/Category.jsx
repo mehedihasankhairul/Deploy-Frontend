@@ -1,26 +1,25 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import { useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import CategoryItem from '../../Components/Home/CategoryItem';
-// import { nameToSlug } from '../../Utils/getSlug';
-// import NewNav from '../../Components/Shared/Navbar/NewNav';
+import { nameToSlug } from '../../Utils/getSlug';
 import Footer from '../../Components/Shared/Footer/Footer';
 import Error from '../Error/Error';
 import MainLayout from '../../Components/Layout/MainLayout';
 import SideAddToCart from '../../Components/SideAddToCart/SideAddToCart';
 import MediaQuery from 'react-responsive';
+import MidItem from '../../Components/MidItem';
 
 export default function Category() {
   const { topCategory, midCategory } = useSelector((state) => state.category);
 
-  // const { category } = useParams();
-  // const selectedCat = topCategory.find(
-  //   (cat) => nameToSlug(cat.name) === category
-  // );
-  const selectedCat = topCategory[0];
+  const { category } = useParams();
+  const selectedCat = topCategory.find(
+    (cat) => nameToSlug(cat.name) === category
+  );
+  // const selectedCat = topCategory[0];
   const subCategories = selectedCat
-    ? midCategory.filter((sCat) => sCat.tCatId === selectedCat.tCatId)
+    ? midCategory.filter((sCat) => sCat.tcatid === selectedCat.tcatid)
     : null;
   return (
     <MainLayout>
@@ -35,7 +34,7 @@ export default function Category() {
         {selectedCat ? (
           <div className="container">
             {subCategories.map((item) => (
-              <CategoryItem key={item.id} item={item} />
+              <MidItem key={item.id} item={item} />
             ))}
           </div>
         ) : (
