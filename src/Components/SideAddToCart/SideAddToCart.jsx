@@ -48,11 +48,11 @@ const SideAddToCart = () => {
                 <div key={cd.id} className="d-flex align-items-center">
               <img
                 src={cd.product_featured_photo}
-                alt=""
+                alt="img"
               />
               <div className="px-3">
                 <h5>{cd.product_Name}</h5>
-                <p>{cd.product_current_price}</p>
+                <p>৳{cd.product_current_price}</p>
               </div>
             </div>)
             }
