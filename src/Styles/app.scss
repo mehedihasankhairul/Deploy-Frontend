@@ -72,7 +72,6 @@ header {
 
 .sidebar {
   background-color: #d0ebff;
-  ;
   // width: 300px;
   padding: 1em;
   padding-top: 6em;
@@ -86,9 +85,14 @@ header {
 
 .main-container {
   padding-top: 5em;
-  max-height: 100%;
   overflow-y: scroll;
-
+  max-height: 100vh;
+  > main {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   &::-webkit-scrollbar {
     display: none;
   }

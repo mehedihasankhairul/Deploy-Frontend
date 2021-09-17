@@ -20,7 +20,7 @@ export default function ProductByCat() {
   );
   return (
     <MainLayout>
-      <div style={{ paddingTop: '1.5em' }}>
+      <main style={{ paddingTop: '1.5em' }}>
         <span className="navigator">
           <Link to="/">Home</Link>
           {'> '}{' '}
@@ -51,7 +51,7 @@ export default function ProductByCat() {
               ))}
         </div>
         <Footer />
-      </div>
+      </main>
     </MainLayout>
   );
 }

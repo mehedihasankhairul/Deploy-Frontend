@@ -19,7 +19,7 @@ export default function Category() {
   );
   // const selectedCat = topCategory[0];
   const subCategories = selectedCat
-    ? midCategory.filter((sCat) => sCat.tcatid === selectedCat.tcatid)
+    ? midCategory.filter((sCat) => sCat.tcatid === selectedCat.id)
     : null;
   return (
     <MainLayout>
