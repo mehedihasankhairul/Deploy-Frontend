@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { getPercentage } from '../../Utils/calculation';
-
-const baseUrl = 'https://deploy.com.bd/assets/uploads/';
+import { getProductSlug } from '../../Utils/getSlug';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const HomeDiscount = () => {
   const allProducts = useSelector((state) => state.products);
@@ -29,12 +30,23 @@ const HomeDiscount = () => {
     },
   };
 
+  const history = useHistory();
+
+  const handleProduct = (product) => {
+    const slug = getProductSlug(product);
+    history.push('/' + slug);
+  };
+
   return (
     <div className="homeDisSlider">
       <h1 className="heading">Supper Offer</h1>
       <Carousel responsive={responsive}>
         {allProducts.map((prod) => (
-          <div key={prod.id} className="disProduct_item">
+          <div
+            key={prod.id}
+            // onClick={() => handleProduct(prod)}
+            className="disProduct_item"
+          >
             <img src={prod.product_featured_photo} alt="img" />
             <p>{prod.product_Name}</p>
             <p className="oldPrice">BDT {prod.product_old_price}</p>

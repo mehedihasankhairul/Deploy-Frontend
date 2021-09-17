@@ -1,11 +1,15 @@
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { removeFromCart, setCartState } from '../../Store/Cart/cart.action';
+import { filteredCart, updateProductQuantity } from '../../Utils/functions';
 import CartButton from '../CartButton';
 
 export default function ProductRow({ product }) {
   const [quantity, setQuantity] = useState(product.quantity);
+  const dispatch = useDispatch();
   const updateQuantity = (type) => {
     if (type === 'increase') {
       setQuantity((q) => q + 1);
@@ -13,16 +17,28 @@ export default function ProductRow({ product }) {
       setQuantity((q) => q - 1);
     }
   };
+  const handleRemove = () => {
+    const confirm = window.confirm('Are you sure to remove this from cart?');
+    if (confirm) {
+      const filtered = filteredCart(product);
+      dispatch(removeFromCart(filtered));
+    }
+  };
+  useEffect(() => {
+    const updateCart = updateProductQuantity({ ...product, quantity });
+    dispatch(setCartState(updateCart));
+  }, [quantity]);
   return (
     <tr>
       <td>{product.id}</td>
       <input type="hidden" className="pid" value="id" />
       <td>
-        <img src="" width="50" alt="img" />
+        <img src={product.product_featured_photo} width="50" alt="img" />
       </td>
-      <td>{product.name}</td>
+      <td>{product.product_Name}</td>
       <td>
-        <i className="fas fa-rupee-sign"></i>&nbsp;&nbsp;${product.price}
+        <i className="fas fa-rupee-sign"></i>&nbsp;&nbsp;$
+        {product.product_current_price}
       </td>
       <input type="hidden" className="price" value="1" />
       <td>
@@ -34,13 +50,19 @@ export default function ProductRow({ product }) {
                       /> */}
       </td>
       <td>
-        <i className="fas fa-rupee-sign"></i>${product.price * quantity}
+        <i className="fas fa-rupee-sign"></i>$
+        {product.product_current_price * quantity}
       </td>
       <td>
-        <Link to="/" className="text-danger lead">
+        {/* <Link to="/" className="text-danger lead"> */}
+        <span
+          onClick={handleRemove}
+          style={{ cursor: 'pointer', color: 'orangered' }}
+        >
           <FontAwesomeIcon icon={faTrashAlt} />
           &nbsp;&nbsp;
-        </Link>
+        </span>
+        {/* </Link> */}
       </td>
     </tr>
   );

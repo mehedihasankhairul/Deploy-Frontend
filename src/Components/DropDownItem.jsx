@@ -5,7 +5,7 @@ import { getMidCategories } from '../Utils/getCats';
 import { getMidSlug } from '../Utils/getSlug';
 
 export default function DropDownItem({ item, active, setActiveMenu }) {
-  const midCategories = getMidCategories(item.tCatId);
+  const midCategories = getMidCategories(item.id);
   const handleMenu = () => {
     if (!active) {
       setActiveMenu(item.index);

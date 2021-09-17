@@ -16,7 +16,7 @@ export default function NewNav() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeTab, setActiveTab] = useState('categories');
   const [searchMenu, setSearchMenu] = useState(false);
-
+  const cart = useSelector((state) => state.cart);
   const [q, setQ] = useState('');
 
   const history = useHistory();
@@ -59,6 +59,7 @@ export default function NewNav() {
             <span className="search_field">
               <input
                 onKeyDown={handleQuery}
+                onKeyUp={handleQuery}
                 type="text"
                 placeholder="search product"
               />
@@ -78,7 +79,7 @@ export default function NewNav() {
             {' '}
             <span className="cart_menu">
               <GiShoppingCart size={25} />
-              <span>5</span>
+              <span>{cart.length}</span>
             </span>{' '}
           </Link>
         </div>
@@ -102,8 +103,13 @@ export default function NewNav() {
       {searchMenu && (
         <MediaQuery maxWidth="767px">
           <span className="search_field_mobile">
-            <input type="text" placeholder="search product" />
-            <button>Search</button>
+            <input
+              onKeyDown={handleQuery}
+              onKeyUp={handleQuery}
+              type="text"
+              placeholder="search product"
+            />
+            <button onClick={handleSearch}>Search</button>
           </span>
         </MediaQuery>
       )}
@@ -127,7 +133,6 @@ export default function NewNav() {
           </MediaQuery>
           {activeTab === 'categories' ? (
             <MediaQuery maxWidth="767px">
-              {/* <p>Category items {activeMenu}</p> */}
               <div className="mobile_category">
                 {topCats.map((item, index) => (
                   <DropDownItem
@@ -154,12 +159,6 @@ export default function NewNav() {
                     Register
                   </span>
                 </Link>
-                {/* <Link to="/cart">
-                  <span className="cart_menu">
-                    <GiShoppingCart size={25} />
-                    <span>5</span>
-                  </span>
-                </Link> */}
               </div>
             </MediaQuery>
           )}

@@ -23,6 +23,21 @@ export const getMidSlug = (item) => {
   return slug;
 };
 
+export const getProductSlug = (item) => {
+  const state = store.getState();
+  const { endCategory } = state.category;
+  const eCat = endCategory.find(
+    (cat) => cat.id === item.product_endcategory_id
+  );
+  const endSlug = getEndSlug(eCat);
+  return endSlug + '/' + item.id;
+};
+
 export const nameToSlug = (str) => {
   return str.replaceAll(' ', '-').toLowerCase();
+};
+
+export const slugToCatId = (slug) => {
+  const items = slug.split('/');
+  console.log(items);
 };

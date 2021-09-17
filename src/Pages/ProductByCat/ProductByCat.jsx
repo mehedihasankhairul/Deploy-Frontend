@@ -1,9 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import MainLayout from '../../Components/Layout/MainLayout';
 import Footer from '../../Components/Shared/Footer/Footer';
+import { setCartState } from '../../Store/Cart/cart.action';
+import { handleAddToCart } from '../../Utils/functions';
 
 const baseUrl = 'https://deploy.com.bd/assets/uploads/';
 
@@ -11,13 +13,26 @@ export default function ProductByCat() {
   const { category, mid_category, end_category } = useParams();
   const { endCategory } = useSelector((state) => state.category);
   const catName = end_category.replaceAll('-', ' ');
+  console.log(catName);
   const selectedCategory = endCategory.find(
     (cat) => cat.name.toLowerCase() === catName
   );
+  console.log(selectedCategory);
   const allProducts = useSelector((state) => state.products);
+  console.log(allProducts);
   const filterProducts = allProducts.filter(
     (product) => product.product_endcategory_id === selectedCategory.id
   );
+
+  console.log(filterProducts);
+
+  const dispatch = useDispatch();
+
+  const handleAdd = (item) => {
+    const res = handleAddToCart(item);
+    console.log(res);
+    dispatch(setCartState(res));
+  };
   return (
     <MainLayout>
       <main style={{ paddingTop: '1.5em' }}>
@@ -32,23 +47,22 @@ export default function ProductByCat() {
           {'> '} <span>{end_category.replaceAll('-', ' ')}</span>
         </span>
         <div className="product_list">
-          {filterProducts.length
-            ? filterProducts.map((prod) => (
-                <div key={prod.id} className="product_item">
-                  <img src={prod.product_featured_photo} alt="" />
-                  <p>{prod.product_Name}</p>
-                  <p>BDT {prod.product_current_price}</p>
-                  <button className="addToCart">Add To Cart</button>
-                </div>
-              ))
-            : allProducts.map((prod) => (
-                <div key={prod.id} className="product_item">
-                  <img src={baseUrl + prod.image} alt="" />
-                  <p>{prod.productName}</p>
-                  <p>BDT {prod.currentPrice}</p>
-                  <button className="addToCart">Add To Cart</button>
-                </div>
-              ))}
+          {filterProducts.length ? (
+            filterProducts.map((prod) => (
+              <div key={prod.id} className="product_item">
+                <img src={prod.product_featured_photo} alt="" />
+                <p>{prod.product_Name}</p>
+                <p>BDT {prod.product_current_price}</p>
+                <button className="addToCart" onClick={() => handleAdd(prod)}>
+                  Add To Cart
+                </button>
+              </div>
+            ))
+          ) : (
+            <div>
+              <h2>Can&apos;t find any product</h2>
+            </div>
+          )}
         </div>
         <Footer />
       </main>
