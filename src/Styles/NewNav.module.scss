@@ -7,6 +7,9 @@
   color: #fff;
   .logo {
     height: 3em;
+    @media (min-width: 768px) {
+      padding-right: 1em;
+    }
   }
   svg {
     color: #fff;
@@ -108,6 +111,8 @@
     button {
       color: #fff;
       padding: 0.5em 1em;
+      border: none;
+      outline: none;
       background-color: $mediumGray;
     }
   }
