@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import { getProductsByCategory } from '../../api/category.api';
 import CartButton from '../../Components/CartButton';
 import MainLayout from '../../Components/Layout/MainLayout';
 import Footer from '../../Components/Shared/Footer/Footer';
 import { setCartState } from '../../Store/Cart/cart.action';
 import { handleAddToCart } from '../../Utils/functions';
+import { getEndCatId } from '../../Utils/getCats';
 
 export default function ProductByCat() {
   const { category, mid_category, end_category } = useParams();
-  const { endCategory } = useSelector((state) => state.category);
-  const catName = end_category.replaceAll('-', ' ');
-  console.log(catName);
-  const selectedCategory = endCategory.find(
-    (cat) => cat.name.toLowerCase() === catName
-  );
-  console.log(selectedCategory);
-  const allProducts = useSelector((state) => state.products);
-  console.log(allProducts);
-  const filterProducts = allProducts.filter(
-    (product) => product.product_endcategory_id === selectedCategory.id
-  );
+  // const { endCategory } = useSelector((state) => state.category);
+  // const catName = end_category.replaceAll('-', ' ');
+  // console.log(catName);
+  // const selectedCategory = endCategory.find(
+  //   (cat) => cat.name.toLowerCase() === catName
+  // );
+  // console.log(selectedCategory);
+  const [products, setProducts] = useState([]);
 
-  console.log(filterProducts);
+  // const allProducts = useSelector((state) => state.products);
+  // console.log(allProducts);
+  // const filterProducts = allProducts.filter(
+  //   (product) => product.product_endcategory_id === selectedCategory.id
+  // );
+
+  // console.log(filterProducts);
 
   const dispatch = useDispatch();
 
@@ -32,6 +36,12 @@ export default function ProductByCat() {
     console.log(res);
     dispatch(setCartState(res));
   };
+
+  useEffect(() => {
+    const endCatId = getEndCatId(end_category);
+    const products = getProductsByCategory(endCatId);
+    setProducts(products);
+  }, [end_category]);
   return (
     <MainLayout>
       <main style={{ paddingTop: '1.5em' }}>
@@ -45,9 +55,10 @@ export default function ProductByCat() {
           </Link>
           {'> '} <span>{end_category.replaceAll('-', ' ')}</span>
         </span>
+        {'Total : ' + products.length}
         <div className="product_list">
-          {filterProducts.length ? (
-            filterProducts.map((prod) => (
+          {products.length ? (
+            products.map((prod) => (
               <div key={prod.id} className="product_item">
                 <img src={prod.product_featured_photo} alt="" />
                 <p>{prod.product_Name}</p>

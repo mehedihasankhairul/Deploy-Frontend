@@ -48,3 +48,15 @@ export const searchProduct = async (query) => {
   console.log(res);
   return res;
 };
+
+export const getProductsByCategory = async (catid) => {
+  const res = await axios.get(`${base}category/${catid}`);
+  console.log(res.data);
+  return res.data;
+};
+
+export const productDetailsWithCat = async (productId, eCatId) => {
+  const res = await axios.get(`${base}category/${eCatId}/${productId}`);
+  console.log(res.data);
+  return res.data;
+};

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -11,16 +11,20 @@ import MediaQuery from 'react-responsive';
 import MidItem from '../../Components/MidItem';
 
 export default function Category() {
-  const { topCategory, midCategory } = useSelector((state) => state.category);
-
+  const [midCats, setMidcats] = useState([]);
   const { category } = useParams();
-  const selectedCat = topCategory.find(
-    (cat) => nameToSlug(cat.name) === category
-  );
+  const { topCategory, midCategory } = useSelector((state) => state.category);
+  useEffect(() => {
+    console.log(category);
+    const selectedCat = topCategory.find(
+      (cat) => nameToSlug(cat.name) === category
+    );
+    const subCategories = selectedCat
+      ? midCategory.filter((sCat) => sCat.tcatid === selectedCat.id)
+      : null;
+    setMidcats(subCategories);
+  }, []);
   // const selectedCat = topCategory[0];
-  const subCategories = selectedCat
-    ? midCategory.filter((sCat) => sCat.tcatid === selectedCat.id)
-    : null;
   return (
     <MainLayout>
       <main style={{ paddingTop: '1.5em' }}>
@@ -29,12 +33,12 @@ export default function Category() {
         </MediaQuery>
         <span className="navigator">
           <Link to="/">Home</Link>
-          {'> '} <span>{selectedCat.name}</span>
+          {'> '} <span>{category.replaceAll('-', ' ')}</span>
         </span>
-        {selectedCat ? (
+        {midCats ? (
           <div className="container">
-            {subCategories.length ? (
-              subCategories.map((item) => <MidItem key={item.id} item={item} />)
+            {midCats.length ? (
+              midCats.map((item) => <MidItem key={item.id} item={item} />)
             ) : (
               <h2>No categories found under this category</h2>
             )}

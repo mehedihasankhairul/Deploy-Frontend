@@ -1,6 +1,6 @@
 import { store } from '../Store';
 
-const textToSlug = (str) => str.replaceAll(' ', '-').toLowerCase();
+const textToSlug = (str = '') => str.replaceAll(' ', '-').toLowerCase();
 
 export const getEndSlug = (item) => {
   const state = store.getState();
@@ -33,7 +33,7 @@ export const getProductSlug = (item) => {
   return endSlug + '/' + item.id;
 };
 
-export const nameToSlug = (str) => {
+export const nameToSlug = (str = '') => {
   return str.replaceAll(' ', '-').toLowerCase();
 };
 

@@ -8,12 +8,17 @@ import Navigator from '../../Components/Shared/Navigator/Navigator';
 import CartButton from '../../Components/CartButton';
 import Footer from '../../Components/Shared/Footer/Footer';
 import SecondaryLayout from '../../Components/Layout/SecondaryLayout';
+import { getEndCatId } from '../../Utils/getCats';
+import { productDetailsWithCat } from '../../api/category.api';
 
 export default function Product() {
   const allProducts = useSelector((state) => state.products);
-  const { productid } = useParams();
+  const { end_category, productid } = useParams();
+
+  const eCatId = getEndCatId(end_category);
   // const item = allProducts.find(pd => pd.id === productid)
-  const item = allProducts[0];
+  // const item = allProducts[0];
+  const item = productDetailsWithCat(productid, eCatId);
   const [quantity, setQuantity] = useState(1);
   const updateQuantity = (type) => {
     if (type === 'increase') {
