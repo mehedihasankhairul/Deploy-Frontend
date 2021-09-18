@@ -6,12 +6,6 @@ export const setCartState = (state) => async (dispatch) =>
     payload: state,
   });
 
-// export const addToCart = (product) => async (dispatch) =>
-//   dispatch({
-//     type: cartActionType.ADD_TO_CART,
-//     payload: product,
-//   });
-
 export const addToCart = (payload) => async (dispatch) => {
   dispatch({
     type: cartActionType.SET_CART_STATE,

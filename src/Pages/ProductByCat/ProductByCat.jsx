@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import CartButton from '../../Components/CartButton';
 import MainLayout from '../../Components/Layout/MainLayout';
 import Footer from '../../Components/Shared/Footer/Footer';
 import { setCartState } from '../../Store/Cart/cart.action';
 import { handleAddToCart } from '../../Utils/functions';
-
-const baseUrl = 'https://deploy.com.bd/assets/uploads/';
 
 export default function ProductByCat() {
   const { category, mid_category, end_category } = useParams();
@@ -53,6 +52,7 @@ export default function ProductByCat() {
                 <img src={prod.product_featured_photo} alt="" />
                 <p>{prod.product_Name}</p>
                 <p>BDT {prod.product_current_price}</p>
+
                 <button className="addToCart" onClick={() => handleAdd(prod)}>
                   Add To Cart
                 </button>
@@ -60,7 +60,7 @@ export default function ProductByCat() {
             ))
           ) : (
             <div>
-              <h2>Can&apos;t find any product</h2>
+              <h2>Can&apos;t find any product for this category.</h2>
             </div>
           )}
         </div>
