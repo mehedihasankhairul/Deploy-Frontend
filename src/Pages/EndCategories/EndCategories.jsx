@@ -17,10 +17,10 @@ export default function EndCategories() {
   const selectedCat = midCategory.find(
     (cat) => cat.name.toLowerCase() === catName
   );
-  // const filteredCategories = selectedCat
-  //   ? endCategory.filter((endCat) => endCat.mcatId === selectedCat.id)
-  //   : null;
-  // console.log(filteredCategories);
+  const filteredCategories = selectedCat
+    ? endCategory.filter((endCat) => endCat.midcatid === selectedCat.id)
+    : null;
+  console.log(filteredCategories);
   return (
     <MainLayout>
       <main style={{ paddingTop: '1.5em' }}>
@@ -36,16 +36,17 @@ export default function EndCategories() {
 
         {selectedCat ? (
           <div className="container">
-            {endCategory.map((item) => (
-              <EndItem key={item.id} item={item} />
-            ))}
+            {filteredCategories.length ? (
+              filteredCategories.map((item) => (
+                <EndItem key={item.id} item={item} />
+              ))
+            ) : (
+              <h2>No categories found under this category</h2>
+            )}
           </div>
         ) : (
           <Error />
         )}
-        {/* {
-          endCategory.map(item) => <EndItem key={item.id} item={item} />)
-        } */}
         <Footer />
       </main>
     </MainLayout>

@@ -33,9 +33,11 @@ export default function Category() {
         </span>
         {selectedCat ? (
           <div className="container">
-            {subCategories.map((item) => (
-              <MidItem key={item.id} item={item} />
-            ))}
+            {subCategories.length ? (
+              subCategories.map((item) => <MidItem key={item.id} item={item} />)
+            ) : (
+              <h2>No categories found under this category</h2>
+            )}
           </div>
         ) : (
           <Error />
