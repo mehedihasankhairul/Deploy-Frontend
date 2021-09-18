@@ -60,7 +60,7 @@ export default function ProductByCat() {
             ))
           ) : (
             <div>
-              <h2>Can&apos;t find any product</h2>
+              <h2>Can&apos;t find any product for this category.</h2>
             </div>
           )}
         </div>
