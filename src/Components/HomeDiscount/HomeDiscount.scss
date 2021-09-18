@@ -55,13 +55,13 @@
     &:hover {
 
       .discount-percent{
-        filter: blur(2px);
+        filter: blur(1px);
         transform: scale(0.9);
         opacity: 0.5;
       }
       
       img ,p  {
-        filter: blur(2px);
+        filter: blur(1px);
         transform: scale(0.9);
         opacity: 0.5;
       }

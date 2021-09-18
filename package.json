@@ -1,5 +1,6 @@
 {
   "name": "deploy-client",
+  "homepage": "https://deploy.com.bd/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

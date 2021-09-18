@@ -3,7 +3,10 @@ import './SideAddToCart.scss';
 import { GiShoppingCart } from 'react-icons/gi';
 import { useDispatch, useSelector  } from 'react-redux';
 import { getCartTotal } from '../../Utils/functions';
-import { setCartState } from '../../Store/Cart/cart.action';
+
+
+
+
 
 
 const SideAddToCart = () => {
