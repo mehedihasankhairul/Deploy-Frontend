@@ -120,7 +120,7 @@ const Partner = () => {
       >
         {partnerImages.map((img) => (
           <div className="partner-carousel" key={img}>
-            <img src={baseUrl + img} alt="" />
+            <img src={baseUrl + img} alt="partners-logo" />
           </div>
         ))}
         {/* <div className="partner-carousel">One</div>
