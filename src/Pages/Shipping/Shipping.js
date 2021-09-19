@@ -145,6 +145,27 @@ const Shipping = () => {
                   </form>
                 </div>
               </div>
+
+              {/* cash on delivery */}
+
+              <div className="card shipping-card">
+                <div className="shipping-card-header py-3">
+                  <h5 className="mb-0">Payment Methods <span style={{color: 'red', fontSize: '12px'}}>(Only Cash on delivery available!)</span> </h5>
+                </div>
+                <div className="card-body">
+                  <div className="payment-item p-4">
+                    <input type="radio" className="" name="ptype" id="cod" value="0" required=""></input>
+                    <label className="form-check-label focus ml-3" >
+                      <img src="https://www.rokomari.com/static/200/images/cod.png" width="40px" alt="cod" />
+                      <span className="ml-3">Cash on Delivery</span>
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* cash on delivery finish */}
+
             </div>
 
             <div className="col-md-4 mb-4">
