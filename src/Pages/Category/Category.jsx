@@ -29,7 +29,7 @@ export default function Category() {
         </MediaQuery>
         <span className="navigator">
           <Link to="/">Home</Link>
-          {'> '} <span>{selectedCat.name}</span>
+          {'> '} <span>{selectedCat?.name}</span>
         </span>
         {selectedCat ? (
           <div className="container">

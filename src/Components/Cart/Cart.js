@@ -85,7 +85,7 @@ const Cart = () => {
                         </b>
                       </td>
                       <td>
-                        <Link to="/shipping" className="btn btn-info">
+                        <Link to="/checkout" className="btn btn-info">
                           <FontAwesomeIcon icon={faCreditCard} />
                           &nbsp;&nbsp;Checkout
                         </Link>

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const base = `https://api.deploy.com.bd/api/`;
+// const base = 'https://frozen-caverns-97537.herokuapp.com/api/';
 
 export const getTopCategories = async () => {
   try {
@@ -47,4 +48,14 @@ export const searchProduct = async (query) => {
   const res = await axios.get(`${base}search/?search=${query}`);
   console.log(res);
   return res;
+};
+
+export const productByEndCat = async (id) => {
+  try {
+    const res = await axios.get(`${base}category/${id}`);
+    return res.data;
+  } catch (e) {
+    console.log(e);
+    return 'something went wrong..';
+  }
 };
