@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Footer from '../../Components/Shared/Footer/Footer';
 import axios from 'axios';
 import SecondaryLayout from '../../Components/Layout/SecondaryLayout';
+import cod from '../../assets/Images/cod.png'
 
 const Shipping = () => {
   const [districts, setDistrict] = useState([]);
@@ -157,7 +158,7 @@ const Shipping = () => {
                   <div className="payment-item p-4">
                     <input type="radio" className="" name="ptype" id="cod" value="0" required=""></input>
                     <label className="form-check-label focus ml-3" >
-                      <img src="https://www.rokomari.com/static/200/images/cod.png" width="40px" alt="cod" />
+                      <img src={cod} width="40px" alt="cod" />
                       <span className="ml-3">Cash on Delivery</span>
                     </label>
                   </div>
