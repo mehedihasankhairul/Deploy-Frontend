@@ -3,6 +3,7 @@ import Footer from '../../Components/Shared/Footer/Footer';
 import axios from 'axios';
 import SecondaryLayout from '../../Components/Layout/SecondaryLayout';
 import { useForm } from 'react-hook-form';
+import cod from '../../assets/Images/cod.png';
 
 const Shipping = () => {
   const [currentDistricts, setDistrict] = useState([]);
@@ -178,11 +179,7 @@ const Shipping = () => {
                       required=""
                     ></input>
                     <label className="form-check-label focus ml-3">
-                      <img
-                        src="https://www.rokomari.com/static/200/images/cod.png"
-                        width="40px"
-                        alt="cod"
-                      />
+                      <img src={cod} width="40px" alt="cod" />
                       <span className="ml-3">Cash on Delivery</span>
                     </label>
                   </div>
