@@ -26,7 +26,7 @@ const CustomerRegistration = () => {
 
     await axios({
       method: 'POST',
-      url: 'https://frozen-caverns-97537.herokuapp.com/api/user/',
+      url: 'https://api.deploy.com.bd/api/user/',
       data: formData,
       headers: {
         'Content-type': 'application/json',

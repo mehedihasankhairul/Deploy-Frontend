@@ -17,7 +17,7 @@ const CustomerLogin = () => {
 
     await axios({
       method: 'POST',
-      url: 'https://frozen-caverns-97537.herokuapp.com/api/token/',
+      url: 'https://api.deploy.com.bd/api/token/',
       data: formData,
       headers: {
         'Content-type': 'application/json',

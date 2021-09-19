@@ -148,6 +148,7 @@ const Shipping = () => {
 
               {/* cash on delivery */}
 
+
               <div className="card shipping-card">
                 <div className="shipping-card-header py-3">
                   <h5 className="mb-0">Payment Methods <span style={{color: 'red', fontSize: '12px'}}>(Only Cash on delivery available!)</span> </h5>

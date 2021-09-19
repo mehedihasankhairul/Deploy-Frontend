@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const base = `https://frozen-caverns-97537.herokuapp.com/api/`;
+const base = `https://api.deploy.com.bd/api/`;
 
 export const getTopCategories = async () => {
   try {
