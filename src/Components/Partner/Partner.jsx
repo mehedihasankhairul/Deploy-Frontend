@@ -66,8 +66,7 @@ const partnerImages = [
   '8.webp',
   '9.webp',
 ];
-// const baseUrl = 'https://deploy.com.bd/assets/breandLogo/';
-const baseUrl = '@assets/partnerlogoo/';
+const baseUrl = 'https://deploy.com.bd/assets/breandLogo/';
 
 const Partner = () => {
   const breakPoints = [
@@ -121,7 +120,6 @@ const Partner = () => {
       >
         {partnerImages.map((img) => (
           <div className="partner-carousel" key={img}>
-            <p>{baseUrl + img}</p>
             <img src={baseUrl + img} alt="partners-logo" />
           </div>
         ))}
