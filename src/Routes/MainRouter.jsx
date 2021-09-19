@@ -16,9 +16,7 @@ export default function MainRouter() {
   return (
     <Router>
       <Switch>
-        <PrivateRoute exact path="/checkout">
-          <h2>secured route</h2>
-        </PrivateRoute>
+        <PrivateRoute exact path="/checkout" component={Shipping} />
         <Route path="/login" component={Login} />
         <Route path="/registration" component={Registration} />
         <PrivateRoute path="/cart" component={Cart} />

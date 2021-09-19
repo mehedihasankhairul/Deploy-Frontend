@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import './SideAddToCart.scss';
 import { GiShoppingCart } from 'react-icons/gi';
-import { useDispatch, useSelector  } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCartTotal } from '../../Utils/functions';
-import { setCartState } from '../../Store/Cart/cart.action';
-
+import { Link } from 'react-router-dom';
 
 const SideAddToCart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const [showCart, setShowCart] = useState(false);
 
-
   const addToCart = () => {
     setShowCart(true);
   };
-
 
   return (
     <>
@@ -24,7 +21,7 @@ const SideAddToCart = () => {
           <span className="cart_menu">
             <GiShoppingCart size={25} /> <span>{cart.length}</span>
           </span>
-          <p>৳{getCartTotal()}</p>
+          <p>৳ {getCartTotal()}</p>
         </button>
       </div>
 
@@ -43,20 +40,18 @@ const SideAddToCart = () => {
                 ></i>
               </div>
             </div>
-            {
-              cart.map(cd => 
-                <div key={cd.id} className="d-flex align-items-center">
-              <img
-                src={cd.product_featured_photo}
-                alt="img"
-              />
-              <div className="px-3">
-                <h5>{cd.product_Name}</h5>
-                <p>৳{cd.product_current_price}</p>
+            {cart.map((cd) => (
+              <div key={cd.id} className="d-flex align-items-center">
+                <img src={cd.product_featured_photo} alt="img" />
+                <div className="px-3">
+                  <h5>{cd.product_Name}</h5>
+                  <p>৳{cd.product_current_price}</p>
+                </div>
               </div>
-            </div>)
-            }
-            <button className="btn btn-info">Process To Checkout</button>
+            ))}
+            <Link to="/checkout">
+              <button className="btn btn-info">Process To Checkout</button>
+            </Link>
           </div>
         </div>
       )}

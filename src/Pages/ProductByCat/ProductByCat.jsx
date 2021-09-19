@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import { productByEndCat } from '../../api/category.api';
 import CartButton from '../../Components/CartButton';
 import MainLayout from '../../Components/Layout/MainLayout';
 import Footer from '../../Components/Shared/Footer/Footer';
@@ -11,19 +12,17 @@ import { handleAddToCart } from '../../Utils/functions';
 export default function ProductByCat() {
   const { category, mid_category, end_category } = useParams();
   const { endCategory } = useSelector((state) => state.category);
+  const [catProducts, setProducts] = useState([]);
   const catName = end_category.replaceAll('-', ' ');
-  console.log(catName);
   const selectedCategory = endCategory.find(
     (cat) => cat.name.toLowerCase() === catName
   );
-  console.log(selectedCategory);
-  const allProducts = useSelector((state) => state.products);
-  console.log(allProducts);
-  const filterProducts = allProducts.filter(
-    (product) => product.product_endcategory_id === selectedCategory.id
-  );
 
-  console.log(filterProducts);
+  const getProducts = async (id) => {
+    const products = await productByEndCat(id);
+    setProducts(products);
+    return products;
+  };
 
   const dispatch = useDispatch();
 
@@ -32,6 +31,11 @@ export default function ProductByCat() {
     console.log(res);
     dispatch(setCartState(res));
   };
+
+  useEffect(() => {
+    getProducts(selectedCategory?.id || 0);
+  }, [selectedCategory]);
+
   return (
     <MainLayout>
       <main style={{ paddingTop: '1.5em' }}>
@@ -45,9 +49,9 @@ export default function ProductByCat() {
           </Link>
           {'> '} <span>{end_category.replaceAll('-', ' ')}</span>
         </span>
-        <div className="product_list">
-          {filterProducts.length ? (
-            filterProducts.map((prod) => (
+        {catProducts.length ? (
+          <div className="product_list_area">
+            {catProducts.map((prod) => (
               <div key={prod.id} className="product_item">
                 <img src={prod.product_featured_photo} alt="" />
                 <p>{prod.product_Name}</p>
@@ -57,13 +61,13 @@ export default function ProductByCat() {
                   Add To Cart
                 </button>
               </div>
-            ))
-          ) : (
-            <div>
-              <h2>Can&apos;t find any product for this category.</h2>
-            </div>
-          )}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div style={{ padding: '1.5em' }}>
+            <h2>Can&apos;t find any product for this category.</h2>
+          </div>
+        )}
         <Footer />
       </main>
     </MainLayout>
