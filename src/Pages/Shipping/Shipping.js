@@ -11,9 +11,6 @@ const Shipping = () => {
   const [address, setAddress] = useState({ division: 'Barishal' });
   const formFilled = false;
   useEffect(() => {
-    // axios
-    //   .get('https://bdapis.herokuapp.com/api/v1.1/districts')
-    //   .then((data) => setDistrict(data.data.data));
     axios
       .get('https://bdapis.herokuapp.com/api/v1.1/divisions')
       .then((data) => setDivisions(data.data.data));
@@ -39,13 +36,13 @@ const Shipping = () => {
     setAddress({ ...address, district: dis });
   };
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   watch,
-  //   formState: { errors },
-  // } = useForm();
-  // const onSubmit = (data) => console.log(data);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
 
   return (
     <SecondaryLayout>
@@ -53,139 +50,153 @@ const Shipping = () => {
         <div className="container checkout">
           <div className="row pt-3">
             <div className="col-md-8 mb-4 address">
-              {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-              <div className="card mb-4 shipping-card">
-                <div className="shipping-card-header py-3">
-                  <h5 className="mb-0">Billing details</h5>
-                </div>
-                <div className="card-body">
-                  {/* <!-- Text input --> */}
-                  <div className="form-outline mb-4">
-                    <label className="form-label">Name</label>
-                    <input
-                      type="text"
-                      id="form6Example4"
-                      className="form-control"
-                    />
+              {/* form start */}
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="card mb-4 shipping-card">
+                  <div className="shipping-card-header py-3">
+                    <h5 className="mb-0">Billing details</h5>
                   </div>
+                  <div className="card-body">
+                    {/* <!-- Text input --> */}
+                    <div className="form-outline mb-4">
+                      <label className="form-label">Name</label>
+                      <input
+                        {...register("name", { required: true })}
+                        type="text"
+                        id="form6Example4"
+                        className="form-control"
+                      />
+                      {errors.nameError && <span>This field is required</span>}
+                    </div>
 
-                  {/* <!-- 2 column grid layout with text inputs for the first and last names --> */}
-                  <div className="row mb-4">
-                    <div className="col">
-                      <div className="form-outline">
-                        <label className="form-label">Phone No</label>
-                        <input
-                          type="number"
-                          id="form6Example1"
-                          className="form-control"
-                        />
+                    {/* <!-- 2 column grid layout with text inputs for the first and last names --> */}
+                    <div className="row mb-4">
+                      <div className="col">
+                        <div className="form-outline">
+                          <label className="form-label">Phone No</label>
+                          <input
+                            type="number"
+                            id="form6Example1"
+                            className="form-control"
+                            {...register("phone", { required: true })}
+                          />
+                        </div>
+                      </div>
+                      <div className="col">
+                        <div className="form-outline">
+                          <label className="form-label">
+                            Alternative Phone No
+                          </label>
+                          <input
+                            type="number"
+                            id="form6Example2"
+                            className="form-control"
+                            {...register("altPhone", { required: true })}
+                          />
+                        </div>
                       </div>
                     </div>
-                    <div className="col">
-                      <div className="form-outline">
-                        <label className="form-label">
-                          Alternative Phone No
-                        </label>
-                        <input
-                          type="number"
-                          id="form6Example2"
-                          className="form-control"
-                        />
+
+                    {/* Country */}
+                    <div className="row">
+                      <div className="col mb-4">
+                        <span>Division :</span>
+                        <select
+                          name="division"
+                          defaultValue={divisions[2]}
+                          onChange={handleDivision}
+                          data-validation-type="select-menu"
+                          className="custom-select"
+                          {...register("division", { required: true })}
+                          id="js--country"
+                        >
+                          {divisions.map((div) => (
+                            <option key={div._id} value={div.division}>
+                              {div.division}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="col mb-4">
+                        <span>Districts :</span>
+                        <select
+                          name="division"
+                          value={divisions[0]}
+                          onChange={selectDistricts}
+                          data-validation-type="select-menu"
+                          className="custom-select"
+                          {...register("district", { required: true })}
+                          id="js--country"
+                        >
+                          {currentDistricts.map((dis) => (
+                            <option key={dis._id} value={dis.district}>
+                              {dis.district}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Country */}
-                  <div className="row">
-                    <div className="col mb-4">
-                      <span>Division :</span>
-                      <select
-                        name="division"
-                        defaultValue={divisions[2]}
-                        onChange={handleDivision}
-                        data-validation-type="select-menu"
-                        className="custom-select"
-                        required=""
-                        id="js--country"
-                      >
-                        {divisions.map((div) => (
-                          <option key={div._id} value={div.division}>
-                            {div.division}
-                          </option>
-                        ))}
-                      </select>
+                    {/* <!-- Email input --> */}
+                    <div className="form-outline mb-4">
+                      <label className="form-label">Email</label>
+                      <input
+                        type="email"
+                        id="form6Example5"
+                        className="form-control"
+                        {...register("email", { required: true })}
+                      />
                     </div>
-                    <div className="col mb-4">
-                      <span>Districts :</span>
-                      <select
-                        name="division"
-                        value={divisions[0]}
-                        onChange={selectDistricts}
-                        data-validation-type="select-menu"
-                        className="custom-select"
-                        required=""
-                        id="js--country"
-                      >
-                        {currentDistricts.map((dis) => (
-                          <option key={dis._id} value={dis.district}>
-                            {dis.district}
-                          </option>
-                        ))}
-                      </select>
+
+                    {/* <!-- Text input --> */}
+                    <div className="form-outline mb-4">
+                      <label className="form-label">Address</label>
+                      <textarea
+                        className="form-control"
+                        id="form6Example7"
+                        rows="4"
+                        {...register("address", { required: true })}
+                      ></textarea>
                     </div>
                   </div>
-
-                  {/* <!-- Email input --> */}
-                  <div className="form-outline mb-4">
-                    <label className="form-label">Email</label>
-                    <input
-                      type="email"
-                      id="form6Example5"
-                      className="form-control"
-                    />
-                  </div>
-
-                  {/* <!-- Text input --> */}
-                  <div className="form-outline mb-4">
-                    <label className="form-label">Address</label>
-                    <textarea
-                      className="form-control"
-                      id="form6Example7"
-                      rows="4"
-                    ></textarea>
-                  </div>
                 </div>
-              </div>
 
-              {/* cash on delivery */}
+                {/* cash on delivery */}
 
-              <div className="card shipping-card">
-                <div className="shipping-card-header py-3">
-                  <h5 className="mb-0">
-                    Payment Methods{' '}
-                    <span style={{ color: 'red', fontSize: '12px' }}>
-                      (Only Cash on delivery available!)
-                    </span>{' '}
-                  </h5>
-                </div>
-                <div className="card-body">
-                  <div className="payment-item p-4">
-                    <input
-                      type="radio"
-                      className=""
-                      name="ptype"
-                      id="cod"
-                      value="0"
-                      required=""
-                    ></input>
-                    <label className="form-check-label focus ml-3">
-                      <img src={cod} width="40px" alt="cod" />
-                      <span className="ml-3">Cash on Delivery</span>
-                    </label>
+                <div className="card shipping-card">
+                  <div className="shipping-card-header py-3">
+                    <h5 className="mb-0">
+                      Payment Methods{' '}
+                      <span style={{ color: 'red', fontSize: '12px' }}>
+                        (Only Cash on delivery available!)
+                      </span>{' '}
+                    </h5>
+                  </div>
+                  <div className="card-body">
+                    <div className="payment-item p-4">
+                      <input
+                        type="radio"
+                        className=""
+                        name="ptype"
+                        id="cod"
+                        value="Cash on Delivery"
+                        {...register("cod", { required: true })}
+                      ></input>
+                      <label className="form-check-label focus ml-3">
+                        <img src={cod} width="40px" alt="cod" />
+                        <span className="ml-3">Cash on Delivery</span>
+                      </label>
+                    </div>
+
+                    <div className="confirm-order mt-3">
+                      <input className="btn btn-success btn-lg btn-block"
+                        type="submit" />
+
+                    </div>
                   </div>
                 </div>
-              </div>
-              {/* </form> */}
+
+              </form>
 
               {/* cash on delivery finish */}
             </div>
@@ -218,13 +229,7 @@ const Shipping = () => {
                     </li>
                   </ul>
 
-                  <button
-                    type="button"
-                    className="btn btn-success btn-lg btn-block"
-                    disabled={!formFilled}
-                  >
-                    Confirm Order
-                  </button>
+
                 </div>
               </div>
             </div>
