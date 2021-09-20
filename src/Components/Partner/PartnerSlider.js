@@ -99,7 +99,7 @@ const PartnerSlider = () => {
       }, 2000);
     }
   };
-  const baseUrl = 'https://assets.deploy.com.bd/assets/breandLogo/';
+  const baseUrl = 'https://assets.deploy.com.bd/assets/brandLogo/';
 
   // const baseUrl = '../../assets/partnerlogo/';
 
