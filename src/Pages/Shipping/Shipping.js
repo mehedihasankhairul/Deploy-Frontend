@@ -66,6 +66,7 @@ const Shipping = () => {
                         id="form6Example4"
                         className="form-control"
                       />
+                      <p>{errors.name && <span className="text-danger">This field is required</span>}</p>
                       {errors.nameError && <span>This field is required</span>}
                     </div>
 
@@ -80,6 +81,7 @@ const Shipping = () => {
                             className="form-control"
                             {...register("phone", { required: true })}
                           />
+                          <p>{errors.phone && <span className="text-danger">This field is required</span>}</p>
                         </div>
                       </div>
                       <div className="col">
@@ -93,6 +95,7 @@ const Shipping = () => {
                             className="form-control"
                             {...register("altPhone", { required: true })}
                           />
+                          <p>{errors.altPhone && <span className="text-danger">This field is required</span>}</p>
                         </div>
                       </div>
                     </div>
@@ -116,6 +119,7 @@ const Shipping = () => {
                             </option>
                           ))}
                         </select>
+                        <p>{errors.division && <span className="text-danger">This field is required</span>}</p>
                       </div>
                       <div className="col mb-4">
                         <span>Districts :</span>
@@ -134,6 +138,7 @@ const Shipping = () => {
                             </option>
                           ))}
                         </select>
+                        <p>{errors.district && <span className="text-danger">This field is required</span>}</p>
                       </div>
                     </div>
 
@@ -146,6 +151,7 @@ const Shipping = () => {
                         className="form-control"
                         {...register("email", { required: true })}
                       />
+                      <p>{errors.email && <span className="text-danger">This field is required</span>}</p>
                     </div>
 
                     {/* <!-- Text input --> */}
@@ -157,6 +163,7 @@ const Shipping = () => {
                         rows="4"
                         {...register("address", { required: true })}
                       ></textarea>
+                      <p>{errors.address && <span className="text-danger">This field is required</span>}</p>
                     </div>
                   </div>
                 </div>
@@ -181,12 +188,14 @@ const Shipping = () => {
                         id="cod"
                         value="Cash on Delivery"
                         {...register("cod", { required: true })}
-                      ></input>
+                      />
                       <label className="form-check-label focus ml-3">
                         <img src={cod} width="40px" alt="cod" />
                         <span className="ml-3">Cash on Delivery</span>
                       </label>
                     </div>
+                    <p>{errors.cod && <span className="text-danger">This field is required</span>}</p>
+
 
                     <div className="confirm-order mt-3">
                       <input className="btn btn-success btn-lg btn-block"

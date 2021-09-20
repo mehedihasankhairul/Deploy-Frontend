@@ -1,45 +1,49 @@
 /* eslint-disable no-undef */
 import axios from 'axios';
+import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import logo from '../../../assets/Images/deoloy-logo.jpeg';
 
 const CustomerLogin = () => {
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
-  const history = useHistory();
 
-  // Login with Axios post method
-  const login = async (e) => {
-    const formData = new FormData();
-    formData.append('username', userName);
-    formData.append('password', password);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+  console.log(errors)
 
-    await axios({
-      method: 'POST',
-      url: 'https://api.deploy.com.bd/api/token/',
-      data: formData,
-      headers: {
-        'Content-type': 'application/json',
-      },
-    })
-      .then(response => {
 
-        if (response.data.status === 200) {
-          localStorage.setItem('token', response.data.token);
-        }
-        history.push('/cart');
-        console.log(response, response.data, response.status, response.headers);
-      }).catch(error => {
-        if (error.response.status === 401 || error.response.status === 400) {
-          console.log('Error: ', error.response.data);
-          alert('Invalid username or password');
-        } else {
-          alert('Something Went Wrong');
-        }
-        console.log(error);
-      });
-  }
+
+
+  //   await axios({
+  //     method: 'POST',
+  //     url: 'https://api.deploy.com.bd/api/token/',
+  //     data: formData,
+  //     headers: {
+  //       'Content-type': 'application/json',
+  //     },
+  //   })
+  //     .then(response => {
+
+  //       if (response.data.status === 200) {
+  //         localStorage.setItem('token', response.data.token);
+  //       }
+  //       history.push('/cart');
+  //       console.log(response, response.data, response.status, response.headers);
+  //     }).catch(error => {
+  //       if (error.response.status === 401 || error.response.status === 400) {
+  //         console.log('Error: ', error.response.data);
+  //         alert('Invalid username or password');
+  //       } else {
+  //         alert('Something Went Wrong');
+  //       }
+  //       console.log(error);
+  //     });
+  // }
 
 
   return (
@@ -57,31 +61,31 @@ const CustomerLogin = () => {
             <img className="w-50" src={logo} alt="logo" />
           </div>
 
-          <div className="mb-3">
-            <label className="form-label">User Name</label>
-            <input
-              type="text"
-              value={userName}
-              className="form-control"
-              name="userName"
-              aria-describedby="emailHelp"
-              onChange={(e) => setUserName(e.target.value)}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Password</label>
-            <input
-              type="password"
-              value={password}
-              className="form-control"
-              name="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <button onClick={login}
-            className="btn w-100 btn-success">
-            Submit
-          </button>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="mb-3">
+              <label className="form-label">User Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="userName"
+                {...register("userName", { required: true })}
+              />
+              <p>{errors.userName && <span className="text-danger">This field is required</span>}</p>
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                name="password"
+                {...register("password", { required: true })}
+              />
+              <p>{errors.password && <span className="text-danger">This field is required</span>}</p>
+            </div>
+            <input value="Submit" type="submit" 
+              className="btn w-100 btn-success" />
+
+          </form>
           <p className="mt-4">
             New to Deploy? <Link to="/registration">Sign up Now</Link>
           </p>
