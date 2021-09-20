@@ -12,8 +12,9 @@ const CustomerRegistration = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors)
+  const onSubmit = (data) => {
+    console.log(data);
+  }
 
 
 
