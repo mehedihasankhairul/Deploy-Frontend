@@ -59,3 +59,14 @@ export const productByEndCat = async (id) => {
     return 'something went wrong..';
   }
 };
+
+export const submitOrderData = async (orderData) => {
+  console.log('submitting order..');
+  try {
+    const res = await axios.post(`${base}order/`, orderData);
+    return res;
+  } catch (e) {
+    console.log(e);
+    return e;
+  }
+};

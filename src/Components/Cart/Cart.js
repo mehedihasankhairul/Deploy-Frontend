@@ -31,7 +31,7 @@ const Cart = () => {
   const history = useHistory();
 
   const goToCheckout = () => {
-    history.push('/');
+    history.push('/checkout');
   };
 
   return (

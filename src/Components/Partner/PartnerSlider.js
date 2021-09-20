@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 import Carousel from 'react-elastic-carousel';
 import MediaQuery from 'react-responsive';
 
-import img1 from '../../assets/partnerlogo/1.webp';
-
 const slides = [
   '1.webp',
   '10.webp',

@@ -22,7 +22,7 @@ export default function Product() {
       setQuantity((q) => q - 1);
     }
   };
-  const imageUrl = 'https://deploy.com.bd/assets/uploads/' + item.image;
+  // const imageUrl = 'https://deploy.com.bd/assets/uploads/' + item.image;
 
   return (
     <SecondaryLayout>
@@ -33,7 +33,7 @@ export default function Product() {
         <div className="container">
           <div className="row mt-3">
             <div className="col-md-6 pd-img">
-              <img src={imageUrl} alt="imagefgsva" />
+              <img src="" alt="imagefgsva" />
             </div>
             <div className="col-md-6 pd-content">
               <h2>
