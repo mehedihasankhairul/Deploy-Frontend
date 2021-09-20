@@ -104,7 +104,8 @@ const CustomerRegistration = () => {
               className="form-control"
               {...register("password", { required: true, minLength: 8  })}
             />
-            <p>{errors.password && <span className="text-danger">This field is required & password should be at least 8 characters</span>}</p>
+            <p>{errors.password && errors.password.type === "required" && <span className="text-danger">This field is required</span>}</p>
+            <p>{errors.password && errors.password.type === "minLength" && <span className="text-danger">password should be at least 8 characters</span> }</p>
           </div>
           <input type="submit" 
           value="Create Your Deploy Account" 
