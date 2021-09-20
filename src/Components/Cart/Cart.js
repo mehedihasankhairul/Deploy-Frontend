@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTrash,
@@ -27,6 +27,13 @@ const Cart = () => {
       dispatch(setCartState([]));
     }
   };
+
+  const history = useHistory();
+
+  const goToCheckout = () => {
+    history.push('/');
+  };
+
   return (
     <SecondaryLayout>
       <div>
@@ -85,10 +92,14 @@ const Cart = () => {
                         </b>
                       </td>
                       <td>
-                        <Link to="/checkout" className="btn btn-info">
+                        <button
+                          className="btn btn-info"
+                          disabled={!cart.length}
+                          onClick={goToCheckout}
+                        >
                           <FontAwesomeIcon icon={faCreditCard} />
                           &nbsp;&nbsp;Checkout
-                        </Link>
+                        </button>
                       </td>
                     </tr>
                   </tbody>
