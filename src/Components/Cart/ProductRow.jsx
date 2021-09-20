@@ -4,7 +4,11 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeFromCart, setCartState } from '../../Store/Cart/cart.action';
-import { filteredCart, updateProductQuantity } from '../../Utils/functions';
+import {
+  filteredCart,
+  removeProductFromCart,
+  updateProductQuantity,
+} from '../../Utils/functions';
 import CartButton from '../CartButton';
 
 export default function ProductRow({ product }) {
@@ -13,6 +17,13 @@ export default function ProductRow({ product }) {
   const updateQuantity = (type) => {
     if (type === 'increase') {
       setQuantity((q) => q + 1);
+    } else if (quantity === 1) {
+      const remove = window.confirm('Product will be removed from cart..');
+      if (remove) {
+        setQuantity((q) => q - 1);
+        const newCartState = removeProductFromCart(product.id);
+        dispatch(setCartState(newCartState));
+      }
     } else if (quantity > 0) {
       setQuantity((q) => q - 1);
     }

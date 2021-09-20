@@ -48,3 +48,9 @@ export const getCartTotal = () => {
   );
   return total;
 };
+
+export const removeProductFromCart = (id) => {
+  const { cart } = store.getState();
+  const filteredCart = cart.filter((item) => item.id !== id);
+  return filteredCart;
+};

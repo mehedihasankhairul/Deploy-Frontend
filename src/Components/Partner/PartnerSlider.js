@@ -99,9 +99,9 @@ const PartnerSlider = () => {
       }, 2000);
     }
   };
-  // const baseUrl = 'https://deploy.com.bd/assets/breandLogo/';
+  const baseUrl = 'https://assets.deploy.com.bd/assets/breandLogo/';
 
-  const baseUrl = '../../assets/partnerlogo/';
+  // const baseUrl = '../../assets/partnerlogo/';
 
   return (
     <div className="pt-5">
@@ -126,7 +126,7 @@ const PartnerSlider = () => {
           {slides.map((img, idx) => (
             <div className="partner-carousel" key={img}>
               {/* <p>{baseUrl + img}</p> */}
-              <img src={img1} alt="" />
+              <img src={baseUrl + img} alt="" />
             </div>
           ))}
         </Carousel>
@@ -149,10 +149,7 @@ const PartnerSlider = () => {
         >
           {slides.map((img, idx) => (
             <div className="partner-carousel" key={img}>
-              <img
-                src={'../../assets/partnerlogo/' + img}
-                alt={baseUrl + img}
-              />
+              <img src={baseUrl + img} alt={baseUrl + img} />
             </div>
           ))}
         </Carousel>
