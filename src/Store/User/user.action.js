@@ -16,6 +16,7 @@ export const setLoginUser = (user) => async (dispatch) => {
   });
 };
 
-// export const logoutUser = () => ({
-//   type: userAction.LOG
-// })
+export const logoutUser = () => async (dispatch) =>
+  dispatch({
+    type: userActionType.LOG_OUT,
+  });

@@ -3,12 +3,13 @@ import { useHistory } from 'react-router';
 import { RiBarChartHorizontalFill, RiCloseLine } from 'react-icons/ri';
 import { BsSearch } from 'react-icons/bs';
 import { GiShoppingCart } from 'react-icons/gi';
-import { FiLogIn } from 'react-icons/fi';
+import { FiLogIn, FiLogOut } from 'react-icons/fi';
 import { AiOutlineUserAdd } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import { Link } from 'react-router-dom';
 import DropDownItem from '../../DropDownItem';
+import { logoutUser } from '../../../Store/User/user.action';
 
 export default function NewNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +23,8 @@ export default function NewNav() {
 
   const history = useHistory();
 
+  const dispatch = useDispatch();
+
   const handleSearch = () => {
     setTimeout(() => {
       history.push(`/search/${q}`);
@@ -34,6 +37,10 @@ export default function NewNav() {
       console.log('enter pressed');
       handleSearch();
     }
+  };
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
   };
 
   return (
@@ -89,7 +96,10 @@ export default function NewNav() {
             {user.email ? (
               <span>
                 {user.first_name}
-                <span>Logout</span>
+                <span onClick={handleLogout}>
+                  Logout
+                  <FiLogOut />
+                </span>
               </span>
             ) : (
               <>
