@@ -44,7 +44,6 @@ const HomeDiscount = () => {
 
   const handleAdd = (item) => {
     const res = handleAddToCart(item);
-    console.log(res);
     dispatch(setCartState(res));
   };
 

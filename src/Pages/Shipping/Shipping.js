@@ -61,7 +61,6 @@ const Shipping = () => {
 
   const user = useSelector((state) => state.user);
   const submitOrder = async () => {
-    console.log(user);
     // const orderCommonId = (Math.random() * 100000).toFixed(0);
     cart.forEach((item) => {
       const orderData = {
@@ -84,9 +83,7 @@ const Shipping = () => {
         shipping_status: false,
         order_status: 'processing',
       };
-      console.log(orderData);
       const res = submitOrderData(orderData);
-      console.log(res);
     });
   };
 

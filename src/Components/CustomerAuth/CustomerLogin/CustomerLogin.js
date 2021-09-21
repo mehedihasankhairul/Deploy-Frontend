@@ -24,12 +24,11 @@ const CustomerLogin = () => {
   } = useForm();
   const onSubmit = async (data) => {
     const res = await loginUser(data);
-    console.log('calling action');
     // setUser(res);
     dispatch(setLoginUser(res));
     history.push(from);
   };
-  
+
   return (
     <div>
       <div className="bg-secondary text-light d-flex aligin-items-center justify-content-center py-5">

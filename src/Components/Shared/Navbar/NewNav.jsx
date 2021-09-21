@@ -34,7 +34,6 @@ export default function NewNav() {
   const handleQuery = (e) => {
     setQ(e.target.value);
     if (e.keyCode === 13) {
-      console.log('enter pressed');
       handleSearch();
     }
   };

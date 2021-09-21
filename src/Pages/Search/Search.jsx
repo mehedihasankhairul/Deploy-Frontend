@@ -14,8 +14,6 @@ export default function Search() {
   }, [searchQuery]);
 
   const { query, results } = useSelector((state) => state.search);
-  console.log(query);
-  console.log(results, 'results');
   return (
     <MainLayout>
       <main>

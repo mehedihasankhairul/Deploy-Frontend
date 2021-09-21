@@ -20,7 +20,6 @@ import { setCartState } from '../../Store/Cart/cart.action';
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
   const handleClearCart = () => {
     const confirm = window.confirm('Confirm to clear cart..');
     if (confirm) {

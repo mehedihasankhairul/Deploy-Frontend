@@ -20,7 +20,6 @@ export default function EndCategories() {
   const filteredCategories = selectedCat
     ? endCategory.filter((endCat) => endCat.midcatid === selectedCat.id)
     : null;
-  console.log(filteredCategories);
   return (
     <MainLayout>
       <main style={{ paddingTop: '1.5em' }}>

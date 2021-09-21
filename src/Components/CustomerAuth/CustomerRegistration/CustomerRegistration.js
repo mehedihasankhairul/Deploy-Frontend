@@ -15,7 +15,6 @@ const CustomerRegistration = () => {
   } = useForm();
   const onSubmit = (data) => {
     const res = registerUser(data);
-    console.log(res);
   };
   
   return (
@@ -39,7 +38,7 @@ const CustomerRegistration = () => {
                 {...register('userName', { required: true })}
                 type="text"
                 className="form-control"
-                name="userName"
+                name="user-Name"
                 placeholder="User Name"
               />
               <p>
@@ -53,7 +52,7 @@ const CustomerRegistration = () => {
               <input
                 type="text"
                 className="form-control"
-                name="firsName"
+                name="fir-sName"
                 placeholder="First Name"
                 {...register('firsName', { required: true })}
               />
@@ -68,7 +67,7 @@ const CustomerRegistration = () => {
               <input
                 type="text"
                 className="form-control"
-                name="lastName"
+                name="last-Name"
                 placeholder="Last Name"
                 {...register('lastName', { required: true })}
               />
@@ -96,6 +95,7 @@ const CustomerRegistration = () => {
               <label className="form-label">Password</label>
               <input
                 type="password"
+                name="use-password"
                 placeholder="At least 8 characters"
                 className="form-control"
                 {...register('password', { required: true, minLength: 8 })}
@@ -117,6 +117,7 @@ const CustomerRegistration = () => {
               <label className="form-label">Password</label>
               <input
                 type="password"
+                name="user-password"
                 placeholder="At least 8 characters"
                 className="form-control"
                 {...register('password2', { required: true, minLength: 8 })}

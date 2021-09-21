@@ -50,7 +50,6 @@ export default function NewSidebar(props) {
 
   const handleLink = async (item) => {
     const url = await getEndSlug(item);
-    console.log(url);
   };
 
   return (

@@ -24,7 +24,6 @@ export const setTopCategory = () => async (dispatch) => {
     }
     return res;
   } catch (e) {
-    console.log(e);
     return e;
   }
 };
@@ -38,7 +37,6 @@ export const setMidCategory = () => async (dispatch) => {
       });
     }
   } catch (e) {
-    console.log(e);
     return e;
   }
 };
@@ -52,7 +50,6 @@ export const setEndCategory = () => async (dispatch) => {
       });
     }
   } catch (e) {
-    console.log(e);
     return e;
   }
 };

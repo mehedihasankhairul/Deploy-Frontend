@@ -28,7 +28,6 @@ export default function ProductByCat() {
 
   const handleAdd = (item) => {
     const res = handleAddToCart(item);
-    console.log(res);
     dispatch(setCartState(res));
   };
 
