@@ -92,18 +92,11 @@ export const loginUser = async (data) => {
 export const registerUser = async (data) => {
   console.log(data);
   try {
-    const res = await axios.post(`${base}signup`, {
-      username: data.userName,
-      password: data.password,
-      password2: data.password2,
-      email: data.email,
-      first_name: data.firsName,
-      last_name: data.lastName,
-    });
+    const res = await axios.post(`${base}signup/`, { ...data });
     console.log(res);
     return res;
   } catch (e) {
     console.log(e);
-    return 'something went wrong';
+    return 'Username and email must be unique';
   }
 };

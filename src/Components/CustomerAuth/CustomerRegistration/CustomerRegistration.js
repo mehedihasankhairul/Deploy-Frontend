@@ -2,22 +2,33 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { registerUser } from '../../../api/category.api';
+import { loginUser, registerUser } from '../../../api/category.api';
 import logo from '../../../assets/Images/deoloy-logo.jpeg';
+import { setLoginUser } from '../../../Store/User/user.action';
 
 const CustomerRegistration = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    const res = registerUser(data);
-    console.log(res);
+  const onSubmit = async (data) => {
+    const res = await registerUser(data);
+    if (res) {
+      const user = await loginUser({
+        username: data.email,
+        password: data.password,
+      });
+      dispatch(setLoginUser(user));
+      history.push('/checkout');
+    }
   };
-  
+
   return (
     <>
       <div className="bg-secondary text-light d-flex aligin-items-center justify-content-center py-5">
@@ -36,14 +47,14 @@ const CustomerRegistration = () => {
             <div className="mb-3">
               <label className="form-label">User Name</label>
               <input
-                {...register('userName', { required: true })}
+                {...register('username', { required: true })}
                 type="text"
                 className="form-control"
-                name="userName"
+                name="username"
                 placeholder="User Name"
               />
               <p>
-                {errors.userName && (
+                {errors.username && (
                   <span className="text-danger">This field is required</span>
                 )}
               </p>
@@ -53,9 +64,9 @@ const CustomerRegistration = () => {
               <input
                 type="text"
                 className="form-control"
-                name="firsName"
+                name="first_name"
                 placeholder="First Name"
-                {...register('firsName', { required: true })}
+                {...register('first_name', { required: true })}
               />
               <p>
                 {errors.firsName && (
@@ -68,12 +79,12 @@ const CustomerRegistration = () => {
               <input
                 type="text"
                 className="form-control"
-                name="lastName"
+                name="last_name"
                 placeholder="Last Name"
-                {...register('lastName', { required: true })}
+                {...register('last_name', { required: true })}
               />
               <p>
-                {errors.lastName && (
+                {errors.last_name && (
                   <span className="text-danger">This field is required</span>
                 )}
               </p>
