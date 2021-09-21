@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { setUser } from '../Store/User/user.action';
 
 const base = `https://api.deploy.com.bd/api/`;
 // const base = 'https://frozen-caverns-97537.herokuapp.com/api/';
@@ -68,5 +69,42 @@ export const submitOrderData = async (orderData) => {
   } catch (e) {
     console.log(e);
     return e;
+  }
+};
+
+export const loginUser = async (data) => {
+  try {
+    const res = await axios.post(`https://api.deploy.com.bd/api/token/`, {
+      username: data.userName,
+      password: data.password,
+    });
+    if (res) {
+      const user = await axios.get(`${base}user/${data.userName}`);
+      console.log(user.data[0]);
+      return user.data[0];
+    }
+    // return 'ok';
+  } catch (e) {
+    console.log(e);
+    return 'invalid pass or email';
+  }
+};
+
+export const registerUser = async (data) => {
+  console.log(data);
+  try {
+    const res = await axios.post(`${base}signup`, {
+      username: data.userName,
+      password: data.password,
+      password2: data.password,
+      email: data.email,
+      first_name: data.firstName,
+      last_name: data.lastName,
+    });
+    console.log(res);
+    return res;
+  } catch (e) {
+    console.log(e);
+    return 'something went wrong';
   }
 };

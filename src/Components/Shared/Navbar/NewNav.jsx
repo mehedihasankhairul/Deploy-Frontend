@@ -13,6 +13,7 @@ import DropDownItem from '../../DropDownItem';
 export default function NewNav() {
   const [isOpen, setIsOpen] = useState(false);
   const topCats = useSelector((state) => state.category.topCategory);
+  const user = useSelector((state) => state.user);
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeTab, setActiveTab] = useState('categories');
   const [searchMenu, setSearchMenu] = useState(false);
@@ -85,18 +86,24 @@ export default function NewNav() {
         </div>
         <MediaQuery minWidth="768px">
           <div className="account_menu">
-            <Link to="/login">
-              <span>
-                <FiLogIn />
-                Login
-              </span>
-            </Link>
-            <Link to="/registration">
-              <span>
-                <AiOutlineUserAdd />
-                Register
-              </span>
-            </Link>
+            {user.email ? (
+              <span>{user.first_name}</span>
+            ) : (
+              <>
+                <Link to="/login">
+                  <span>
+                    <FiLogIn />
+                    Login
+                  </span>
+                </Link>
+                <Link to="/registration">
+                  <span>
+                    <AiOutlineUserAdd />
+                    Register
+                  </span>
+                </Link>
+              </>
+            )}
           </div>
         </MediaQuery>
       </nav>

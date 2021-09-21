@@ -1,49 +1,43 @@
 /* eslint-disable no-undef */
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
+import { registerUser } from '../../../api/category.api';
 import logo from '../../../assets/Images/deoloy-logo.jpeg';
 
 const CustomerRegistration = () => {
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [password2, setPassword2] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const history = useHistory();
-
-  const handleSignUp = async (e) => {
-    const formData = new FormData();
-    formData.append('username', userName);
-    formData.append('email', email);
-    formData.append('password', password);
-    formData.append('password2', password2);
-    formData.append('first_name', firstName);
-    formData.append('last_name', lastName);
-
-
-
-    await axios({
-      method: 'POST',
-      url: 'https://api.deploy.com.bd/api/user/',
-      data: formData,
-      headers: {
-        'Content-type': 'application/json',
-      },
-    })
-      .then(response => {
-        if (response.status === 201) {
-          alert('Successfully registered');
-        }
-
-      }).then(() => {
-        history.push('/login');
-      })
-      .catch(error => {
-        alert(error.message);
-      });
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    const res = registerUser(data);
+    console.log(res);
   };
+
+  //   await axios({
+  //     method: 'POST',
+  //     url: 'https://api.deploy.com.bd/api/user/',
+  //     data: formData,
+  //     headers: {
+  //       'Content-type': 'application/json',
+  //     },
+  //   })
+  //     .then(response => {
+  //       if (response.status === 201) {
+  //         alert('Successfully registered');
+  //       }
+
+  //     }).then(() => {
+  //       history.push('/login');
+  //     })
+  //     .catch(error => {
+  //       alert(error.message);
+  //     });
+  // };
 
   return (
     <>
@@ -58,75 +52,94 @@ const CustomerRegistration = () => {
           <div className="logo d-flex justify-content-center">
             <img className="w-50" src={logo} alt="logo" />
           </div>
-          <div className="mb-3">
-            <label className="form-label">User Name</label>
+          {/* form start */}
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="mb-3">
+              <label className="form-label">User Name</label>
+              <input
+                {...register('userName', { required: true })}
+                type="text"
+                className="form-control"
+                name="userName"
+                placeholder="User Name"
+              />
+              <p>
+                {errors.userName && (
+                  <span className="text-danger">This field is required</span>
+                )}
+              </p>
+            </div>
+            <div className="mb-3">
+              <label className="form-label">First Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="first_name"
+                placeholder="First Name"
+                {...register('firstName', { required: true })}
+              />
+              <p>
+                {errors.firstName && (
+                  <span className="text-danger">This field is required</span>
+                )}
+              </p>
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Last Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="last_name"
+                placeholder="Last Name"
+                {...register('lastName', { required: true })}
+              />
+              <p>
+                {errors.lastName && (
+                  <span className="text-danger">This field is required</span>
+                )}
+              </p>
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Email address</label>
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="form-control"
+                {...register('email', { required: true })}
+              />
+              <p>
+                {errors.email && (
+                  <span className="text-danger">This field is required</span>
+                )}
+              </p>
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Password</label>
+              <input
+                type="password"
+                placeholder="At least 8 characters"
+                className="form-control"
+                {...register('password', { required: true, minLength: 8 })}
+              />
+              <p>
+                {errors.password && errors.password.type === 'required' && (
+                  <span className="text-danger">This field is required</span>
+                )}
+              </p>
+              <p>
+                {errors.password && errors.password.type === 'minLength' && (
+                  <span className="text-danger">
+                    password should be at least 8 characters
+                  </span>
+                )}
+              </p>
+            </div>
             <input
-              type="text"
-              value={userName}
-              className="form-control"
-              name="userName"
-              placeholder="User Name"
-              onChange={e => setUserName(e.target.value)}
+              type="submit"
+              value="Create Your Deploy Account"
+              className="btn w-100 btn-success"
             />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">First Name</label>
-            <input
-              type="text"
-              value={firstName}
-              className="form-control"
-              name="first_name"
-              placeholder="First Name"
-              onChange={e => setFirstName(e.target.value)}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Last Name</label>
-            <input
-              type="text"
-              value={lastName}
-              className="form-control"
-              name="last_name"
-              placeholder="Last Name"
-              onChange={e => setLastName(e.target.value)}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Email address</label>
-            <input
-              type="email"
-              value={email}
-              placeholder="Your Email"
-              className="form-control"
-              name="email"
-              onChange={e => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Password</label>
-            <input
-              type="password"
-              value={password}
-              placeholder="At least 8 characters"
-              className="form-control"
-              name="password"
-              onChange={e => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Confirm Password</label>
-            <input
-              type="password"
-              value={password2}
-              placeholder="Confirm Your Password"
-              className="form-control"
-              name="password2"
-              onChange={e => setPassword2(e.target.value)}
-            />
-          </div>
-          <button onClick={handleSignUp} className="btn w-100 btn-success">
-            Create Your Deploy Account
-          </button>
+          </form>
           <p className="mt-4">
             Already have an account? <Link to="/login">SignIn</Link>
           </p>
