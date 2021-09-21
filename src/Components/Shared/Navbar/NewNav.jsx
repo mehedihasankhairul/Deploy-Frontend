@@ -170,18 +170,54 @@ export default function NewNav() {
           ) : (
             <MediaQuery maxWidth="767px">
               <div className="account_menu_dropdown">
-                <Link to="/login">
-                  <span>
-                    <FiLogIn />
-                    Login
+                {user.email ? (
+                  <span
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '1fr',
+                      padding: '1.5em',
+                    }}
+                  >
+                    <span
+                      style={{
+                        padding: '1em',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '1em',
+                      }}
+                    >
+                      <FaRegUser />
+                      {user.first_name}
+                    </span>
+                    <span
+                      style={{
+                        padding: '1em',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '1em',
+                      }}
+                      onClick={handleLogout}
+                    >
+                      <FiLogOut />
+                      Logout
+                    </span>
                   </span>
-                </Link>
-                <Link to="/registration">
-                  <span>
-                    <AiOutlineUserAdd />
-                    Register
-                  </span>
-                </Link>
+                ) : (
+                  <>
+                    <Link to="/login">
+                      <span>
+                        <FiLogIn />
+                        Login
+                      </span>
+                    </Link>
+                    <Link to="/registration">
+                      <span>
+                        <AiOutlineUserAdd />
+                        Register
+                      </span>
+                    </Link>
+                  </>
+                )}
               </div>
             </MediaQuery>
           )}
