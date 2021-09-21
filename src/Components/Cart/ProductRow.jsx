@@ -2,7 +2,6 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { removeFromCart, setCartState } from '../../Store/Cart/cart.action';
 import {
   filteredCart,

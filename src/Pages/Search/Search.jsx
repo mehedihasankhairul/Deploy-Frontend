@@ -5,6 +5,11 @@ import MainLayout from '../../Components/Layout/MainLayout';
 import Footer from '../../Components/Shared/Footer/Footer';
 import { useParams } from 'react-router';
 import { setSearchResult } from '../../Store/Search/search.action';
+import { MdAddShoppingCart } from "react-icons/md";
+import { handleAddToCart } from '../../Utils/functions';
+import { setCartState } from '../../Store/Cart/cart.action';
+
+
 
 export default function Search() {
   const searchQuery = useParams().searchquery;
@@ -12,6 +17,12 @@ export default function Search() {
   useEffect(() => {
     dispatch(setSearchResult(searchQuery));
   }, [searchQuery]);
+
+
+  const handleAdd = (item) => {
+    const res = handleAddToCart(item);
+    dispatch(setCartState(res));
+  };
 
   const { query, results } = useSelector((state) => state.search);
   return (
@@ -42,6 +53,9 @@ export default function Search() {
                     %
                   </span>
                 </div>
+                <button className="btn btn-success" onClick={() => handleAdd(results)}>
+                  <MdAddShoppingCart size={65} color="white" />
+                </button>
               </div>
             ))}
           </div>

@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SecondaryLayout from '../../Components/Layout/SecondaryLayout';
 import cod from '../../assets/Images/cod.png';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch  } from 'react-redux';
 import { useHistory } from 'react-router';
 import { submitOrderData } from '../../api/category.api';
 import { getCartTotal } from '../../Utils/functions';
+import { setCartState } from '../../Store/Cart/cart.action';
 
 const Shipping = () => {
   const [currentDistricts, setDistrict] = useState([]);
@@ -34,6 +35,9 @@ const Shipping = () => {
     );
     setDistrict(res.data.data);
   };
+
+  // const dispatch = useDispatch()
+
 
   const handleForm = (e) => {
     const newState = { ...address };
@@ -82,6 +86,12 @@ const Shipping = () => {
         order_status: 'processing',
       };
       const res = submitOrderData(orderData);
+      if(res) {
+        window.alert("Order submitted successfully!");
+        // dispatch(setCartState({}))
+
+        
+      }
     });
   };
 
