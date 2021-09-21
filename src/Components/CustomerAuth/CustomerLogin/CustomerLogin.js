@@ -46,12 +46,12 @@ const CustomerLogin = () => {
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-3">
-              <label className="form-label">User Name</label>
+              <label className="form-label">Email</label>
               <input
                 type="text"
                 className="form-control"
                 name="userName"
-                {...register('userName', { required: true })}
+                {...register('username', { required: true })}
               />
               <p>
                 {errors.userName && (
