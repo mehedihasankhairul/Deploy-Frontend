@@ -39,5 +39,4 @@ export const nameToSlug = (str) => {
 
 export const slugToCatId = (slug) => {
   const items = slug.split('/');
-  console.log(items);
 };

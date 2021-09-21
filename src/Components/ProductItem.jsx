@@ -23,7 +23,6 @@ export default function ProductItem({ prod }) {
   };
 
   const handleAdd = () => {
-    console.log('adding to cart');
   };
 
   useEffect(() => {

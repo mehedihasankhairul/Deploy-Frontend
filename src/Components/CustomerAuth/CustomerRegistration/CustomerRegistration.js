@@ -107,6 +107,7 @@ const CustomerRegistration = () => {
               <label className="form-label">Password</label>
               <input
                 type="password"
+                name="use-password"
                 placeholder="At least 8 characters"
                 className="form-control"
                 {...register('password', { required: true, minLength: 8 })}
@@ -128,6 +129,7 @@ const CustomerRegistration = () => {
               <label className="form-label">Password</label>
               <input
                 type="password"
+                name="user-password"
                 placeholder="At least 8 characters"
                 className="form-control"
                 {...register('password2', { required: true, minLength: 8 })}
