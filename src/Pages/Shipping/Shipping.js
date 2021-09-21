@@ -19,10 +19,10 @@ const Shipping = () => {
 
   const history = useHistory();
   useEffect(() => {
-    if (cart.length > 1) {
+    if (cart.length < 1) {
       history.push('/cart');
     }
-    axios
+    axios 
       .get('https://bdapis.herokuapp.com/api/v1.1/divisions')
       .then((data) => setDivisions(data.data.data))
       .then(setAddress({ division: 'Barishal' }));
