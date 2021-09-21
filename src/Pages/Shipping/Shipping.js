@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Footer from '../../Components/Shared/Footer/Footer';
 import axios from 'axios';
 import SecondaryLayout from '../../Components/Layout/SecondaryLayout';
-import { useForm } from 'react-hook-form';
 import cod from '../../assets/Images/cod.png';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
