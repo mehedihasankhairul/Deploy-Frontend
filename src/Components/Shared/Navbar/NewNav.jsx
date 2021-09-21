@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { RiBarChartHorizontalFill, RiCloseLine } from 'react-icons/ri';
+import { FaRegUser } from 'react-icons/fa';
 import { BsSearch } from 'react-icons/bs';
 import { GiShoppingCart } from 'react-icons/gi';
 import { FiLogIn, FiLogOut } from 'react-icons/fi';
@@ -94,10 +95,13 @@ export default function NewNav() {
           <div className="account_menu">
             {user.email ? (
               <span>
-                {user.first_name}
+                <span>
+                  <FaRegUser />
+                  {user.first_name}
+                </span>
                 <span onClick={handleLogout}>
-                  Logout
                   <FiLogOut />
+                  Logout
                 </span>
               </span>
             ) : (
