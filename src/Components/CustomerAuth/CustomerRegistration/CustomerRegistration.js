@@ -69,7 +69,7 @@ const CustomerRegistration = () => {
                 {...register('first_name', { required: true })}
               />
               <p>
-                {errors.firsName && (
+                {errors.first_name && (
                   <span className="text-danger">This field is required</span>
                 )}
               </p>
