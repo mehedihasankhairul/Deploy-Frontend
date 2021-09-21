@@ -29,34 +29,7 @@ const CustomerLogin = () => {
     dispatch(setLoginUser(res));
     history.push(from);
   };
-  console.log(errors);
-
-  //   await axios({
-  //     method: 'POST',
-  //     url: 'https://api.deploy.com.bd/api/token/',
-  //     data: formData,
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //     },
-  //   })
-  //     .then(response => {
-
-  //       if (response.data.status === 200) {
-  //         localStorage.setItem('token', response.data.token);
-  //       }
-  //       history.push('/cart');
-  //       console.log(response, response.data, response.status, response.headers);
-  //     }).catch(error => {
-  //       if (error.response.status === 401 || error.response.status === 400) {
-  //         console.log('Error: ', error.response.data);
-  //         alert('Invalid username or password');
-  //       } else {
-  //         alert('Something Went Wrong');
-  //       }
-  //       console.log(error);
-  //     });
-  // }
-
+  
   return (
     <div>
       <div className="bg-secondary text-light d-flex aligin-items-center justify-content-center py-5">

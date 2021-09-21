@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <div>
-      <footer className="text-center text-lg-start  text-white footer-bg">
+      <footer className="text-center text-lg-start  text-white footer-bg pt-5">
         <section>
-          <h4 className="d-flex justify-content-center pt-5 px-5">
+          {/* <h4 className="d-flex justify-content-center pt-5 px-5">
             SUBSCRIBE TO OUR NEWSLETTER
           </h4>
           <div className="d-flex justify-content-center footer-newsletter">
@@ -16,7 +16,7 @@ const Footer = () => {
                 <input type="submit" value="Subscribe" />
               </form>
             </div>
-          </div>
+          </div> */}
         </section>
         <section>
           <div className="container-fluid text-center text-md-start mt-5">

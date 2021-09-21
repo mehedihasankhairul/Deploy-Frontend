@@ -2,7 +2,6 @@ import axios from 'axios';
 import { setUser } from '../Store/User/user.action';
 
 const base = `https://api.deploy.com.bd/api/`;
-// const base = 'https://frozen-caverns-97537.herokuapp.com/api/';
 
 export const getTopCategories = async () => {
   try {
@@ -96,9 +95,9 @@ export const registerUser = async (data) => {
     const res = await axios.post(`${base}signup`, {
       username: data.userName,
       password: data.password,
-      password2: data.password,
+      password2: data.password2,
       email: data.email,
-      first_name: data.firstName,
+      first_name: data.firsName,
       last_name: data.lastName,
     });
     console.log(res);

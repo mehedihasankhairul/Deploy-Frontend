@@ -17,28 +17,7 @@ const CustomerRegistration = () => {
     const res = registerUser(data);
     console.log(res);
   };
-
-  //   await axios({
-  //     method: 'POST',
-  //     url: 'https://api.deploy.com.bd/api/user/',
-  //     data: formData,
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //     },
-  //   })
-  //     .then(response => {
-  //       if (response.status === 201) {
-  //         alert('Successfully registered');
-  //       }
-
-  //     }).then(() => {
-  //       history.push('/login');
-  //     })
-  //     .catch(error => {
-  //       alert(error.message);
-  //     });
-  // };
-
+  
   return (
     <>
       <div className="bg-secondary text-light d-flex aligin-items-center justify-content-center py-5">
@@ -74,12 +53,12 @@ const CustomerRegistration = () => {
               <input
                 type="text"
                 className="form-control"
-                name="first_name"
+                name="firsName"
                 placeholder="First Name"
-                {...register('firstName', { required: true })}
+                {...register('firsName', { required: true })}
               />
               <p>
-                {errors.firstName && (
+                {errors.firsName && (
                   <span className="text-danger">This field is required</span>
                 )}
               </p>
@@ -89,7 +68,7 @@ const CustomerRegistration = () => {
               <input
                 type="text"
                 className="form-control"
-                name="last_name"
+                name="lastName"
                 placeholder="Last Name"
                 {...register('lastName', { required: true })}
               />
@@ -128,6 +107,27 @@ const CustomerRegistration = () => {
               </p>
               <p>
                 {errors.password && errors.password.type === 'minLength' && (
+                  <span className="text-danger">
+                    password should be at least 8 characters
+                  </span>
+                )}
+              </p>
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Password</label>
+              <input
+                type="password"
+                placeholder="At least 8 characters"
+                className="form-control"
+                {...register('password2', { required: true, minLength: 8 })}
+              />
+              <p>
+                {errors.password2 && errors.password2.type === 'required' && (
+                  <span className="text-danger">This field is required</span>
+                )}
+              </p>
+              <p>
+                {errors.password2 && errors.password2.type === 'minLength' && (
                   <span className="text-danger">
                     password should be at least 8 characters
                   </span>
