@@ -21,8 +21,8 @@ const CustomerRegistration = () => {
     const res = await registerUser(data);
     if (res) {
       const user = await loginUser({
-        username: data.email,
-        password: data.password,
+        username: 'test@test.com',
+        password: 'hard@pass',
       });
       dispatch(setLoginUser(user));
       history.push('/checkout');
