@@ -59,21 +59,19 @@ const Shipping = () => {
     setAddress((a) => ({ ...a, district: currentDistricts[0]?.district }));
   }, [currentDistricts]);
 
+  const user = useSelector((state) => state.user);
   const submitOrder = async () => {
-    console.log(cart.length);
-    const orderCommonId = (Math.random() * 100000).toFixed(0);
+    console.log(user);
+    // const orderCommonId = (Math.random() * 100000).toFixed(0);
     cart.forEach((item) => {
       const orderData = {
-        order_common_id: orderCommonId,
-        order_user: address.name,
-        order_product: {
-          id: item.id,
-          quantity: item.quantity,
-          pricePerItem: item.product_current_price,
-        },
+        order_common_id: 458,
+        order_user: user.id,
+        order_qty: 2,
+        order_product: item.id,
         delivery_adress: `${address.fullAddress}, ${address.district}, ${address.division}`,
-        customer_name: address.name,
-        customer_email: address.email,
+        customer_name: user.first_name,
+        customer_email: user.email,
         txnid: '',
         paid_amount: '',
         card_number: '',
@@ -84,8 +82,9 @@ const Shipping = () => {
         payment_method: 'COD',
         payment_status: false,
         shipping_status: false,
-        order_status: 'in progress',
+        order_status: 'processing',
       };
+      console.log(orderData);
       const res = submitOrderData(orderData);
       console.log(res);
     });
