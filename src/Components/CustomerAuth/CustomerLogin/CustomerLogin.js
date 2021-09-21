@@ -6,10 +6,16 @@ import { Link, useHistory } from 'react-router-dom';
 import logo from '../../../assets/Images/deoloy-logo.jpeg';
 import { loginUser } from '../../../api/category.api';
 import { useDispatch } from 'react-redux';
-import { setUser } from '../../../Store/User/user.action';
+import { setLoginUser } from '../../../Store/User/user.action';
+
+import { useLocation } from 'react-router';
 
 const CustomerLogin = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const location = useLocation();
+
+  const { from } = location.state || { from: { pathname: '/checkout' } };
   const {
     register,
     handleSubmit,
@@ -18,8 +24,10 @@ const CustomerLogin = () => {
   } = useForm();
   const onSubmit = async (data) => {
     const res = await loginUser(data);
-    console.log(res);
-    setUser(res);
+    console.log('calling action');
+    // setUser(res);
+    dispatch(setLoginUser(res));
+    history.push(from);
   };
   console.log(errors);
 

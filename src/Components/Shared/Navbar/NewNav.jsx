@@ -87,7 +87,10 @@ export default function NewNav() {
         <MediaQuery minWidth="768px">
           <div className="account_menu">
             {user.email ? (
-              <span>{user.first_name}</span>
+              <span>
+                {user.first_name}
+                <span>Logout</span>
+              </span>
             ) : (
               <>
                 <Link to="/login">

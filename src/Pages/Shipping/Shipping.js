@@ -7,6 +7,7 @@ import cod from '../../assets/Images/cod.png';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { submitOrderData } from '../../api/category.api';
+import { getCartTotal } from '../../Utils/functions';
 
 const Shipping = () => {
   const [currentDistricts, setDistrict] = useState([]);
@@ -255,11 +256,11 @@ const Shipping = () => {
                   <ul className="list-group list-group-flush">
                     <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                       Products
-                      <span>$53.98</span>
+                      <span>BDT {getCartTotal()}</span>
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center px-0">
                       Shipping
-                      <span>$0.02</span>
+                      <span>BDT {50}</span>
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                       <div>
@@ -269,7 +270,7 @@ const Shipping = () => {
                         </strong>
                       </div>
                       <span>
-                        <strong>$54.00</strong>
+                        <strong> BDT {getCartTotal() + 50} </strong>
                       </span>
                     </li>
                     <li className="confirm-order mt-3">
