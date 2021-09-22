@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SecondaryLayout from '../../Components/Layout/SecondaryLayout';
 import cod from '../../assets/Images/cod.png';
-import { useSelector, useDispatch  } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { submitOrderData } from '../../api/category.api';
 import { getCartTotal } from '../../Utils/functions';
@@ -24,7 +24,7 @@ const Shipping = () => {
     if (cart.length < 1) {
       history.push('/cart');
     }
-    axios 
+    axios
       .get('https://bdapis.herokuapp.com/api/v1.1/divisions')
       .then((data) => setDivisions(data.data.data))
       .then(setAddress({ division: 'Barishal' }));
@@ -32,8 +32,7 @@ const Shipping = () => {
 
   const loadDistricts = async () => {
     const res = await axios(
-      `https://bdapis.herokuapp.com/api/v1.1/division/${
-        address.division.toLowerCase() || 'barishal'
+      `https://bdapis.herokuapp.com/api/v1.1/division/${address.division.toLowerCase() || 'barishal'
       }`
     );
     setDistrict(res.data.data);
@@ -92,16 +91,16 @@ const Shipping = () => {
       };
 
       const res = submitOrderData(orderData);
-      if(res) {
+      if (res) {
         window.alert("Successfully submitted the Order")
-        
+
         // dispatch(setCartState({}))
 
-        
+
       }
     });
 
-    
+
 
   };
 
@@ -111,9 +110,10 @@ const Shipping = () => {
         <div className="container checkout">
           <div className="row pt-3">
             <div className="col-md-8 mb-4 address">
-              <div className="card mb-4 shipping-card">
+              <div className="card mb-4 shipping-card p-4">
                 <div className="shipping-card-header py-3">
-                  <h5 className="mb-0">Shipping details</h5>
+                  <h5 className="mb-0">Shipping Details<span style={{ color: 'gray', fontSize: '14px' }}>
+                    (Please Fill Out Your Information)</span></h5>
                 </div>
                 <div className="card-body">
                   {/* <!-- Text input --> */}
@@ -225,7 +225,7 @@ const Shipping = () => {
 
               {/* cash on delivery */}
 
-              <div className="card shipping-card">
+              <div className="card shipping-card p-4">
                 <div className="shipping-card-header py-3">
                   <h5 className="mb-0">
                     Payment Methods{' '}
@@ -235,7 +235,7 @@ const Shipping = () => {
                   </h5>
                 </div>
                 <div className="card-body">
-                  <div className="payment-item p-4">
+                  <div className="payment-item p-2">
                     <input
                       type="radio"
                       className=""
@@ -243,7 +243,7 @@ const Shipping = () => {
                       id="cod"
                       value="Cash on Delivery"
                     ></input>
-                    <label className="form-check-label focus ml-3">
+                    <label className="form-check-label focus ml-2">
                       <img src={cod} width="40px" alt="cod" />
                       <span className="ml-3">Cash on Delivery</span>
                     </label>
@@ -262,9 +262,9 @@ const Shipping = () => {
             </div>
 
             <div className="col-md-4 mb-4">
-              <div className="shipping-card mb-4">
+              <div className="shipping-card p-4 mb-4">
                 <div className="shipping-card-header py-3">
-                  <h5 className="mb-0">Summary</h5>
+                  <h5 className="mb-0">Checkout Summary</h5>
                 </div>
                 <div className="card-body">
                   <ul className="list-group list-group-flush">
@@ -276,7 +276,7 @@ const Shipping = () => {
                       Shipping
                       <span>BDT {50}</span>
                     </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                    <li className="list-group-item  d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                       <div>
                         <strong>Total amount</strong>
                         <strong>
@@ -294,9 +294,9 @@ const Shipping = () => {
                         onClick={submitOrder}
                         disabled={!formFilled}
                       >
-                        Confirm
+                        Confirm Order
                       </button>
-                      
+
                     </li>
                   </ul>
                 </div>

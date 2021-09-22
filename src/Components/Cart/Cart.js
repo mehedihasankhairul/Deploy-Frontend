@@ -37,7 +37,7 @@ const Cart = () => {
     <SecondaryLayout>
       <div>
         <div className="bg-secondary text-light d-flex aligin-items-center justify-content-center py-5">
-          <h3 className="py-2">Cart</h3>
+          <h3 className="py-4">My Cart ({cart.length} items)</h3>
         </div>
         <div className="container">
           <div className="row justify-content-center">
