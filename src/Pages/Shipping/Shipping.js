@@ -6,6 +6,7 @@ import { useSelector, useDispatch  } from 'react-redux';
 import { useHistory } from 'react-router';
 import { submitOrderData } from '../../api/category.api';
 import { getCartTotal } from '../../Utils/functions';
+// import toast, { Toaster } from 'react-hot-toast';
 import { setCartState } from '../../Store/Cart/cart.action';
 
 const Shipping = () => {
@@ -13,6 +14,8 @@ const Shipping = () => {
   const [divisions, setDivisions] = useState([]);
   const [address, setAddress] = useState({ division: '' });
   const [formFilled, setFromFilled] = useState(false);
+
+  // const notify = () => toast('Successfully Placed the Order');
 
   const cart = useSelector((state) => state.cart);
 
@@ -87,7 +90,8 @@ const Shipping = () => {
       };
       const res = submitOrderData(orderData);
       if(res) {
-        window.alert("Order submitted successfully!");
+        window.alert("Successfully submitted the Order")
+        
         // dispatch(setCartState({}))
 
         
@@ -286,6 +290,7 @@ const Shipping = () => {
                       >
                         Confirm
                       </button>
+                      
                     </li>
                   </ul>
                 </div>
