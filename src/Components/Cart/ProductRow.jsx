@@ -39,7 +39,7 @@ export default function ProductRow({ product }) {
     dispatch(setCartState(updateCart));
   }, [quantity]);
   return (
-    <tr>
+    <tr style={{ alignItems: 'center' }}>
       <td>{product.id}</td>
       <input type="hidden" className="pid" value="id" />
       <td>

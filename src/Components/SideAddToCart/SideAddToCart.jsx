@@ -4,6 +4,8 @@ import { GiShoppingCart } from 'react-icons/gi';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartTotal } from '../../Utils/functions';
 import { Link } from 'react-router-dom';
+import CartButton from '../CartButton';
+import CartProduct from './CartProduct';
 
 const SideAddToCart = () => {
   const dispatch = useDispatch();
@@ -41,13 +43,7 @@ const SideAddToCart = () => {
               </div>
             </div>
             {cart.map((cd) => (
-              <div key={cd.id} className="d-flex align-items-center">
-                <img src={cd.product_featured_photo} alt="img" />
-                <div className="px-3">
-                  <h5>{cd.product_Name}</h5>
-                  <p>৳{cd.product_current_price}</p>
-                </div>
-              </div>
+              <CartProduct key={cd.id} product={cd} />
             ))}
             <Link to="/checkout">
               <button className="btn btn-info">Process To Checkout</button>

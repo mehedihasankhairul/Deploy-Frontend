@@ -32,14 +32,14 @@ const Shipping = () => {
 
   const loadDistricts = async () => {
     const res = await axios(
-      `https://bdapis.herokuapp.com/api/v1.1/division/${address.division.toLowerCase() || 'barishal'
+      `https://bdapis.herokuapp.com/api/v1.1/division/${
+        address.division.toLowerCase() || 'barishal'
       }`
     );
     setDistrict(res.data.data);
   };
 
   // const dispatch = useDispatch()
-
 
   const handleForm = (e) => {
     const newState = { ...address };
@@ -68,7 +68,6 @@ const Shipping = () => {
   const submitOrder = async () => {
     // const orderCommonId = (Math.random() * 100000).toFixed(0);
     cart.forEach((item) => {
-
       const orderData = {
         order_common_id: 458,
         order_user: user.id,
@@ -92,16 +91,11 @@ const Shipping = () => {
 
       const res = submitOrderData(orderData);
       if (res) {
-        window.alert("Successfully submitted the Order")
+        window.alert('Successfully submitted the Order');
 
         // dispatch(setCartState({}))
-
-
       }
     });
-
-
-
   };
 
   return (
@@ -112,8 +106,12 @@ const Shipping = () => {
             <div className="col-md-8 mb-4 address">
               <div className="card mb-4 shipping-card p-4">
                 <div className="shipping-card-header py-3">
-                  <h5 className="mb-0">Shipping Details<span style={{ color: 'gray', fontSize: '14px' }}>
-                    (Please Fill Out Your Information)</span></h5>
+                  <h5 className="mb-0 pl-2">
+                    Shipping Details{' '}
+                    <span style={{ color: 'gray', fontSize: '14px' }}>
+                      (Please Fill Out Your Information)
+                    </span>
+                  </h5>
                 </div>
                 <div className="card-body">
                   {/* <!-- Text input --> */}
@@ -230,7 +228,7 @@ const Shipping = () => {
                   <h5 className="mb-0">
                     Payment Methods{' '}
                     <span style={{ color: 'red', fontSize: '12px' }}>
-                      (Only Cash on delivery available!)
+                      (Currently Only Cash on delivery available!)
                     </span>{' '}
                   </h5>
                 </div>
@@ -241,6 +239,7 @@ const Shipping = () => {
                       className=""
                       name="ptype"
                       id="cod"
+                      checked
                       value="Cash on Delivery"
                     ></input>
                     <label className="form-check-label focus ml-2">
@@ -264,7 +263,7 @@ const Shipping = () => {
             <div className="col-md-4 mb-4">
               <div className="shipping-card p-4 mb-4">
                 <div className="shipping-card-header py-3">
-                  <h5 className="mb-0">Checkout Summary</h5>
+                  <h5 className="mb-0 pl-2">Checkout Summary</h5>
                 </div>
                 <div className="card-body">
                   <ul className="list-group list-group-flush">
@@ -287,7 +286,7 @@ const Shipping = () => {
                         <strong> BDT {getCartTotal() + 50} </strong>
                       </span>
                     </li>
-                    <li className="confirm-order mt-3">
+                    <div className=" confirm-order">
                       <button
                         className="btn btn-success btn-lg btn-block"
                         type="submit"
@@ -296,8 +295,7 @@ const Shipping = () => {
                       >
                         Confirm Order
                       </button>
-
-                    </li>
+                    </div>
                   </ul>
                 </div>
               </div>

@@ -5,11 +5,9 @@ import MainLayout from '../../Components/Layout/MainLayout';
 import Footer from '../../Components/Shared/Footer/Footer';
 import { useParams } from 'react-router';
 import { setSearchResult } from '../../Store/Search/search.action';
-import { MdAddShoppingCart } from "react-icons/md";
+import { MdAddShoppingCart } from 'react-icons/md';
 import { handleAddToCart } from '../../Utils/functions';
 import { setCartState } from '../../Store/Cart/cart.action';
-
-
 
 export default function Search() {
   const searchQuery = useParams().searchquery;
@@ -17,7 +15,6 @@ export default function Search() {
   useEffect(() => {
     dispatch(setSearchResult(searchQuery));
   }, [searchQuery]);
-
 
   const handleAdd = (item) => {
     const res = handleAddToCart(item);
@@ -35,7 +32,7 @@ export default function Search() {
             {results.length} Results found with{' '}
             <span className="text-success">{query}</span>{' '}
           </h2>
-          <div className="product_list">
+          <div className="product_list_area">
             {results.map((results) => (
               <div key={results.id} className="product_item">
                 <img src={results.product_featured_photo} alt="img" />
@@ -53,8 +50,11 @@ export default function Search() {
                     %
                   </span>
                 </div>
-                <button className="btn btn-success" onClick={() => handleAdd(results)}>
-                  <MdAddShoppingCart size={65} color="white" />
+                <button
+                  className="btn btn-success"
+                  onClick={() => handleAdd(results)}
+                >
+                  <MdAddShoppingCart size={25} color="white" />
                 </button>
               </div>
             ))}
