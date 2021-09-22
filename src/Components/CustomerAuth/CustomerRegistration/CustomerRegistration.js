@@ -19,10 +19,10 @@ const CustomerRegistration = () => {
   } = useForm();
   const onSubmit = async (data) => {
     const res = await registerUser(data);
-    if (res) {
+    if (res.status === 200 || res.status === 201) {
       const user = await loginUser({
-        username: 'test@test.com',
-        password: 'hard@pass',
+        username: data.email,
+        password: data.password,
       });
       dispatch(setLoginUser(user));
       history.push('/checkout');
@@ -110,7 +110,7 @@ const CustomerRegistration = () => {
                 name="use-password"
                 placeholder="At least 8 characters"
                 className="form-control"
-                {...register('password', { required: true, minLength: 6})}
+                {...register('password', { required: true, minLength: 6 })}
               />
               <p>
                 {errors.password && errors.password.type === 'required' && (
@@ -132,7 +132,7 @@ const CustomerRegistration = () => {
                 name="user-password"
                 placeholder="At least 8 characters"
                 className="form-control"
-                {...register('password2', { required: true, minLength: 6})}
+                {...register('password2', { required: true, minLength: 6 })}
               />
               <p>
                 {errors.password2 && errors.password2.type === 'required' && (

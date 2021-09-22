@@ -7,6 +7,13 @@ export const setUser = (user) => async (dispatch) => {
   });
 };
 
+export const setUserToken = (data) => async (dispatch) => {
+  dispatch({
+    type: userActionType.SET_USER_TOKEN,
+    payload: data,
+  });
+};
+
 export const setLoginUser = (user) => async (dispatch) => {
   dispatch({
     type: userActionType.SET_LOGIN_USER,

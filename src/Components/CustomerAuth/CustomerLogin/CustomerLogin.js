@@ -15,7 +15,7 @@ const CustomerLogin = () => {
   const history = useHistory();
   const location = useLocation();
 
-  const { from } = location.state || { from: { pathname: '/checkout' } };
+  const { from } = location.state || { from: { pathname: '/cart' } };
   const {
     register,
     handleSubmit,
@@ -50,7 +50,7 @@ const CustomerLogin = () => {
               <input
                 type="text"
                 className="form-control"
-                name="userName"
+                name="username"
                 {...register('username', { required: true })}
               />
               <p>

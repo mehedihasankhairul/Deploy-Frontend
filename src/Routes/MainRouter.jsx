@@ -17,7 +17,6 @@ export default function MainRouter() {
   return (
     <Router>
       <Switch>
-        {/* <PrivateRoute exact path="/checkout" component={Shipping} /> */}
         <PrivateRoute exact path="/checkout">
           <Shipping />
         </PrivateRoute>
