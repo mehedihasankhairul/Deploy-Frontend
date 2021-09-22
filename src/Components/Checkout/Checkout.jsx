@@ -26,8 +26,8 @@ export default function CheckoutComponent() {
           <h3>Summary</h3>
         </div>
         <div>
-          <h5>Products Price: $ 5454</h5>
-          <h5>Shipping Charge: $ 54</h5>
+          <h5>Products Price: ৳ 5454</h5>
+          <h5>Shipping Charge: ৳ 54</h5>
         </div>
         <div>
           <h6>

@@ -108,7 +108,7 @@ const CustomerRegistration = () => {
               <input
                 type="password"
                 name="use-password"
-                placeholder="At least 8 characters"
+                placeholder="At least 6 characters"
                 className="form-control"
                 {...register('password', { required: true, minLength: 6 })}
               />
@@ -120,7 +120,7 @@ const CustomerRegistration = () => {
               <p>
                 {errors.password && errors.password.type === 'minLength' && (
                   <span className="text-danger">
-                    password should be at least 8 characters
+                    password should be at least 6 characters
                   </span>
                 )}
               </p>
@@ -130,7 +130,7 @@ const CustomerRegistration = () => {
               <input
                 type="password"
                 name="user-password"
-                placeholder="At least 8 characters"
+                placeholder="At least 6 characters"
                 className="form-control"
                 {...register('password2', { required: true, minLength: 6 })}
               />
@@ -142,7 +142,7 @@ const CustomerRegistration = () => {
               <p>
                 {errors.password2 && errors.password2.type === 'minLength' && (
                   <span className="text-danger">
-                    password should be at least 8 characters
+                    password should be at least 6 characters
                   </span>
                 )}
               </p>

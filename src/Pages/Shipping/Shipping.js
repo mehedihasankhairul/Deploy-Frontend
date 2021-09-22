@@ -65,9 +65,11 @@ const Shipping = () => {
   }, [currentDistricts]);
 
   const user = useSelector((state) => state.user);
+
   const submitOrder = async () => {
     // const orderCommonId = (Math.random() * 100000).toFixed(0);
     cart.forEach((item) => {
+
       const orderData = {
         order_common_id: 458,
         order_user: user.id,
@@ -88,6 +90,7 @@ const Shipping = () => {
         shipping_status: false,
         order_status: 'processing',
       };
+
       const res = submitOrderData(orderData);
       if(res) {
         window.alert("Successfully submitted the Order")
@@ -97,6 +100,9 @@ const Shipping = () => {
         
       }
     });
+
+    
+
   };
 
   return (

@@ -47,7 +47,7 @@ export default function ProductRow({ product }) {
       </td>
       <td>{product.product_Name}</td>
       <td>
-        <i className="fas fa-rupee-sign"></i>&nbsp;&nbsp;$
+        <i className="fas fa-rupee-sign"></i>&nbsp;&nbsp;৳
         {product.product_current_price}
       </td>
       <input type="hidden" className="price" value="1" />
@@ -60,7 +60,7 @@ export default function ProductRow({ product }) {
                       /> */}
       </td>
       <td>
-        <i className="fas fa-rupee-sign"></i>$
+        <i className="fas fa-rupee-sign"></i>৳
         {product.product_current_price * quantity}
       </td>
       <td>
