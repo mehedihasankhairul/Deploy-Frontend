@@ -65,12 +65,14 @@ export const submitOrderData = async (orderData) => {
 export const loginUser = async (data) => {
   try {
     const res = await axios.post(`https://api.deploy.com.bd/api/token/`, {
-      username: data.userName,
+      username: data.username,
       password: data.password,
     });
+    console.log(res);
     if (res) {
-      const user = await axios.get(`${base}user/${data.userName}`);
-      return user.data[0];
+      const user = await axios.get(`${base}user/${data.username}/`);
+      console.log({ ...user.data[0], ...res.data });
+      return { ...user.data[0], ...res.data };
     }
     // return 'ok';
   } catch (e) {
