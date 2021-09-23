@@ -63,8 +63,9 @@ const CustomerLogin = () => {
               <label className="form-label">Password</label>
               <input
                 type="password"
+                suggested= "current-password"
                 className="form-control"
-                name="password"
+                name="customer-password"
                 {...register('password', { required: true })}
               />
               <p>

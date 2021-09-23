@@ -107,6 +107,7 @@ const CustomerRegistration = () => {
               <label className="form-label">Password</label>
               <input
                 type="password"
+                suggested= "new-password"
                 name="use-password"
                 placeholder="At least 6 characters"
                 className="form-control"
@@ -130,6 +131,7 @@ const CustomerRegistration = () => {
               <input
                 type="password"
                 name="user-password"
+                suggested= "new-password"
                 placeholder="At least 6 characters"
                 className="form-control"
                 {...register('password2', { required: true, minLength: 6 })}

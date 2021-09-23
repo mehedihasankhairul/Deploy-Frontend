@@ -68,10 +68,8 @@ export const loginUser = async (data) => {
       username: data.username,
       password: data.password,
     });
-    console.log(res);
     if (res) {
       const user = await axios.get(`${base}user/${data.username}/`);
-      console.log({ ...user.data[0], ...res.data });
       return { ...user.data[0], ...res.data };
     }
     // return 'ok';
@@ -83,10 +81,8 @@ export const loginUser = async (data) => {
 export const registerUser = async (data) => {
   try {
     const res = await axios.post(`${base}signup/`, { ...data });
-    console.log(res);
     return res;
   } catch (e) {
-    console.log(e);
     return 'Username and email must be unique';
   }
 };
