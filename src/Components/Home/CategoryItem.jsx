@@ -10,7 +10,7 @@ export default function CategoryItem({ item }) {
     <Link to={'/' + slug}>
       <div className="item">
         <img src={imageUrl} alt="" />
-        <h4>{item.name || item.subCat} </h4>
+        <p className="cat_title">{item.name || item.subCat} </p>
       </div>
     </Link>
   );

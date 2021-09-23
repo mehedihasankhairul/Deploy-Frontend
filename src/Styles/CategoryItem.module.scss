@@ -26,3 +26,37 @@
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
   }
 }
+
+.item {
+  padding: 0.5em;
+  border: 1px solid lightgray;
+  background-color: #fff;
+  height: 210px;
+  max-width: 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  img {
+    max-height: 140px;
+
+    @media (max-width: 767px) {
+      height: 140px;
+    }
+  }
+
+  h4 {
+    font-size: 16px;
+    padding: 5px 0;
+    text-align: center;
+  }
+
+  &:hover {
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    height: 210px;
+  }
+}
