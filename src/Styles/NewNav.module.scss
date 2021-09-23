@@ -102,14 +102,13 @@
     top: 4em;
     border: 2px solid $mediumGray;
     display: grid;
+    background-color: #fff;
     grid-template-columns: 80% 20%;
-    // max-width: 100vw;
     z-index: 1234;
     input {
       padding: 0 1em;
       outline: none;
       border: none;
-      width: 80%;
     }
     button {
       color: #fff;
