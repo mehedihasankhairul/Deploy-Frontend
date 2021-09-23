@@ -34,7 +34,7 @@ export default function CartProduct({ product }) {
     <div className="cart_summary">
       <img src={product.product_featured_photo} alt="img" />
       <div className="">
-        <h5>{product.product_Name}</h5>
+        <h5 className="cart_pd-Name">{product.product_Name}</h5>
         <p>৳{product.product_current_price}</p>
       </div>
       <div>
