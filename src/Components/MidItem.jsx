@@ -9,9 +9,9 @@ export default function MidItem({ item }) {
   const url = getMidSlug(item);
   return (
     <Link to={url}>
-      <div className="item">
+      <div className="mid_item">
         <img src={imageUrl} alt="" />
-        <h4>{item.name || item.subCat} </h4>
+        <p className="cat_title">{item.name || item.subCat} </p>
       </div>
     </Link>
   );

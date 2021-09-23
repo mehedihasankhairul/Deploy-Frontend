@@ -8,9 +8,9 @@ export default function EndItem({ item }) {
   const slug = getEndSlug(item);
   return (
     <Link to={slug}>
-      <div className="item">
+      <div className="mid_item">
         <img src={imageUrl} alt="" />
-        <h4>{item.name || item.subCat} </h4>
+        <p className="cat_title">{item.name || item.subCat} </p>
       </div>
     </Link>
   );

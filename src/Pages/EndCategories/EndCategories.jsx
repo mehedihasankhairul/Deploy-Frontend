@@ -34,7 +34,7 @@ export default function EndCategories() {
         </span>
 
         {selectedCat ? (
-          <div className="flex_container">
+          <div className="mid_container">
             {filteredCategories.length ? (
               filteredCategories.map((item) => (
                 <EndItem key={item.id} item={item} />

@@ -32,7 +32,7 @@ export default function Category() {
           {'> '} <span>{selectedCat?.name}</span>
         </span>
         {selectedCat ? (
-          <div className="container">
+          <div className="mid_container">
             {subCategories.length ? (
               subCategories.map((item) => <MidItem key={item.id} item={item} />)
             ) : (
