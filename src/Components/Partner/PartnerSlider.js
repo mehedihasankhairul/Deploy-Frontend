@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 import Carousel from 'react-elastic-carousel';
 import MediaQuery from 'react-responsive';
 
-import img1 from '../../assets/partnerlogo/1.webp';
-
 const slides = [
   '1.webp',
   '10.webp',
@@ -99,7 +97,7 @@ const PartnerSlider = () => {
       }, 2000);
     }
   };
-  const baseUrl = 'https://assets.deploy.com.bd/assets/breandLogo/';
+  const baseUrl = 'https://assets.deploy.com.bd/assets/brandLogo/';
 
   // const baseUrl = '../../assets/partnerlogo/';
 

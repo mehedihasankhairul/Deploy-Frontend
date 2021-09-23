@@ -20,7 +20,6 @@ import { setCartState } from '../../Store/Cart/cart.action';
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
   const handleClearCart = () => {
     const confirm = window.confirm('Confirm to clear cart..');
     if (confirm) {
@@ -31,14 +30,14 @@ const Cart = () => {
   const history = useHistory();
 
   const goToCheckout = () => {
-    history.push('/');
+    history.push('/checkout');
   };
 
   return (
     <SecondaryLayout>
       <div>
         <div className="bg-secondary text-light d-flex aligin-items-center justify-content-center py-5">
-          <h3 className="py-2">Cart {cart.length} </h3>
+          <h3 className="py-4">My Cart ({cart.length} items)</h3>
         </div>
         <div className="container">
           <div className="row justify-content-center">
@@ -87,7 +86,7 @@ const Cart = () => {
                       </td>
                       <td>
                         <b>
-                          <i className="fas fa-rupee-sign"></i>&nbsp;&nbsp;$
+                          <i className="fas fa-rupee-sign"></i>&nbsp;&nbsp;৳
                           {getCartTotal()}
                         </b>
                       </td>

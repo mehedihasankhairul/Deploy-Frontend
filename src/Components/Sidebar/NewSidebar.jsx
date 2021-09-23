@@ -17,12 +17,12 @@ import { HiMinus } from 'react-icons/hi';
 export default function NewSidebar(props) {
   const icons = [
     <GiFruitBowl key="0" />,
-    <GiFruitTree key="2" />,
-    <GiOfficeChair key="3" />,
-    <FaBaby key="4" />,
-    <RiMentalHealthFill key="5" />,
-    <GiVacuumCleaner key="6" />,
-    <BiFace key="7" />,
+    <GiFruitTree key="1" />,
+    <GiOfficeChair key="2" />,
+    <FaBaby key="3" />,
+    <RiMentalHealthFill key="4" />,
+    <GiVacuumCleaner key="5" />,
+    <BiFace key="6" />,
   ];
   const { topCategory, midCategory, endCategory } = useSelector(
     (state) => state.category
@@ -49,8 +49,8 @@ export default function NewSidebar(props) {
   };
 
   const handleLink = async (item) => {
-    const url = await getEndSlug(item);
-    console.log(url);
+    setSelectedCats({});
+    setOpen(false);
   };
 
   return (
@@ -64,7 +64,7 @@ export default function NewSidebar(props) {
             key={tcat.id}
             onClick={() => handleSelection(tcat.id)}
           >
-            {icons[index]}
+            {icons[index % 7]}
             {tcat.name}
             {selectedCats.topCat?.name === tcat.name ? (
               <HiMinus />

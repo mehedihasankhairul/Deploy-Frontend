@@ -2,7 +2,6 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { removeFromCart, setCartState } from '../../Store/Cart/cart.action';
 import {
   filteredCart,
@@ -40,7 +39,7 @@ export default function ProductRow({ product }) {
     dispatch(setCartState(updateCart));
   }, [quantity]);
   return (
-    <tr>
+    <tr style={{ alignItems: 'center' }}>
       <td>{product.id}</td>
       <input type="hidden" className="pid" value="id" />
       <td>
@@ -48,7 +47,7 @@ export default function ProductRow({ product }) {
       </td>
       <td>{product.product_Name}</td>
       <td>
-        <i className="fas fa-rupee-sign"></i>&nbsp;&nbsp;$
+        <i className="fas fa-rupee-sign"></i>&nbsp;&nbsp;৳
         {product.product_current_price}
       </td>
       <input type="hidden" className="price" value="1" />
@@ -61,7 +60,7 @@ export default function ProductRow({ product }) {
                       /> */}
       </td>
       <td>
-        <i className="fas fa-rupee-sign"></i>$
+        <i className="fas fa-rupee-sign"></i>৳
         {product.product_current_price * quantity}
       </td>
       <td>

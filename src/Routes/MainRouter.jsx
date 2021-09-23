@@ -11,16 +11,22 @@ import Shipping from '../Pages/Shipping/Shipping';
 import Registration from '../Pages/Registration';
 import Cart from '../Components/Cart/Cart';
 import Search from '../Pages/Search/Search';
+import Checkout from '../Pages/Checkout/Checkout';
 
 export default function MainRouter() {
   return (
     <Router>
       <Switch>
-        <PrivateRoute exact path="/checkout" component={Shipping} />
+        <PrivateRoute exact path="/checkout">
+          <Shipping />
+        </PrivateRoute>
+        <PrivateRoute exact path="/secure">
+          <h2>Secured Route</h2>
+        </PrivateRoute>
         <Route path="/login" component={Login} />
         <Route path="/registration" component={Registration} />
         <PrivateRoute path="/cart" component={Cart} />
-        <PrivateRoute path="/shipping" component={Shipping} />
+        {/* <PrivateRoute path="/shipping" component={Shipping} /> */}
         <Route path="/search/:searchquery" component={Search} />
         <Route exact path="/" component={Home} />
         <Route

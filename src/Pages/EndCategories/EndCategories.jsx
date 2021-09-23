@@ -20,7 +20,6 @@ export default function EndCategories() {
   const filteredCategories = selectedCat
     ? endCategory.filter((endCat) => endCat.midcatid === selectedCat.id)
     : null;
-  console.log(filteredCategories);
   return (
     <MainLayout>
       <main style={{ paddingTop: '1.5em' }}>
@@ -35,7 +34,7 @@ export default function EndCategories() {
         </span>
 
         {selectedCat ? (
-          <div className="container">
+          <div className="mid_container">
             {filteredCategories.length ? (
               filteredCategories.map((item) => (
                 <EndItem key={item.id} item={item} />

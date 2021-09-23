@@ -4,7 +4,6 @@ import { productActionType } from './product.actionType';
 export const loadAllProducts = () => async (dispatch) => {
   try {
     const res = await getAllProducts();
-    // console.log('test', res);
     if (res) {
       dispatch({
         type: productActionType.LOAD_All_PRODUCT,
@@ -12,7 +11,6 @@ export const loadAllProducts = () => async (dispatch) => {
       });
     }
   } catch (e) {
-    console.log(e);
     return 'Something went wrong';
   }
 };

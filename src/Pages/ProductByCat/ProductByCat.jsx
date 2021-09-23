@@ -28,13 +28,14 @@ export default function ProductByCat() {
 
   const handleAdd = (item) => {
     const res = handleAddToCart(item);
-    console.log(res);
     dispatch(setCartState(res));
   };
 
   useEffect(() => {
     getProducts(selectedCategory?.id || 0);
   }, [selectedCategory]);
+
+  const baseUrl = `https://api.deploy.com.bd`;
 
   return (
     <MainLayout>
@@ -53,7 +54,7 @@ export default function ProductByCat() {
           <div className="product_list_area">
             {catProducts.map((prod) => (
               <div key={prod.id} className="product_item">
-                <img src={prod.product_featured_photo} alt="" />
+                <img src={baseUrl + prod.product_featured_photo} alt="" />
                 <p>{prod.product_Name}</p>
                 <p>BDT {prod.product_current_price}</p>
 

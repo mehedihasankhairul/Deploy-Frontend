@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { RiBarChartHorizontalFill, RiCloseLine } from 'react-icons/ri';
+import { FaRegUser } from 'react-icons/fa';
 import { BsSearch } from 'react-icons/bs';
 import { GiShoppingCart } from 'react-icons/gi';
-import { FiLogIn } from 'react-icons/fi';
+import { FiLogIn, FiLogOut } from 'react-icons/fi';
 import { AiOutlineUserAdd } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import { Link } from 'react-router-dom';
 import DropDownItem from '../../DropDownItem';
+import { logoutUser } from '../../../Store/User/user.action';
 
 export default function NewNav() {
   const [isOpen, setIsOpen] = useState(false);
   const topCats = useSelector((state) => state.category.topCategory);
+  const user = useSelector((state) => state.user);
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeTab, setActiveTab] = useState('categories');
   const [searchMenu, setSearchMenu] = useState(false);
@@ -20,6 +23,8 @@ export default function NewNav() {
   const [q, setQ] = useState('');
 
   const history = useHistory();
+
+  const dispatch = useDispatch();
 
   const handleSearch = () => {
     setTimeout(() => {
@@ -30,9 +35,12 @@ export default function NewNav() {
   const handleQuery = (e) => {
     setQ(e.target.value);
     if (e.keyCode === 13) {
-      console.log('enter pressed');
       handleSearch();
     }
+  };
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
   };
 
   return (
@@ -85,18 +93,33 @@ export default function NewNav() {
         </div>
         <MediaQuery minWidth="768px">
           <div className="account_menu">
-            <Link to="/login">
+            {user.email ? (
               <span>
-                <FiLogIn />
-                Login
+                <span>
+                  <FaRegUser />
+                  {user.first_name}
+                </span>
+                <span onClick={handleLogout}>
+                  <FiLogOut />
+                  Logout
+                </span>
               </span>
-            </Link>
-            <Link to="/registration">
-              <span>
-                <AiOutlineUserAdd />
-                Register
-              </span>
-            </Link>
+            ) : (
+              <>
+                <Link to="/login">
+                  <span>
+                    <FiLogIn />
+                    Login
+                  </span>
+                </Link>
+                <Link to="/registration">
+                  <span>
+                    <AiOutlineUserAdd />
+                    Register
+                  </span>
+                </Link>
+              </>
+            )}
           </div>
         </MediaQuery>
       </nav>
@@ -147,18 +170,54 @@ export default function NewNav() {
           ) : (
             <MediaQuery maxWidth="767px">
               <div className="account_menu_dropdown">
-                <Link to="/login">
-                  <span>
-                    <FiLogIn />
-                    Login
+                {user.email ? (
+                  <span
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '1fr',
+                      padding: '1.5em',
+                    }}
+                  >
+                    <span
+                      style={{
+                        padding: '1em',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '1em',
+                      }}
+                    >
+                      <FaRegUser />
+                      {user.first_name}
+                    </span>
+                    <span
+                      style={{
+                        padding: '1em',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '1em',
+                      }}
+                      onClick={handleLogout}
+                    >
+                      <FiLogOut />
+                      Logout
+                    </span>
                   </span>
-                </Link>
-                <Link to="/registration">
-                  <span>
-                    <AiOutlineUserAdd />
-                    Register
-                  </span>
-                </Link>
+                ) : (
+                  <>
+                    <Link to="/login">
+                      <span>
+                        <FiLogIn />
+                        Login
+                      </span>
+                    </Link>
+                    <Link to="/registration">
+                      <span>
+                        <AiOutlineUserAdd />
+                        Register
+                      </span>
+                    </Link>
+                  </>
+                )}
               </div>
             </MediaQuery>
           )}

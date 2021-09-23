@@ -1,0 +1,37 @@
+.shipping_area {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  //   width: 1200px;
+  //   margin: 0 auto;
+  grid-gap: 1.5em;
+  max-height: 85vh;
+  overflow: hidden;
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .details {
+    // border: green 1px solid;
+    padding: 1.5em;
+    background-color: #fff;
+    height: 900px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .summary {
+    border-radius: 0.5em;
+    // padding: 1.5em;
+    background-color: #fff;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    overflow: hidden;
+    // border: 1px solid orange;
+    height: 300px;
+  }
+}

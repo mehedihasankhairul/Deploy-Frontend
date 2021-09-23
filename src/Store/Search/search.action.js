@@ -10,7 +10,6 @@ import { searchProduct } from '../../api/category.api';
 export const setSearchResult = (query) => async (dispatch) => {
   try {
     const results = await searchProduct(query);
-    console.log(results);
     if (results) {
       dispatch({
         type: 'SET_SEARCH_RESULT',
@@ -18,7 +17,6 @@ export const setSearchResult = (query) => async (dispatch) => {
       });
     }
   } catch (e) {
-    console.log(e);
     return 'something went wrong';
   }
 };
