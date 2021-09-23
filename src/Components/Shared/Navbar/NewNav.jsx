@@ -125,15 +125,15 @@ export default function NewNav() {
       </nav>
       {searchMenu && (
         <MediaQuery maxWidth="767px">
-          <span className="search_field_mobile">
+          <div className="search_field_mobile">
             <input
               onKeyDown={handleQuery}
               onKeyUp={handleQuery}
               type="text"
               placeholder="search product"
             />
-            <button onClick={handleSearch}>Search</button>
-          </span>
+            <button onClick={handleSearch}>S</button>
+          </div>
         </MediaQuery>
       )}
       {isOpen && (
