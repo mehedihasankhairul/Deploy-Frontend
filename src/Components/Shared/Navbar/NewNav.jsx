@@ -132,7 +132,9 @@ export default function NewNav() {
               type="text"
               placeholder="search product"
             />
-            <button onClick={handleSearch}>S</button>
+            <button onClick={handleSearch}>
+              <BsSearch />
+            </button>
           </div>
         </MediaQuery>
       )}
