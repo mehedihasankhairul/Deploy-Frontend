@@ -38,7 +38,7 @@ const CustomerRegistration = () => {
   return (
     <>
       <div className="bg-secondary text-light d-flex aligin-items-center justify-content-center py-5">
-        <h1 className="py-2">Customer Registration</h1>
+        <h3 className="py-2">Customer Registration</h3>
       </div>
       <div
         className="row d-flex justify-content-center"

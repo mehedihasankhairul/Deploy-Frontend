@@ -11,8 +11,11 @@ import { setCartState } from '../../Store/Cart/cart.action';
 
 const Shipping = () => {
   const [currentDistricts, setDistrict] = useState([]);
+  const user = useSelector((state) => state.user);
   const [divisions, setDivisions] = useState([]);
-  const [address, setAddress] = useState({ division: '' });
+  const [address, setAddress] = useState({
+    division: '',
+  });
   const [formFilled, setFromFilled] = useState(false);
 
   // const notify = () => toast('Successfully Placed the Order');
@@ -27,7 +30,9 @@ const Shipping = () => {
     axios
       .get('https://bdapis.herokuapp.com/api/v1.1/divisions')
       .then((data) => setDivisions(data.data.data))
-      .then(setAddress({ division: 'Barishal' }));
+      .then(
+        setAddress({ division: 'Barishal', email: user.email, name: user.name })
+      );
   }, []);
 
   const loadDistricts = async () => {
@@ -39,12 +44,13 @@ const Shipping = () => {
     setDistrict(res.data.data);
   };
 
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleForm = (e) => {
     const newState = { ...address };
     newState[e.target.name] = e.target.value;
     setAddress(newState);
+    console.log(address);
   };
 
   //   Check form state
@@ -62,8 +68,6 @@ const Shipping = () => {
   useEffect(() => {
     setAddress((a) => ({ ...a, district: currentDistricts[0]?.district }));
   }, [currentDistricts]);
-
-  const user = useSelector((state) => state.user);
 
   const submitOrder = async () => {
     const orderCommonId = (Math.random() * 100000).toFixed(0);
@@ -92,8 +96,7 @@ const Shipping = () => {
       const res = submitOrderData(orderData);
       if (res) {
         window.alert('Successfully submitted the Order');
-
-        // dispatch(setCartState({}))
+        dispatch(setCartState([]));
       }
     });
   };
