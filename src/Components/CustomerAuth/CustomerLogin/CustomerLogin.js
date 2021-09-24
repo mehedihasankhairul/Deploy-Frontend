@@ -1,21 +1,27 @@
 /* eslint-disable no-undef */
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import logo from '../../../assets/Images/deoloy-logo.jpeg';
-import { loginUser } from '../../../api/category.api';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { setLoginUser } from '../../../Store/User/user.action';
 
 import { useLocation } from 'react-router';
+import { useAsyncThunkDispatch } from '../../../Store/Hooks/useAsyncDispatch';
 
 const CustomerLogin = () => {
-  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   const history = useHistory();
   const location = useLocation();
 
   const { from } = location.state || { from: { pathname: '/cart' } };
+
+  useEffect(() => {
+    if (user.email) {
+      history.push(from);
+    }
+  }, [user]);
+
   const {
     register,
     handleSubmit,
@@ -23,10 +29,15 @@ const CustomerLogin = () => {
     formState: { errors },
   } = useForm();
 
+  const {
+    asyncDispatch: asyncLoginUser,
+    error,
+    isError,
+    isLoading,
+  } = useAsyncThunkDispatch(setLoginUser);
+
   const onSubmit = async (data) => {
-    const res = await loginUser(data);
-    dispatch(setLoginUser(res));
-    history.push(from);
+    await asyncLoginUser(data);
   };
 
   return (
@@ -63,7 +74,7 @@ const CustomerLogin = () => {
               <label className="form-label">Password</label>
               <input
                 type="password"
-                suggested= "current-password"
+                suggested="current-password"
                 className="form-control"
                 name="customer-password"
                 {...register('password', { required: true })}
@@ -74,12 +85,19 @@ const CustomerLogin = () => {
                 )}
               </p>
             </div>
-            <input
-              value="Submit"
+
+            <button
+              disabled={isLoading}
               type="submit"
               className="btn w-100 btn-success"
-            />
+            >
+              {isLoading ? 'Logging...' : 'Login'}
+            </button>
           </form>
+          {isError && (
+            <p className="text-danger p-2 mt-3">Invalid email or password</p>
+          )}
+          {/* {isError && <p className="danger">{error.message}</p>} */}
           <p className="mt-4">
             New to Deploy? <Link to="/registration">Sign up Now</Link>
           </p>

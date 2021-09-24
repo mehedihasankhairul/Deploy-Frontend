@@ -1,32 +1,38 @@
 /* eslint-disable no-undef */
-import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { loginUser, registerUser } from '../../../api/category.api';
 import logo from '../../../assets/Images/deoloy-logo.jpeg';
-import { setLoginUser } from '../../../Store/User/user.action';
+import { setRegisterUser } from '../../../Store/User/user.action';
+import { useAsyncThunkDispatch } from '../../../Store/Hooks/useAsyncDispatch';
 
 const CustomerRegistration = () => {
-  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   const history = useHistory();
+
+  useEffect(() => {
+    if (user.email) {
+      history.push('/cart');
+    }
+  }, [user]);
+
+  const {
+    asyncDispatch: asyncRegister,
+    error,
+    isError,
+    isLoading,
+  } = useAsyncThunkDispatch(setRegisterUser);
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+
   const onSubmit = async (data) => {
-    const res = await registerUser(data);
-    if (res.status === 200 || res.status === 201) {
-      const user = await loginUser({
-        username: data.email,
-        password: data.password,
-      });
-      dispatch(setLoginUser(user));
-      history.push('/checkout');
-    }
+    await asyncRegister(data);
   };
 
   return (
@@ -107,7 +113,7 @@ const CustomerRegistration = () => {
               <label className="form-label">Password</label>
               <input
                 type="password"
-                suggested= "new-password"
+                suggested="new-password"
                 name="use-password"
                 placeholder="At least 6 characters"
                 className="form-control"
@@ -131,7 +137,7 @@ const CustomerRegistration = () => {
               <input
                 type="password"
                 name="user-password"
-                suggested= "new-password"
+                suggested="new-password"
                 placeholder="At least 6 characters"
                 className="form-control"
                 {...register('password2', { required: true, minLength: 6 })}
@@ -149,12 +155,19 @@ const CustomerRegistration = () => {
                 )}
               </p>
             </div>
-            <input
+            <button
+              disabled={isLoading}
               type="submit"
-              value="Create Your Deploy Account"
               className="btn w-100 btn-success"
-            />
+            >
+              {isLoading ? 'Singing up...' : 'Sign Up'}
+            </button>
           </form>
+          {isError && (
+            <p className="text-danger p-2 mt-3">
+              Please use unique username and email..
+            </p>
+          )}
           <p className="mt-4">
             Already have an account? <Link to="/login">SignIn</Link>
           </p>

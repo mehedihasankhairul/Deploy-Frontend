@@ -8,7 +8,7 @@ import { setCartState } from '../../Store/Cart/cart.action';
 import { useHistory } from 'react-router';
 import { handleAddToCart } from '../../Utils/functions';
 
-import { MdAddShoppingCart } from "react-icons/md";
+import { MdAddShoppingCart } from 'react-icons/md';
 
 const HomeDiscount = () => {
   const allProducts = useSelector((state) => state.products);
@@ -49,7 +49,7 @@ const HomeDiscount = () => {
 
   return (
     <div className="homeDisSlider">
-      <h1 className="heading">Supper Offer</h1>
+      <h2 className="heading">Supper Offer</h2>
       <Carousel responsive={responsive}>
         {allProducts.map((prod) => (
           <div
@@ -70,13 +70,15 @@ const HomeDiscount = () => {
                 %
               </span>
             </div>
-            <button className="addCart addHover" onClick={() => handleAdd(prod)}>
+            <button
+              className="addCart addHover"
+              onClick={() => handleAdd(prod)}
+            >
               <MdAddShoppingCart size={75} color="green" />
             </button>
           </div>
         ))}
       </Carousel>
-
     </div>
   );
 };

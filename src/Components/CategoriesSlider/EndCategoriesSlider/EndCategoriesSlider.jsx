@@ -34,7 +34,7 @@ const EndCategoriesSlider = () => {
 
   return (
     <div className="endCategoriesSlider py-4">
-      <h3 className="heading">Trending Categories</h3>
+      <h3 className="">Trending Categories</h3>
       <Carousel responsive={responsive}>
         {endCategory.map((item) => (
           <EndItem key={item.id} item={item} className="endctg-pd" />

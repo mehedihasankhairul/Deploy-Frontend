@@ -31,7 +31,7 @@ const TopCategoriesSlider = () => {
 
   return (
     <div className="topCategoriesSlider">
-      <h3 className="heading pb-4">Top Categories</h3>
+      <h3 className=" pb-4">Top Categories</h3>
       <Carousel responsive={responsive}>
         {topCategory.map((item) => (
           <CategoryItem key={item.name} item={item} />
