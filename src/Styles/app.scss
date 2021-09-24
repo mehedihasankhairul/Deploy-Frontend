@@ -161,6 +161,14 @@ h3 {
   }
 }
 
+.customer-reg {
+  @media (max-width: 567px) {
+    font-size: 1.5rem;
+    padding: 15px;
+  }
+
+}
+
 .search_product {
   max-width: 220px;
   display: grid;
