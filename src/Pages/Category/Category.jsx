@@ -36,7 +36,7 @@ export default function Category() {
             {subCategories.length ? (
               subCategories.map((item) => <MidItem key={item.id} item={item} />)
             ) : (
-              <h2>No categories found under this category</h2>
+              <h4>No categories found under this category</h4>
             )}
           </div>
         ) : (
