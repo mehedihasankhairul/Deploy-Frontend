@@ -10,7 +10,7 @@ import { encryptTransform } from 'redux-persist-transform-encrypt';
 const encryptor = encryptTransform({
   secretKey: 'deployedSecret',
   onError(error) {
-    console.log(error);
+    return error;
   },
 });
 

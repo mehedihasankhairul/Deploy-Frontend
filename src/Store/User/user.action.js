@@ -25,26 +25,22 @@ export const setUserToken = (data) => async (dispatch) => {
 export const setLoginUser = (data) => async (dispatch) => {
   try {
     const user = await loginUser(data);
-    console.log(user);
     dispatch({
       type: userActionType.SET_LOGIN_USER,
       payload: { ...user },
     });
   } catch (e) {
-    console.log(e);
     return e;
   }
 };
 export const setRegisterUser = (data) => async (dispatch) => {
   try {
     const user = await registerUser(data);
-    console.log(user);
     dispatch({
       type: userActionType.SET_LOGIN_USER,
       payload: { ...user },
     });
   } catch (e) {
-    console.log(e);
     return e;
   }
 };

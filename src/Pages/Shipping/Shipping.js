@@ -50,7 +50,6 @@ const Shipping = () => {
     const newState = { ...address };
     newState[e.target.name] = e.target.value;
     setAddress(newState);
-    console.log(address);
   };
 
   //   Check form state
@@ -131,7 +130,7 @@ const Shipping = () => {
                   </div>
 
                   <div className="row mb-4">
-                    <div className="col">
+                    <div className="col-md-6 com-sm-12">
                       <div className="form-outline">
                         <label className="form-label">Phone No</label>
                         <input
@@ -143,7 +142,7 @@ const Shipping = () => {
                         />
                       </div>
                     </div>
-                    <div className="col">
+                    <div className="col-md-6 col-sm-12">
                       <div className="form-outline">
                         <label className="form-label">
                           Alternative Phone No
@@ -161,7 +160,7 @@ const Shipping = () => {
 
                   {/* Country */}
                   <div className="row">
-                    <div className="col mb-4">
+                    <div className="col-md-6 col-sm-12 mb-4">
                       <span>Division :</span>
                       <select
                         name="division"
@@ -179,7 +178,7 @@ const Shipping = () => {
                         ))}
                       </select>
                     </div>
-                    <div className="col mb-4">
+                    <div className="col-md-6 col-sm-12mb-4">
                       <span>Districts :</span>
                       <select
                         name="district"

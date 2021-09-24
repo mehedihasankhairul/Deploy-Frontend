@@ -26,7 +26,6 @@ export const useAsyncThunkDispatch = (func) => {
           }
         })
         .catch((e) => {
-          console.log(e);
           setIsError(true);
           setError(e);
           setIsLoading(false);
