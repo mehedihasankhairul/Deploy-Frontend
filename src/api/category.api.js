@@ -61,27 +61,41 @@ export const submitOrderData = async (orderData) => {
     return e;
   }
 };
-
+//  Old working login
+// export const loginUser = async (data) => {
+//   try {
+//     const res = await axios.post(`https://api.deploy.com.bd/api/token/`, {
+//       username: data.username,
+//       password: data.password,
+//     });
+//     if (res) {
+//       const user = await axios.get(`${base}user/${data.username}/`);
+//       return { ...user.data[0], ...res.data };
+//     }
+//     // return 'ok';
+//   } catch (e) {
+//     // return 'invalid pass or email';
+//   }
+// };
 export const loginUser = async (data) => {
-  try {
-    const res = await axios.post(`https://api.deploy.com.bd/api/token/`, {
-      username: data.username,
-      password: data.password,
-    });
-    if (res) {
-      const user = await axios.get(`${base}user/${data.username}/`);
-      return { ...user.data[0], ...res.data };
-    }
-    // return 'ok';
-  } catch (e) {
-    return 'invalid pass or email';
+  const res = await axios.post(`https://api.deploy.com.bd/api/token/`, {
+    username: data.username,
+    password: data.password,
+  });
+  if (res) {
+    const user = await axios.get(`${base}user/${data.username}/`);
+    return { ...user.data[0], ...res.data };
   }
 };
 
 export const registerUser = async (data) => {
   try {
     const res = await axios.post(`${base}signup/`, { ...data });
-    return res;
+    const user = await loginUser({
+      username: data.email,
+      password: data.password,
+    });
+    return user;
   } catch (e) {
     return 'Username and email must be unique';
   }

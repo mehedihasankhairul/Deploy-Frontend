@@ -66,10 +66,10 @@ const Shipping = () => {
   const user = useSelector((state) => state.user);
 
   const submitOrder = async () => {
-    // const orderCommonId = (Math.random() * 100000).toFixed(0);
+    const orderCommonId = (Math.random() * 100000).toFixed(0);
     cart.forEach((item) => {
       const orderData = {
-        order_common_id: 458,
+        order_common_id: orderCommonId,
         order_user: user.id,
         order_qty: 2,
         order_product: item.id,
@@ -121,6 +121,7 @@ const Shipping = () => {
                       type="text"
                       id="form6Example4"
                       className="form-control"
+                      defaultValue={user.first_name}
                       name="name"
                       onChange={handleForm}
                     />
@@ -202,6 +203,7 @@ const Shipping = () => {
                       type="email"
                       id="form6Example5"
                       className="form-control"
+                      defaultValue={user.email}
                       name="email"
                       onChange={handleForm}
                     />
