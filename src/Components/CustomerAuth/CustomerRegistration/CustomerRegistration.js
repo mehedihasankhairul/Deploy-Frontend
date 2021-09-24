@@ -38,11 +38,7 @@ const CustomerRegistration = () => {
   return (
     <>
       <div className="bg-secondary text-light d-flex aligin-items-center justify-content-center py-5">
-<<<<<<< HEAD
         <h3 className="py-2">Customer Registration</h3>
-=======
-        <h1 className="py-2 text-center customer-reg">Customer Registration</h1>
->>>>>>> 824d3a7e6e684dd54e0b2ab96e003715235f4c88
       </div>
       <div
         className="row d-flex justify-content-center"
