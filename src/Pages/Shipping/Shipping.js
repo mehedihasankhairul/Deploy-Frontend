@@ -295,7 +295,7 @@ const Shipping = () => {
                         className="btn btn-success btn-lg btn-block"
                         type="submit"
                         onClick={submitOrder}
-                        disabled={!formFilled}
+                        disabled={!formFilled || !cart.length}
                       >
                         Confirm Order
                       </button>
