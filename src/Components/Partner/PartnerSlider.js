@@ -122,7 +122,7 @@ const PartnerSlider = () => {
           isRTL={false}
         >
           {slides.map((img, idx) => (
-            <div className="partner-carousel" key={img}>
+            <div className="partner-carousel" key={idx}>
               {/* <p>{baseUrl + img}</p> */}
               <img src={baseUrl + img} alt="" />
             </div>
@@ -146,7 +146,7 @@ const PartnerSlider = () => {
           isRTL={false}
         >
           {slides.map((img, idx) => (
-            <div className="partner-carousel" key={img}>
+            <div className="partner-carousel" key={idx}>
               <img src={baseUrl + img} alt={baseUrl + img} />
             </div>
           ))}
@@ -169,7 +169,7 @@ const PartnerSlider = () => {
           isRTL={false}
         >
           {slides.map((img, idx) => (
-            <div className="partner-carousel" key={img}>
+            <div className="partner-carousel" key={idx}>
               <img src={baseUrl + img} alt="" />
             </div>
           ))}
@@ -191,7 +191,7 @@ const PartnerSlider = () => {
           isRTL={false}
         >
           {slides.map((img, idx) => (
-            <div className="partner-carousel" key={img}>
+            <div className="partner-carousel" key={idx}>
               <img src={baseUrl + img} alt="" />
             </div>
           ))}

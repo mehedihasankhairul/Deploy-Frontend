@@ -1,13 +1,4 @@
-// import {axios} from ''
-
 import { store } from '../Store';
-import { addToCart, setCartState } from '../Store/Cart/cart.action';
-
-// const base = `https://api.deploy.com.bd/api/search/?search=`
-
-// export const searchProduct = async (query) => {
-//     const res = await axios.get(base + query)
-// }
 
 export const handleAddToCart = (product) => {
   const { cart } = store.getState();

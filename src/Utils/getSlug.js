@@ -36,7 +36,3 @@ export const getProductSlug = (item) => {
 export const nameToSlug = (str) => {
   return str.replaceAll(' ', '-').toLowerCase();
 };
-
-export const slugToCatId = (slug) => {
-  const items = slug.split('/');
-};

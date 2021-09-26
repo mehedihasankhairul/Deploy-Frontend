@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import './SideAddToCart.scss';
 import { GiShoppingCart } from 'react-icons/gi';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getCartTotal } from '../../Utils/functions';
 import { Link } from 'react-router-dom';
-import CartButton from '../CartButton';
 import CartProduct from './CartProduct';
 
 const SideAddToCart = () => {
-  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const [showCart, setShowCart] = useState(false);
 

@@ -33,13 +33,13 @@ export default function Search() {
             <span className="text-success">{query}</span>{' '}
           </h2>
           <div className="product_list_area">
-            {results.map((results) => (
-              <div key={results.id} className="product_item">
-                <img src={results.product_featured_photo} alt="img" />
-                <p>{results.product_Name}</p>
-                <p className="oldPrice">BDT {results.product_old_price}</p>
+            {results.map((result) => (
+              <div key={result.id} className="product_item">
+                <img src={result.product_featured_photo} alt="img" />
+                <p>{result.product_Name}</p>
+                <p className="oldPrice">BDT {result.product_old_price}</p>
                 <p className="currentPrice">
-                  BDT {results.product_current_price}
+                  BDT {result.product_current_price}
                 </p>
                 <div className="discount-percent">
                   <span>

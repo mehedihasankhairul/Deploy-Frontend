@@ -11,7 +11,6 @@ import Shipping from '../Pages/Shipping/Shipping';
 import Registration from '../Pages/Registration';
 import Cart from '../Components/Cart/Cart';
 import Search from '../Pages/Search/Search';
-import Checkout from '../Pages/Checkout/Checkout';
 
 export default function MainRouter() {
   return (

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { productByEndCat } from '../../api/category.api';
-import CartButton from '../../Components/CartButton';
 import MainLayout from '../../Components/Layout/MainLayout';
 import Footer from '../../Components/Shared/Footer/Footer';
 import { setCartState } from '../../Store/Cart/cart.action';

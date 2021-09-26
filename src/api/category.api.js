@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { setUser } from '../Store/User/user.action';
 
 const base = `https://api.deploy.com.bd/api/`;
 
@@ -61,22 +60,7 @@ export const submitOrderData = async (orderData) => {
     return e;
   }
 };
-//  Old working login
-// export const loginUser = async (data) => {
-//   try {
-//     const res = await axios.post(`https://api.deploy.com.bd/api/token/`, {
-//       username: data.username,
-//       password: data.password,
-//     });
-//     if (res) {
-//       const user = await axios.get(`${base}user/${data.username}/`);
-//       return { ...user.data[0], ...res.data };
-//     }
-//     // return 'ok';
-//   } catch (e) {
-//     // return 'invalid pass or email';
-//   }
-// };
+
 export const loginUser = async (data) => {
   const res = await axios.post(`https://api.deploy.com.bd/api/token/`, {
     username: data.username,
@@ -90,7 +74,7 @@ export const loginUser = async (data) => {
 
 export const registerUser = async (data) => {
   try {
-    const res = await axios.post(`${base}signup/`, { ...data });
+    await axios.post(`${base}signup/`, { ...data });
     const user = await loginUser({
       username: data.email,
       password: data.password,

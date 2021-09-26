@@ -21,7 +21,7 @@ export default function DropDownItem({ item, active, setActiveMenu }) {
       </p>
       {active &&
         midCategories.map((cat) => (
-          <Link key={cat.key} to={getMidSlug(cat)}>
+          <Link key={cat.id} to={getMidSlug(cat)}>
             <li>{cat.name}</li>
           </Link>
         ))}

@@ -20,7 +20,11 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon" />
           </button>
-          <img className="nav-logo" src="https://deploy.com.bd/assets/uploads/logo.jpeg" alt="logo" />
+          <img
+            className="nav-logo"
+            src="https://deploy.com.bd/assets/uploads/logo.jpeg"
+            alt="logo"
+          />
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <div className="navbar-nav text-white mr-0 ml-auto">
               <div className="userSection justify-between-content p-2">
@@ -39,7 +43,7 @@ const Navbar = () => {
                     <DropDownItem
                       active={activeMenu === index}
                       setActiveMenu={setActiveMenu}
-                      key={item.tCatId}
+                      key={index}
                       item={{ ...item, index }}
                     />
                   ))}

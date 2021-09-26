@@ -13,11 +13,11 @@ export default function Navigator() {
     <div className="navigator">
       <span className="navigator">
         <Link to="/">Home</Link>
-        {slugs.slice(0, slugs.length - 1).map((item) => (
+        {slugs.slice(0, slugs.length - 1).map((item, index) => (
           <>
             {' '}
             {'>'}{' '}
-            <Link key={item} to={'/' + item}>
+            <Link key={index} to={'/' + item}>
               {item}
             </Link>{' '}
           </>

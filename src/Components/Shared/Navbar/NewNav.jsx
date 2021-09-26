@@ -163,7 +163,7 @@ export default function NewNav() {
                   <DropDownItem
                     active={activeMenu === index}
                     setActiveMenu={setActiveMenu}
-                    key={item.tCatId}
+                    key={index}
                     item={{ ...item, index }}
                   />
                 ))}
