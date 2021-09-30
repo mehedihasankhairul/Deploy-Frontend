@@ -12,6 +12,8 @@ import Footer from '../Shared/Footer/Footer';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartTotal } from '../../Utils/functions';
 import { setCartState } from '../../Store/Cart/cart.action';
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
 
 // const cartProducts = [
 //   { name: 'Nimbus 2000', price: 20, quantity: 2, id: 5 },
@@ -21,10 +23,27 @@ const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const handleClearCart = () => {
-    const confirm = window.confirm('Confirm to clear cart..');
-    if (confirm) {
-      dispatch(setCartState([]));
-    }
+    const isConfirmed = Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(() => {
+      if (isConfirmed) {
+        dispatch(setCartState([]));
+        Swal.fire(
+          'Deleted!',
+          'Your Cart is Clear Now',
+          'success'
+        )
+      }
+      else {
+        return false;
+      }
+    })
   };
 
   const history = useHistory();

@@ -25,17 +25,16 @@ const CustomerLogin = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    // watch,
     formState: { errors },
   } = useForm();
 
   const {
     asyncDispatch: asyncLoginUser,
-    error,
+    // error,
     isError,
     isLoading,
   } = useAsyncThunkDispatch(setLoginUser);
-
   const onSubmit = async (data) => {
     await asyncLoginUser(data);
   };

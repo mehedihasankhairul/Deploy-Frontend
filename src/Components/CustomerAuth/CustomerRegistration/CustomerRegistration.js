@@ -19,7 +19,7 @@ const CustomerRegistration = () => {
 
   const {
     asyncDispatch: asyncRegister,
-    error,
+    // error,
     isError,
     isLoading,
   } = useAsyncThunkDispatch(setRegisterUser);
@@ -27,7 +27,7 @@ const CustomerRegistration = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    // watch,
     formState: { errors },
   } = useForm();
 

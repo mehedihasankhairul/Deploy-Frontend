@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { setUser } from '../Store/User/user.action';
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
 
 const base = `https://api.deploy.com.bd/api/`;
 
@@ -84,8 +86,16 @@ export const loginUser = async (data) => {
   });
   if (res) {
     const user = await axios.get(`${base}user/${data.username}/`);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Logged In Successfully',
+      showConfirmButton: false,
+      timer: 1500
+    })
     return { ...user.data[0], ...res.data };
   }
+
 };
 
 export const registerUser = async (data) => {

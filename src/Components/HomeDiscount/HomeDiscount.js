@@ -7,7 +7,8 @@ import { getProductSlug } from '../../Utils/getSlug';
 import { setCartState } from '../../Store/Cart/cart.action';
 import { useHistory } from 'react-router';
 import { handleAddToCart } from '../../Utils/functions';
-
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
 import { MdAddShoppingCart } from 'react-icons/md';
 
 const HomeDiscount = () => {
@@ -45,6 +46,17 @@ const HomeDiscount = () => {
   const handleAdd = (item) => {
     const res = handleAddToCart(item);
     dispatch(setCartState(res));
+    if (res.status) {
+      alert('Item added to cart');
+    } else {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Item added Successfully',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
   };
 
   return (

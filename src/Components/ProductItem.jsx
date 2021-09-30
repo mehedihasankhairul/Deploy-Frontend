@@ -23,6 +23,7 @@ export default function ProductItem({ prod }) {
   };
 
   const handleAdd = () => {
+
   };
 
   useEffect(() => {

@@ -8,6 +8,8 @@ import MainLayout from '../../Components/Layout/MainLayout';
 import Footer from '../../Components/Shared/Footer/Footer';
 import { setCartState } from '../../Store/Cart/cart.action';
 import { handleAddToCart } from '../../Utils/functions';
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
 
 export default function ProductByCat() {
   const { category, mid_category, end_category } = useParams();
@@ -29,6 +31,17 @@ export default function ProductByCat() {
   const handleAdd = (item) => {
     const res = handleAddToCart(item);
     dispatch(setCartState(res));
+    if (res.status) {
+      alert('Item added to cart');
+    } else {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Item added Successfully',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
   };
 
   useEffect(() => {
