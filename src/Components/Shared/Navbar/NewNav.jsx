@@ -97,7 +97,7 @@ export default function NewNav() {
               <span>
                 <Link to="/profile">
                   <FaRegUser />
-                  {user.first_name}
+                  {user.first_name} Account
                 </Link>
                 <span onClick={handleLogout}>
                   <FiLogOut />
