@@ -11,6 +11,7 @@ import Shipping from '../Pages/Shipping/Shipping';
 import Registration from '../Pages/Registration';
 import Cart from '../Components/Cart/Cart';
 import Search from '../Pages/Search/Search';
+import UserProfile from '../Components/UserProfile/UserProfile';
 
 export default function MainRouter() {
   return (
@@ -25,6 +26,7 @@ export default function MainRouter() {
         <Route path="/login" component={Login} />
         <Route path="/registration" component={Registration} />
         <PrivateRoute path="/cart" component={Cart} />
+        <PrivateRoute path="/profile" component={UserProfile} />
         {/* <PrivateRoute path="/shipping" component={Shipping} /> */}
         <Route path="/search/:searchquery" component={Search} />
         <Route exact path="/" component={Home} />
