@@ -1,0 +1,6 @@
+export const orderActionType = {
+  LOAD_ORDER: 'LOAD_ORDER',
+  ADD_ORDER: 'ADD_ORDER',
+  CURRENT_ORDER: 'CURRENT_ORDER',
+  OLD_ORDER: 'OLD_ORDER',
+};

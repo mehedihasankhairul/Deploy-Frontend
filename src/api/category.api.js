@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { store } from '../Store';
 
 const base = `https://api.deploy.com.bd/api/`;
 
@@ -53,6 +54,7 @@ export const productByEndCat = async (id) => {
 };
 
 export const submitOrderData = async (orderData) => {
+  console.log(orderData);
   try {
     const res = await axios.post(`${base}order/`, orderData);
     return res;
@@ -84,3 +86,37 @@ export const registerUser = async (data) => {
     return 'Username and email must be unique';
   }
 };
+
+export const getOrder = async () => {
+  const { user } = store.getState();
+  const order = await axios.get(`${base}userorder/${user.id}`);
+  console.log(order);
+  return order;
+};
+
+export const updateProfile = async (data) => {
+  const { user } = store.getState();
+  console.log('updating profile..', user);
+  // try {
+  //   const update = await axios.put(
+  //     `${base}update_profile/${user.id}/`,
+  //     {
+  //       username: 'ishtiak',
+  //       first_name: 'Ishtiak',
+  //       last_name: 'Ahmed',
+  //       email: 'ishtiak.aahmed@gmail.com',
+  //     },
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${user.access}`,
+  //       },
+  //     }
+  //   );
+  //   return update;
+  // } catch (err) {
+  //   // throw new Error(err);
+  //   console.log(err);
+  // }
+};
+
+export const refreshToken = async (data) => {};

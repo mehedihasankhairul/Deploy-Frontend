@@ -11,6 +11,11 @@ import {
 
 import { loadAllProducts } from './Store/Product/product.action';
 import { useEffect } from 'react';
+import {
+  loadCurrentOrder,
+  loadOldOrder,
+  loadOrder,
+} from './Store/Order/order.action';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,6 +24,9 @@ function App() {
     dispatch(setMidCategory());
     dispatch(setEndCategory());
     dispatch(loadAllProducts());
+    dispatch(loadOrder());
+    // dispatch(loadCurrentOrder())
+    // dispatch(loadOldOrder())
   }, []);
 
   return <MainRouter />;

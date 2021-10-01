@@ -95,9 +95,9 @@ export default function NewNav() {
           <div className="account_menu">
             {user.email ? (
               <span>
-                <Link to="/profile">
+                <Link to="/dashboard">
                   <FaRegUser />
-                  {user.first_name} Account
+                  {user.first_name}
                 </Link>
                 <span onClick={handleLogout}>
                   <FiLogOut />

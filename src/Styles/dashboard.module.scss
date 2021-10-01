@@ -1,0 +1,12 @@
+.dashboard {
+  padding-top: 3em;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.table table {
+  width: 100%;
+  tr td {
+    align-items: center;
+  }
+}

@@ -76,6 +76,8 @@ const Shipping = () => {
         order_user: user.id,
         order_qty: 2,
         order_product: item.id,
+        order_product_name: item.product_Name,
+        order_price: item.product_current_price,
         delivery_adress: `${address.fullAddress}, ${address.district}, ${address.division}`,
         customer_name: user.first_name,
         customer_email: user.email,
