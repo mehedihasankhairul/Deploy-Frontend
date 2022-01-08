@@ -326,7 +326,7 @@ export const mid_category = [
     tCatId: 12,
   },
 ];
-
+// category
 export const top_category = [
   {
     tCatId: 6,
