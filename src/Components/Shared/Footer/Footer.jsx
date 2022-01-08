@@ -52,7 +52,6 @@ const Footer = () => {
                   </Link>
                 </p>
               </div>
-              {/* <!-- Grid column --> */}
 
               {/* <!-- Grid column --> */}
               <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -79,9 +78,9 @@ const Footer = () => {
               <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                 {/* <!-- Links --> */}
                 <p>Contact Information</p>
-                <p>Technical & Merchant Support: support@deploy.com.bd</p>
-                <p>Customer Support: info@deploy.com.bd</p>
-                <p>Helpline: 01707 372 093 </p>
+                <p>Technical & Merchant Support: support@test.com</p>
+                <p>Customer Support: info@test.com</p>
+                <p>Helpline: +88 01759-788156 </p>
               </div>
               {/* <!-- Grid column --> */}
             </div>
@@ -93,7 +92,12 @@ const Footer = () => {
         {/* <!-- Copyright --> */}
         <div className="text-center p-4">
           Developed by
-          <a target="_blank" rel="noreferrer"  href="https://github.com/Blessed-Programmers" className="text-reset fw-bold">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/Blessed-Programmers"
+            className="text-reset fw-bold"
+          >
             {' '}
             Blessed Programmers
           </a>
