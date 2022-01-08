@@ -7,21 +7,27 @@ import Home from '../Pages/Home/Home';
 import Product from '../Pages/Product/Product';
 import { PrivateRoute } from './PrivateRoute';
 import Login from '../Pages/Login';
+import Shipping from '../Pages/Shipping/Shipping';
 import Registration from '../Pages/Registration';
 import Cart from '../Components/Cart/Cart';
-import SideAddToCart from '../Components/SideAddToCart/SideAddToCart';
+import Search from '../Pages/Search/Search';
+import Checkout from '../Pages/Checkout/Checkout';
 
 export default function MainRouter() {
   return (
     <Router>
-      <SideAddToCart />
       <Switch>
         <PrivateRoute exact path="/checkout">
-          <h2>secured route</h2>
+          <Shipping />
+        </PrivateRoute>
+        <PrivateRoute exact path="/secure">
+          <h2>Secured Route</h2>
         </PrivateRoute>
         <Route path="/login" component={Login} />
         <Route path="/registration" component={Registration} />
-        <Route path="/cart" component={Cart} />
+        <PrivateRoute path="/cart" component={Cart} />
+        {/* <PrivateRoute path="/shipping" component={Shipping} /> */}
+        <Route path="/search/:searchquery" component={Search} />
         <Route exact path="/" component={Home} />
         <Route
           path="/:category/:mid_category/:end_category/:productid"

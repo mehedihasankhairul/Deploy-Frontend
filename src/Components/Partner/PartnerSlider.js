@@ -2,10 +2,6 @@ import React, { useRef } from 'react';
 import Carousel from 'react-elastic-carousel';
 import MediaQuery from 'react-responsive';
 
-// import ShopItem from './ShopItem';
-
-// import styles from './Slider.module.scss';
-
 const slides = [
   '1.webp',
   '10.webp',
@@ -101,10 +97,12 @@ const PartnerSlider = () => {
       }, 2000);
     }
   };
-  const baseUrl = 'https://deploy.com.bd/assets/breandLogo/';
+  const baseUrl = 'https://assets.deploy.com.bd/assets/brandLogo/';
+
+  // const baseUrl = '../../assets/partnerlogo/';
 
   return (
-    <div>
+    <div className="pt-5">
       <h3>Our Official Partner</h3>
 
       <MediaQuery minWidth="1020px">
@@ -125,6 +123,7 @@ const PartnerSlider = () => {
         >
           {slides.map((img, idx) => (
             <div className="partner-carousel" key={img}>
+              {/* <p>{baseUrl + img}</p> */}
               <img src={baseUrl + img} alt="" />
             </div>
           ))}
@@ -148,7 +147,7 @@ const PartnerSlider = () => {
         >
           {slides.map((img, idx) => (
             <div className="partner-carousel" key={img}>
-              <img src={baseUrl + img} alt="" />
+              <img src={baseUrl + img} alt={baseUrl + img} />
             </div>
           ))}
         </Carousel>

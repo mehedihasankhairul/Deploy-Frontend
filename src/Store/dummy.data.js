@@ -380,9 +380,7 @@ export const top_category = [
   {
     tCatId: 14,
     name: 'Home Appliances',
-    slug: 'home-appliances',
     image: 'topcatagori14.webp',
-    icon: 'GiFruitBowl',
   },
 ];
 

@@ -1,61 +1,58 @@
 import React, { useState } from 'react';
 import './SideAddToCart.scss';
 import { GiShoppingCart } from 'react-icons/gi';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCartTotal } from '../../Utils/functions';
+import { Link } from 'react-router-dom';
+import CartButton from '../CartButton';
+import CartProduct from './CartProduct';
 
 const SideAddToCart = () => {
-    const [showCart, setShowCart] = useState(false);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const [showCart, setShowCart] = useState(false);
 
-    const addToCart = () => {
-        setShowCart(true);
-    }
-    return (
-        <>
-            <div onClick={addToCart} className="midAddToCart align-items-center">
-                <button className="btn btn-success pt-4">
-                    <span className="cart_menu"><GiShoppingCart size={25} />  <span>5</span></span>
-                    <p>$10</p>
-                </button>
+  const addToCart = () => {
+    setShowCart(true);
+  };
+
+  return (
+    <>
+      <div onClick={addToCart} className="midAddToCart align-items-center">
+        <button className="btn btn-success pt-4">
+          <span className="cart_menu">
+            <GiShoppingCart size={25} /> <span>{cart.length}</span>
+          </span>
+          <p>৳ {getCartTotal()}</p>
+        </button>
+      </div>
+
+      {showCart && (
+        <div className={`sideAddToCart ${showCart ? 'show' : ''}`}>
+          <div className="sideAddToCart__content">
+            <div className="d-flex topBar justify-content-between">
+              <div className="total-items">
+                <span>Total items :{cart.length}</span>
+              </div>
+              <div className="d-flex">
+                <i
+                  className="fa fa-times"
+                  aria-hidden="true"
+                  onClick={() => setShowCart(false)}
+                ></i>
+              </div>
             </div>
-
-            {
-                showCart &&
-                <div className={`sideAddToCart ${showCart ? 'show' : ''}`}>
-                    <div className="sideAddToCart__content">
-                        <div className="d-flex topBar justify-content-between">
-                            <div className="total-items">
-                                <span>Total items : 3</span>
-                            </div>
-                            <div className="d-flex">
-                                <i className="fa fa-times" aria-hidden="true" onClick={() => setShowCart(false)}></i>
-                            </div>
-
-                        </div>
-                        <div className="d-flex align-items-center">
-                            <img src="https://i.pinimg.com/236x/bf/55/56/bf5556f2a8278d67832d41e2c1922bc3.jpg" alt="" />
-                            <div className="px-3">
-                                <h5>Cat for sale </h5>
-                                <p>$10</p>
-                            </div>
-                        </div>
-                        <div className="d-flex align-items-center">
-                            <img src="https://i.pinimg.com/236x/bf/55/56/bf5556f2a8278d67832d41e2c1922bc3.jpg" alt="" />
-                            <div className="px-3">
-                                <h5>Cat for sale</h5>
-                                <p>$10</p>
-                            </div>
-                        </div>
-                        <div className="d-flex align-items-center">
-                            <img src="https://i.pinimg.com/236x/bf/55/56/bf5556f2a8278d67832d41e2c1922bc3.jpg" alt="" />
-                            <div className="px-3">
-                                <h5>Cat for sale</h5>
-                                <p>$10</p>
-                            </div>
-                        </div>
-                        <button className="btn btn-info">Process To Checkout</button>
-                    </div>
-                </div>}
-        </>
-    );
+            {cart.map((cd) => (
+              <CartProduct key={cd.id} product={cd} />
+            ))}
+            <Link to="/checkout">
+              <button className="btn btn-info">Process To Checkout</button>
+            </Link>
+          </div>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default SideAddToCart;

@@ -33,7 +33,7 @@ const MidCategoriesSlider = () => {
 
   return (
     <div className="midCategoriesSlider py-4">
-      <h3 className="heading">Mid Categories</h3>
+      <h3 className="">Mid Categories</h3>
       <Carousel responsive={responsive}>
         {midCategory.map((item) => (
           <MidItem key={item.id} item={item} />

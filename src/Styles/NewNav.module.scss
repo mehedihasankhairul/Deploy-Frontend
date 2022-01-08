@@ -7,6 +7,9 @@
   color: #fff;
   .logo {
     height: 3em;
+    @media (min-width: 768px) {
+      padding-right: 1em;
+    }
   }
   svg {
     color: #fff;
@@ -14,7 +17,7 @@
   nav {
     position: fixed;
     width: 100%;
-    z-index: 91;
+    z-index: 9111;
     background-color: $mediumGray;
     padding: 0.5em 1.5em;
     display: grid;
@@ -85,11 +88,13 @@
   align-items: center;
   background-color: #fff;
   input {
+    flex-grow: 1;
     border: none;
     outline: none;
   }
   svg {
     color: #000;
+    cursor: pointer;
   }
   &_mobile {
     border-radius: 5px;
@@ -97,7 +102,9 @@
     top: 4em;
     border: 2px solid $mediumGray;
     display: grid;
-    grid-template-columns: 1fr auto;
+    background-color: #fff;
+    grid-template-columns: 80% 20%;
+    z-index: 1234;
     input {
       padding: 0 1em;
       outline: none;
@@ -106,6 +113,8 @@
     button {
       color: #fff;
       padding: 0.5em 1em;
+      border: none;
+      outline: none;
       background-color: $mediumGray;
     }
   }

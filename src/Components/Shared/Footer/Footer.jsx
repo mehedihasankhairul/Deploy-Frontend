@@ -4,21 +4,21 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <div>
-      <footer className="text-center text-lg-start  text-white footer-bg">
+      <footer className="text-center text-lg-start  text-white footer-bg pt-5">
         <section>
-          <h4 className="d-flex justify-content-center pt-5 px-5">
+          {/* <h4 className="d-flex justify-content-center pt-5 px-5">
             SUBSCRIBE TO OUR NEWSLETTER
           </h4>
           <div className="d-flex justify-content-center footer-newsletter">
             <div className="col-md-6">
-              <form action="" method="post">
+              <form>
                 <input type="email" name="email" />
                 <input type="submit" value="Subscribe" />
               </form>
             </div>
-          </div>
+          </div> */}
         </section>
-        <section className="">
+        <section>
           <div className="container-fluid text-center text-md-start mt-5">
             {/* <!-- Grid row --> */}
             <div className="row mt-3">
@@ -27,7 +27,8 @@ const Footer = () => {
                 {/* <!-- Content --> */}
                 <p>Our Corporate Office Address</p>
                 <p>
-                  N.I.C Residence Plot no.19 Block A, Behind hotel shams plaza, Shugondha, Coxbazar
+                  N.I.C Residence Plot no.19 Block A, Behind hotel shams plaza,
+                  Shugondha, Coxbazar
                 </p>
               </div>
               {/* <!-- Grid column --> */}
@@ -51,7 +52,6 @@ const Footer = () => {
                   </Link>
                 </p>
               </div>
-              {/* <!-- Grid column --> */}
 
               {/* <!-- Grid column --> */}
               <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -78,9 +78,9 @@ const Footer = () => {
               <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                 {/* <!-- Links --> */}
                 <p>Contact Information</p>
-                <p>Technical & Merchant Support: support@deploy.com.bd</p>
-                <p>Customer Support: info@deploy.com.bd</p>
-                <p>Helpline: 01707 372 093 </p>
+                <p>Technical & Merchant Support: support@test.com</p>
+                <p>Customer Support: info@test.com</p>
+                <p>Helpline: +88 01759-788156 </p>
               </div>
               {/* <!-- Grid column --> */}
             </div>
@@ -91,10 +91,16 @@ const Footer = () => {
 
         {/* <!-- Copyright --> */}
         <div className="text-center p-4">
-          © 2021 Copyright:
-          <Link to="/" className="text-reset fw-bold"> {' '}
-            Team Phoenix
-          </Link>
+          Developed by
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/Blessed-Programmers"
+            className="text-reset fw-bold"
+          >
+            {' '}
+            Blessed Programmers
+          </a>
         </div>
         {/* <!-- Copyright --> */}
       </footer>

@@ -1,3 +1,6 @@
-export const categoryAction = {
+export const categoryActionType = {
   SET_CATEGORY: 'SET_CATEGORY',
+  SET_TOP_CATEGORY: 'SET_TOP_CATEGORY',
+  SET_MID_CATEGORY: 'SET_MID_CATEGORY',
+  SET_END_CATEGORY: 'SET_END_CATEGORY',
 };
