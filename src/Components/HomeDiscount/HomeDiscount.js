@@ -69,18 +69,19 @@ const HomeDiscount = () => {
             // onClick={() => handleProduct(prod)}
             className="disProduct_item"
           >
-            <img src={prod.product_featured_photo} alt="img" />
-            <p>{prod.product_Name}</p>
-            <p className="oldPrice">BDT {prod.product_old_price}</p>
-            <p className="currentPrice">BDT {prod.product_current_price}</p>
+            <img src={prod.image} alt="img" />
+            <p>{prod.productName}</p>
+            <p className="oldPrice">BDT {prod.oldPrice}</p>
+            <p className="currentPrice">BDT {prod.currentPrice}</p>
             <div className="discount-percent">
               <span>
                 {getPercentage(
-                  prod.product_current_price,
-                  prod.product_old_price
+                  prod.currentPrice,
+                  prod.oldPrice,
                 )}
                 %
               </span>
+
             </div>
             <button
               className="addCart addHover"

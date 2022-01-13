@@ -32,10 +32,10 @@ export default function CartProduct({ product }) {
 
   return (
     <div className="cart_summary">
-      <img src={product.product_featured_photo} alt="img" />
+      <img src={product.image} alt="img" />
       <div className="">
-        <h5 className="cart_pd-Name">{product.product_Name}</h5>
-        <p>৳{product.product_current_price}</p>
+        <h5 className="cart_pd-Name">{product.productName}</h5>
+        <p>৳{product.currentPrice}</p>
       </div>
       <div>
         <CartButton

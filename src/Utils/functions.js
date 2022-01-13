@@ -43,7 +43,7 @@ export const updateProductQuantity = (product) => {
 export const getCartTotal = () => {
   const { cart } = store.getState();
   const total = cart.reduce(
-    (sum, item) => item.quantity * item.product_current_price + sum,
+    (sum, item) => item.quantity * item.currentPrice + sum,
     0
   );
   return total;

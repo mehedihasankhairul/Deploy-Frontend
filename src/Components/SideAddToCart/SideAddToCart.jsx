@@ -15,7 +15,6 @@ const SideAddToCart = () => {
   const addToCart = () => {
     setShowCart(true);
   };
-
   return (
     <>
       <div onClick={addToCart} className="midAddToCart align-items-center">

@@ -3,7 +3,7 @@ import { setUser } from '../Store/User/user.action';
 import Swal from 'sweetalert2'
 import 'sweetalert2/src/sweetalert2.scss'
 
-const base = `https://api.deploy.com.bd/api/`;
+const base = `https://frozen-caverns-97537.herokuapp.com/api/`;
 
 export const getTopCategories = async () => {
   try {
