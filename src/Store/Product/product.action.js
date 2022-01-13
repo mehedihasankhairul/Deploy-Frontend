@@ -1,16 +1,12 @@
-import { getAllProducts } from '../../api/category.api';
+
+import { products } from '../dummy.data';
 import { productActionType } from './product.actionType';
 
 export const loadAllProducts = () => async (dispatch) => {
-  try {
-    const res = await getAllProducts();
-    if (res) {
+
       dispatch({
         type: productActionType.LOAD_All_PRODUCT,
-        payload: res,
+        payload: products,
       });
-    }
-  } catch (e) {
-    return 'Something went wrong';
-  }
+
 };

@@ -11,6 +11,8 @@ import { handleAddToCart } from '../../Utils/functions';
 import Swal from 'sweetalert2'
 import 'sweetalert2/src/sweetalert2.scss'
 
+
+
 export default function ProductByCat() {
   const { category, mid_category, end_category } = useParams();
   const { endCategory } = useSelector((state) => state.category);
@@ -39,17 +41,11 @@ export default function ProductByCat() {
         icon: 'success',
         title: 'Item added Successfully',
         showConfirmButton: false,
-        timer: 1500
-      })
+        timer: 1500,
+      });
     }
   };
-
-  useEffect(() => {
-    getProducts(selectedCategory?.id || 0);
-  }, [selectedCategory]);
-
-  const baseUrl = `https://api.deploy.com.bd`;
-
+  const baseUrl = 'https://www.thebespoke.com/';
   return (
     <MainLayout>
       <main style={{ paddingTop: '1.5em' }}>
@@ -63,13 +59,13 @@ export default function ProductByCat() {
           </Link>
           {'> '} <span>{end_category.replaceAll('-', ' ')}</span>
         </span>
-        {catProducts.length ? (
+        {catProducts?.length ? (
           <div className="product_list_area">
-            {catProducts.map((prod) => (
+            {catProducts?.map((prod) => (
               <div key={prod.id} className="product_item">
-                <img src={baseUrl + prod.product_featured_photo} alt="" />
+                <img src={baseUrl + prod?.product_featured_photo} alt="" />
                 <p>{prod.product_Name}</p>
-                <p>BDT {prod.product_current_price}</p>
+                <p>BDT {prod.currentPrice}</p>
 
                 <button className="addToCart" onClick={() => handleAdd(prod)}>
                   Add To Cart
